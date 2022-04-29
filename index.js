@@ -37,9 +37,14 @@ app.get('/recipe', (req, res) => {
   res.send(doc);
 });
 
-app.use((req, res) => {
-  console.log("We got a new request");
-  res.send('<h1>This is my webpage!');
+app.get('/mainPage', (req, res) => {
+  let doc = fs.readFileSync("./html/mainPage.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/adminMain', (req, res) => {
+  let doc = fs.readFileSync("./html/adminMain.html", 'utf-8');
+  res.send(doc);
 });
 
 app.get('*', (rew, res) => {
