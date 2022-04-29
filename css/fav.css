@@ -1,0 +1,195 @@
+@media only screen and (max-width: 1200px) {
+  body {
+    background-color: rgb(241, 241, 241)
+  }
+  .general {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 180px repeat(2, 50px) repeat(3, 100px) auto;
+    grid-row-gap: 10px;
+  }
+  #heart {
+    color: #86b386;
+  }
+  #title {
+    color: #86b386;
+  }
+  .box {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    grid-row: 1 / 2;
+    height: 180px;
+    /* border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%; */
+    background-color: rgb(51, 49, 49);
+    width: 100%;
+  }
+  #title {
+    grid-column: 2 / 3;
+    align-self: center;
+  }
+  #heart {
+    grid-column: 1 / 2;
+    align-self: center;
+    justify-self: center;
+  }
+  .search-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: 2 / 3;
+  }
+  #search {
+    width: 70%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border: solid 1px #86b386;
+    font-size: 16px;
+    justify-self: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  }
+  #search-btn {
+    position: absolute;
+    align-self: center;
+    color: rgb(51, 49, 49);
+  }
+  /* Filters the result in rectangles */
+  #stacks {
+    cursor: pointer;
+  }
+  /* Filters the result in squares */
+  #squares {
+    cursor: pointer;
+  }
+  .filter {
+    grid-row: 3 / 4;
+  }
+  .dropdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+  }
+  .grid-filter {
+    grid-column: 2 / 3;
+    align-self: center;
+    justify-self: right;
+  }
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  }
+  .dropdown>.link:focus+.dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  /* The drop down button for filter */
+  .link {
+    border-style: none;
+    background-color: rgb(51, 49, 49);
+    color: #86b386;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  #recipe {
+    cursor: pointer;
+    color: #86b386;
+  }
+  #restaurant {
+    cursor: pointer;
+    color: #86b386;
+  }
+  .card {
+    grid-row: 4 / 5;
+    display: grid;
+    grid-template-columns: 25% 70% 5%;
+    grid-template-rows: 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+  }
+  #pic {
+    height: 80px;
+    width: 100px;
+    align-self: center;
+    justify-self: center;
+  }
+  #dots {
+    align-self: center;
+  }
+  .place {
+    color: #86b386;
+  }
+  .info {
+    color: #86b386;
+  }
+  .card2 {
+    grid-row: 5 / 6;
+    display: grid;
+    grid-template-columns: 25% 70% 5%;
+    grid-template-rows: 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+  }
+  .card3 {
+    grid-row: 6 / 7;
+    display: grid;
+    grid-template-columns: 25% 70% 5%;
+    grid-template-rows: 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+  }
+  .card4 {
+    grid-row: 7 / 8;
+    display: grid;
+    grid-template-columns: 25% 70% 5%;
+    grid-template-rows: 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+  }
+  /* CSS for the square version */
+  /* .square-card {
+    grid-row: 8 / 9;
+    display: grid;
+    grid-template-columns: 30%;
+    grid-template-rows: auto;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+  }
+  #pic-square {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    width: 100%;
+  }
+  .text-square {
+    grid-row: 2 / 3;
+    align-self: center;
+    justify-self: center;
+  } */
+}
