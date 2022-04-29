@@ -25,7 +25,7 @@ body {
     width: 100%;
     height: auto;
     background-color: #86b386;
-    
+    z-index: -1;
 }
 
 #profile{
