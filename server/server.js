@@ -33,7 +33,24 @@ app.use(
   })
 );
 
-app.post("/api/login", async (req, res) => {});
+app.post("/api/login", async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const user = await User.findOne({ email: email });
+
+  if (user) {
+    if (password == user.password) {
+      req.session.email = user.email;
+      req.session.isAuth = true;
+      req.session.save();
+      res.status(200).send({ message: "login success" });
+    } else {
+      res.status(401).send("Login failed");
+    }
+  } else {
+    res.status(400).send("User email not found");
+  }
+});
 
 app.post("/api/logout", (req, res) => {});
 
