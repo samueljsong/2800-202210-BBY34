@@ -78,19 +78,63 @@ body {
 }
 
 @media (max-width: 896px) {
-    h1{
-        font-size: 30px !important;
-    }
     #container {
         background-position: -63px;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
     body {
         overflow-y: hidden;
     }
-    h1{
-        font-size: 30px !important;
+    /*Popular restaurant images*/
+    .ima1 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
     }
-    .ima {
+    .ima2 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima3 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima4 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima5 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    /*Popular recipes images*/
+    .ima6 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima7 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima8 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima9 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima10 {
+        transform: translateY(-80px);
         width: 100%;
         height: auto;
     }
@@ -120,6 +164,7 @@ body {
     }
     .two>h1 {
         margin-left: 1px;
+        font-size: 20px;
     }
     .two {
         font-size: 12px;
@@ -127,20 +172,18 @@ body {
     }
     .three>h1 {
         margin-left: 1px;
-    }
-    .three {
-        font-size: 12px;
+        font-size: 20px;
     }
     .btn {
         background: none;
         color: white !important;
         border: none;
-        margin-left: 10px;
+        margin-left: 6px;
     }
 }
 
 @media(max-width: 415px) {
-    #picProfile{
+    #picProfile {
         height: 12vw;
     }
 }
