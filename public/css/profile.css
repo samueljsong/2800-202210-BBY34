@@ -69,7 +69,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 30px;
+    gap: 28px;
 }
 
 #navbarBottomUlUser{
@@ -80,7 +80,7 @@ body {
 }
 
 #picProfile{
-    height: 3vw;
+    height: 4vw;
 }
 
 @media(min-width: 992px) {
@@ -96,9 +96,9 @@ body {
         align-self: center;
     }
 }
-@media(max-width: 414px) {
+@media(max-width: 415px) {
     #picProfile{
-        height: 10vw;
+        height: 12vw;
     }
 }
 /* @media (min-width: 576px){
