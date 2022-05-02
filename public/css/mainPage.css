@@ -102,7 +102,55 @@ body {
     body {
         overflow-y: hidden;
     }
-    .ima {
+    /*Popular restaurant images*/
+    .ima1 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima2 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima3 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima4 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima5 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    /*Popular recipes images*/
+    .ima6 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima7 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima8 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima9 {
+        transform: translateY(-80px);
+        width: 100%;
+        height: auto;
+    }
+    .ima10 {
+        transform: translateY(-80px);
         width: 100%;
         height: auto;
     }
