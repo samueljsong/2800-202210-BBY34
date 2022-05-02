@@ -96,6 +96,8 @@ body {
 @media (max-width: 896px) {
     #container {
         background-position: -63px;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
     body {
         overflow-y: hidden;
