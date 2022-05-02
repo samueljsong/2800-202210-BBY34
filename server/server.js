@@ -52,7 +52,14 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-app.post("/api/logout", (req, res) => {});
+app.post("/api/logout", (req, res) => {
+  if (req.session.isAuth) {
+    req.session.destroy();
+    res.send("Logged out");
+  } else {
+    res.send("Logout Failed");
+  }
+});
 
 app.post("/api/signup", async (req, res) => {
   const user = new User(req.body);
