@@ -5,7 +5,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
-
+const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -33,7 +33,7 @@ app.use(
   })
 );
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", async(req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const user = await User.findOne({ email: email });
@@ -52,6 +52,49 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+//Samuel's code
+
+app.use(express.static('public'));
+app.use("/js", express.static("../public/js"));
+app.use("/css", express.static("../public/css"));
+app.use("/img", express.static("../public/img"));
+
+// This is for the HOME ROUTE
+app.get('/', (req, res) => {
+  let doc = fs.readFileSync("../html/login.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/fav', (req, res) => {
+  let doc = fs.readFileSync("../html/fav.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/profileAdmin', (req, res) => {
+  let doc = fs.readFileSync("../html/profileAdmin.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/profileUser', (req, res) => {
+  let doc = fs.readFileSync("../html/profileUser.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/recipe', (req, res) => {
+  let doc = fs.readFileSync("../html/recipe.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/mainPage', (req, res) => {
+  let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
+  res.send(doc);
+});
+
+app.get('/adminMain', (req, res) => {
+  let doc = fs.readFileSync("../html/adminMain.html", 'utf-8');
+  res.send(doc);
+});
+
 app.post("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
@@ -61,7 +104,7 @@ app.post("/api/logout", (req, res) => {
   }
 });
 
-app.post("/api/signup", async (req, res) => {
+app.post("/api/signup", async(req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
