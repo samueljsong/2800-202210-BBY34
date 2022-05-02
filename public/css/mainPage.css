@@ -8,10 +8,11 @@
     display: grid;
     grid-template-rows: repeat(7, auto);
     grid-gap: 30px;
-    background-image: url('/img/plants.jpg');
+    background-image: url('../img/plants.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 60% 60%;
+    z-index: -1;
 }
 
 h1 {
@@ -28,23 +29,6 @@ body {
 }
 
 @media(min-width: 1200px) {
-    .navbar {
-        overflow: hidden;
-        background-color: black;
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-    .navbar a {
-        float: right;
-        display: block;
-        text-align: center;
-        padding: 30px 30px;
-        text-decoration: none;
-        font-size: 20px;
-        margin-left: 8px;
-        color: white;
-    }
     .slide {
         float: left;
         width: 20%;
@@ -87,13 +71,16 @@ body {
     }
     .btn {
         background: none;
-        color: white;
+        color: white !important;
         border: none;
         margin-left: 10px;
     }
 }
 
 @media (max-width: 896px) {
+    h1{
+        font-size: 30px !important;
+    }
     #container {
         background-position: -63px;
     }
@@ -103,13 +90,6 @@ body {
     .ima {
         width: 100%;
         height: auto;
-    }
-    .navbar {
-        overflow: hidden;
-        background-color: black;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
     }
     .slider {
         width: 100%;
@@ -129,16 +109,6 @@ body {
     }
     .slider>div {
         scroll-snap-align: start;
-    }
-    .navbar a {
-        float: left;
-        display: block;
-        text-align: center;
-        padding: 30px 16px;
-        text-decoration: none;
-        font-size: 13px;
-        margin-left: 8px;
-        color: white;
     }
     .one {
         text-align: center;
@@ -160,8 +130,14 @@ body {
     }
     .btn {
         background: none;
-        color: white;
+        color: white !important;
         border: none;
         margin-left: 10px;
+    }
+}
+
+@media(max-width: 415px) {
+    #picProfile{
+        height: 12vw;
     }
 }
