@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MooVE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moove</title>
+
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -26,7 +27,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 </head>
-
 <body>
     <nav id="navbarContainer" class="navbar sticky-top navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -58,7 +58,7 @@
                         <img src="../public/img/profilePic.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button" onclick="location.href='./login.html'">Logout</button></li>
+                        <li><button class="dropdown-item" type="button">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     </li>
                 </ul>        
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="./login.html"
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="./fav.html"
                         role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
                         <img src="../public/img/profilePic.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                     </a>
@@ -92,82 +92,8 @@
     </nav>
 
 
-    <div id="profileContainer">
-        <div id="profile" class="container py-5">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card mb-4">
-                        <div class="card-body text-center">
-                            <img src="../public/img/profilePic.png"
-                                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">Karen Luxemburgh</h5>
-                            <p class="text-muted mb-1">Librarian</p>
-                            <p class="text-muted mb-4">3700 Willingdon Avenue, Burnaby, BC, V5G 3H2</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-primary">Edit</button>
-                                <button type="button" class="btn btn-outline-primary ms-1">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>              
-                <div class="col-lg-8">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Full Name</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Karen Luxemburgh</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Email</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">karenluxemburgh@bcit.ca</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Phone</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(097) 234-5678</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Mobile</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(098) 765-4321</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Address</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Burnaby, BC, V5G 3H2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <script src="../public/js/navbar.js"></script>
     <script src="../public/js/popover.js"></script>
-
+    
 </body>
-
 </html>

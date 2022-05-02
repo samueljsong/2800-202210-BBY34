@@ -1,20 +1,65 @@
 require("dotenv").config();
 require("./db/mongoose");
-
-const User = require("./models/user");
 const express = require("express");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const cors = require("cors");
+const User = require("./models/user");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5500",
+    credentials: true,
+    allowedHeaders: ["Content-Type"],
+  })
+);
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 12345,
+      secure: false,
+    },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      collectionName: "sessions",
+    }),
+  })
+);
 
-app.get("/", (req, res) => {});
+app.post("/api/login", async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const user = await User.findOne({ email: email });
 
-const port = process.env.PORT || 8000;
+  if (user) {
+    if (password == user.password) {
+      req.session.email = user.email;
+      req.session.isAuth = true;
+      req.session.save();
+      res.status(200).send({ message: "login success" });
+    } else {
+      res.status(401).send("Login failed");
+    }
+  } else {
+    res.status(400).send("User email not found");
+  }
+});
 
-app.post("/api/login", (req, res) => {});
-
-app.post("/api/logout", (req, res) => {});
+app.post("/api/logout", (req, res) => {
+  if (req.session.isAuth) {
+    req.session.destroy();
+    res.send("Logged out");
+  } else {
+    res.send("Logout Failed");
+  }
+});
 
 app.post("/api/signup", async (req, res) => {
   const user = new User(req.body);
