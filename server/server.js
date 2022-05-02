@@ -3,13 +3,20 @@ require("./db/mongoose");
 const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const cors = require("cors");
 const User = require("./models/user");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
+app.use(
+  cors({
+    origin: "http://localhost:5500",
+    credentials: true,
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(
   session({
     secret: process.env.SECRET,
