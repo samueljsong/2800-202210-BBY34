@@ -86,7 +86,7 @@ app.get('/recipe', (req, res) => {
 });
 
 app.get('/mainPage', (req, res) => {
-  let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
+  let doc = fs.readFileSync("./html/mainPage.html", 'utf-8');
   res.send(doc);
 });
 
