@@ -52,24 +52,53 @@ body {
     background-color: #73bd73 !important;
 }
 
+#navbarContainer, #navbarContainerBottom{
+    background-color: #e1f1e1 !important;
+}
+
+.material-icons {
+    color: #199419;
+}
+
+#navbarBottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#navbarBottomUl{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    
+}
+
+#picProfile{
+    height: 4.5vw;
+}
+
 @media(min-width: 992px) {
     body {
         display: grid;
-        grid-template-rows:100%;
+        grid-template-rows:10% 90%;
         grid-template-columns: 100%;
     }
     #profileContainer {
+        grid-row: 2/span 1;
+        grid-column: 1/span 1;
         justify-self: center;
         align-self: center;
     }
 }
-@media(max-width: 391px) {
-    
+@media(max-width: 414px) {
+    #picProfile{
+        height: 10vw;
+    }
 }
-@media (min-width: 576px){
+/* @media (min-width: 576px){
     body {
         display: grid;
         grid-template-rows:100%;
         grid-template-columns: 100%;
     }
-}
+} */
