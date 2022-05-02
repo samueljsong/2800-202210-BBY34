@@ -71,13 +71,16 @@ body {
     }
     .btn {
         background: none;
-        color: white;
+        color: white !important;
         border: none;
         margin-left: 10px;
     }
 }
 
 @media (max-width: 896px) {
+    h1{
+        font-size: 30px !important;
+    }
     #container {
         background-position: -63px;
     }
@@ -138,6 +141,6 @@ body {
 
 @media(max-width: 415px) {
     #picProfile{
-        height: 10vw;
+        height: 12vw;
     }
 }

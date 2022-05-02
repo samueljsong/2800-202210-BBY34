@@ -69,12 +69,18 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 28px;
+}
+
+#navbarBottomUlUser{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 40px;
-    
 }
 
 #picProfile{
-    height: 4.5vw;
+    height: 4vw;
 }
 
 @media(min-width: 992px) {
@@ -90,9 +96,9 @@ body {
         align-self: center;
     }
 }
-@media(max-width: 414px) {
+@media(max-width: 415px) {
     #picProfile{
-        height: 10vw;
+        height: 12vw;
     }
 }
 /* @media (min-width: 576px){
