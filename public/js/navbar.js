@@ -5,8 +5,6 @@ function windowSize() {
     if (w <= maxWidth) {
         document.getElementById("navbarContainer").style.display = "none";
         document.getElementById("navbarContainerBottom").style.display = "flex";
-        console.log("here");
-
     } else{
         document.getElementById("navbarContainer").style.display = "flex";
         document.getElementById("navbarContainerBottom").style.display = "none";
