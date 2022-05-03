@@ -96,7 +96,7 @@ app.get('/mainPage', (req, res) => {
 });
 
 app.get('/adminMain', (req, res) => {
-    let doc = fs.readFileSync("../html/adminMain.html", 'utf-8');
+    let doc = fs.readFileSync("../html/mainPageAdmin.html", 'utf-8');
     res.send(doc);
 });
 
