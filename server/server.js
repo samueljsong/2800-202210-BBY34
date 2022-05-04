@@ -67,6 +67,11 @@ app.get('/', (req, res) => {
     res.send(doc);
 });
 
+app.get('/loginErrorNoUserFound', (req, res) => {
+    let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", 'utf-8');
+    res.send(doc);
+});
+
 app.get('/fav', (req, res) => {
     let doc = fs.readFileSync("../html/fav.html", 'utf-8');
     res.send(doc);

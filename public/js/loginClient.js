@@ -2,6 +2,17 @@ ready(function() {
 
     console.log("Client script loaded.");
 
+    function ajaxGET(path, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                callback(this.responseText);
+            }
+        }
+        xhr.open("GET", path);
+        xhr.send();
+    }
+
     function ajaxPOST(url, callback, data) {
 
         let params = typeof data == 'string' ? data : Object.keys(data).map(
@@ -15,7 +26,12 @@ ready(function() {
                 callback(this.responseText);
 
             } else {
-                console.log(this.status);
+                function popUpEmptyMsg(){
+                    ajaxGET("/loginErrorNoUserFound", function(data) {
+                        document.getElementById("errorMsg").innerHTML = data;
+                    });
+                }
+                popUpEmptyMsg();
             }
         }
         xhr.open("POST", url);
