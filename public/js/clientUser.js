@@ -18,16 +18,16 @@ ready(function() {
 
     document.querySelector("#homeUser").addEventListener("click", function(e) {
         e.preventDefault();
-        ajaxGET("/mainPageUser", function(data) {
-            window.location.replace("/mainPageUser");
+        ajaxGET("/profileUser", function(data) {
+            window.location.replace("/profileUser");
 
         });
     });
 
     document.querySelector("#homeUser2").addEventListener("click", function(e) {
         e.preventDefault();
-        ajaxGET("/mainPageUser", function(data) {
-            window.location.replace("/mainPageUser");
+        ajaxGET("/profileUser", function(data) {
+            window.location.replace("/profileUser");
 
         });
     });

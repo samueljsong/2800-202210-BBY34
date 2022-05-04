@@ -16,8 +16,8 @@ ready(function() {
     function ajaxPOST(url, callback, data) {
 
         let params = typeof data == 'string' ? data : Object.keys(data).map(
-                function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
-            ).join('&');
+            function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
+        ).join('&');
         console.log("params in ajaxPOST", params);
 
         const xhr = new XMLHttpRequest();
@@ -26,7 +26,7 @@ ready(function() {
                 callback(this.responseText);
 
             } else {
-                function popUpEmptyMsg(){
+                function popUpEmptyMsg() {
                     ajaxGET("/loginErrorNoUserFound", function(data) {
                         document.getElementById("errorMsg").innerHTML = data;
                     });
@@ -48,13 +48,13 @@ ready(function() {
 
         ajaxPOST("/api/login", function(data) {
 
-            if(data) {
+            if (data) {
                 let dataParsed = JSON.parse(data);
                 console.log(dataParsed);
-                if(dataParsed.status == "fail") {
+                if (dataParsed.status == "fail") {
                     document.getElementById("errorMsg").innerHTML = dataParsed.msg;
                 } else {
-                    window.location.replace("/profileUser");
+                    window.location.replace("/mainPageUser");
                 }
             }
 

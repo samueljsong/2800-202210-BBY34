@@ -82,7 +82,7 @@ app.get('/profileAdmin', (req, res) => {
     res.send(doc);
 });
 
-app.get('/mainPage', (req, res) => {
+app.get('/mainPageUser', (req, res) => {
     let doc = fs.readFileSync("../html/user/mainPageUser.html", 'utf-8');
     res.send(doc);
 });
@@ -99,11 +99,6 @@ app.get('/recipe', (req, res) => {
 
 app.get('/viewRestaurants', (req, res) => {
     let doc = fs.readFileSync("../html/viewRestaurants.html", 'utf-8');
-    res.send(doc);
-});
-
-app.get('/mainPage', (req, res) => {
-    let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
     res.send(doc);
 });
 
