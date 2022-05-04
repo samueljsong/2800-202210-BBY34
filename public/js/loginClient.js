@@ -32,6 +32,9 @@ ready(function() {
                     });
                 }
                 popUpEmptyMsg();
+                setTimeout(function (){
+                    window.location.replace("/");
+                },2000);
             }
         }
         xhr.open("POST", url);

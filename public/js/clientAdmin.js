@@ -64,22 +64,6 @@ ready(function() {
         });
     });
 
-    document.querySelector("#favourites").addEventListener("click", function(e) {
-        e.preventDefault();
-        ajaxGET("/fav", function(data) {
-            window.location.replace("/fav");
-
-        });
-    });
-
-    document.querySelector("#favourites2").addEventListener("click", function(e) {
-        e.preventDefault();
-        ajaxGET("/fav", function(data) {
-            window.location.replace("/fav");
-
-        });
-    });
-
     document.querySelector("#logoutProfilePic").addEventListener("click", function(e) {
         e.preventDefault();
         ajaxGET("/", function(data) {
