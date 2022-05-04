@@ -82,8 +82,8 @@ app.get('/profileAdmin', (req, res) => {
     res.send(doc);
 });
 
-app.get('/mainPage', (req, res) => {
-    let doc = fs.readFileSync("../html/mainPageUser.html", 'utf-8');
+app.get('/mainPageUser', (req, res) => {
+    let doc = fs.readFileSync("../html/user/mainPageUser.html", 'utf-8');
     res.send(doc);
 });
 
@@ -97,9 +97,18 @@ app.get('/recipe', (req, res) => {
     res.send(doc);
 });
 
+app.get('/viewRestaurants', (req, res) => {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", 'utf-8');
+    res.send(doc);
+});
+
+app.get('/mainPage', (req, res) => {
+    let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
+    res.send(doc);
+});
 
 app.get('/adminMain', (req, res) => {
-    let doc = fs.readFileSync("../html/mainPageAdmin.html", 'utf-8');
+    let doc = fs.readFileSync("../html/admin/adminMain.html", 'utf-8');
     res.send(doc);
 });
 
