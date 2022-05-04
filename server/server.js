@@ -71,22 +71,27 @@ app.get('/fav', (req, res) => {
 });
 
 app.get('/profileAdmin', (req, res) => {
-    let doc = fs.readFileSync("../html/profileAdmin.html", 'utf-8');
+    let doc = fs.readFileSync("../html/admin/profileAdmin.html", 'utf-8');
     res.send(doc);
 });
 
 app.get('/mainPageUser', (req, res) => {
-    let doc = fs.readFileSync("../html/mainPageUser.html", 'utf-8');
+    let doc = fs.readFileSync("../html/user/mainPageUser.html", 'utf-8');
     res.send(doc);
 });
 
 app.get('/profileUser', (req, res) => {
-    let doc = fs.readFileSync("../html/profileUser.html", 'utf-8');
+    let doc = fs.readFileSync("../html/user/profileUser.html", 'utf-8');
     res.send(doc);
 });
 
 app.get('/recipe', (req, res) => {
     let doc = fs.readFileSync("../html/recipe.html", 'utf-8');
+    res.send(doc);
+});
+
+app.get('/viewRestaurants', (req, res) => {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", 'utf-8');
     res.send(doc);
 });
 
@@ -96,7 +101,7 @@ app.get('/mainPage', (req, res) => {
 });
 
 app.get('/adminMain', (req, res) => {
-    let doc = fs.readFileSync("../html/adminMain.html", 'utf-8');
+    let doc = fs.readFileSync("../html/admin/adminMain.html", 'utf-8');
     res.send(doc);
 });
 

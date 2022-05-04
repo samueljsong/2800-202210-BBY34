@@ -26,13 +26,14 @@
       <div class="card bg-transparent text-white" style="border-radius: 1rem;">
         <div class="card-body p-5 text-center">
 
-          <div class="mb-md-5 mt-md-4 pb-5">
+          <div id="errorMsg" class="mb-md-5 mt-md-4 pb-5">
 
             <h2 id="formName" class="fw-bold mb-2">Have an account?</h2>
-            <p class="text-white-50 mb-5">Please enter your login and password!</p>
+            <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
-            <div class="form-outline form-white mb-4">
-              <input type="email" id="typeEmailX" minlength="5" maxlength="30" class="form-control form-control-lg">
+            <div class="was-validated form-outline form-white mb-4">
+              <input type="email" id="typeEmailX" minlength="5" maxlength="30" class="form-control form-control-lg is-invalid" placeholder="Required 5-30 characters">
+              
               <label class="form-label" for="typeEmailX" style="margin-left: 0px;">Email</label>
               <div class="form-notch">
                 <div class="form-notch-leading" style="width: 9px;"></div>
@@ -41,8 +42,8 @@
               </div>
             </div>
 
-            <div class="form-outline form-white mb-4">
-              <input type="password" id="typePasswordX" minlength="8" maxlength="20" class="form-control form-control-lg">
+            <div class="was-validated form-outline form-white mb-4">
+              <input type="password" id="typePasswordX" minlength="8" maxlength="20" class="form-control is-invalid form-control-lg" placeholder="Required 8-20 characters">
               <label class="form-label" for="typePasswordX" style="margin-left: 0px;">Password</label>
               <div class="form-notch">
                 <div class="form-notch-leading" style="width: 9px;"></div>
@@ -51,7 +52,7 @@
               </div>
             </div>
 
-            <button class="btn btn-outline-light btn-lg px-5" type="submit" onclick="location.href='/mainPage.html'">Login</button>
+            <button class="btn btn-outline-light btn-lg px-5" type="submit" id="submitLogin">Login</button>
 
           </div>
 
@@ -64,6 +65,9 @@
       </div>
     </div>
   </div>
+
+  <script src="/js/loginClient.js"></script>
+
 </body>
 
 </html>
