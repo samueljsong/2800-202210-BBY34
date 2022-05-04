@@ -75,7 +75,7 @@ app.get('/profileAdmin', (req, res) => {
     res.send(doc);
 });
 
-app.get('/mainPageUser', (req, res) => {
+app.get('/mainPage', (req, res) => {
     let doc = fs.readFileSync("../html/mainPageUser.html", 'utf-8');
     res.send(doc);
 });
@@ -90,10 +90,6 @@ app.get('/recipe', (req, res) => {
     res.send(doc);
 });
 
-app.get('/mainPage', (req, res) => {
-    let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
-    res.send(doc);
-});
 
 app.get('/adminMain', (req, res) => {
     let doc = fs.readFileSync("../html/mainPageAdmin.html", 'utf-8');

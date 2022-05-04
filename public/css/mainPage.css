@@ -74,7 +74,7 @@ h1 {
 
 @media (max-width: 896px) {
     #container {
-        background-position: -355px 20px;
+        background-position: -355px;
     }
     /*Popular restaurant images*/
     .ima1 {
