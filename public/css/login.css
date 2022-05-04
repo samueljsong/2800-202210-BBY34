@@ -80,6 +80,9 @@ a{
     border: 0px !important;
 }
 
+#sorry {
+    color: rgb(1, 54, 4) !important;
+}
 
 #formName{
     font-weight: 4;
