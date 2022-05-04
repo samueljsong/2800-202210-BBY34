@@ -34,10 +34,64 @@ h1 {
         clear: both;
         display: table;
     }
-    .ima {
+    .ima1 {
         display: block;
-        width: 350px;
-        height: 200px;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima2 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima3 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima4 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima5 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima6 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima7 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima8 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima9 {
+        display: block;
+        width: 340px;
+        height: 220px;
+        box-shadow: 10px 10px 5px black;
+    }
+    .ima10 {
+        display: block;
+        width: 340px;
+        height: 220px;
         box-shadow: 10px 10px 5px black;
     }
     .btn {
@@ -48,8 +102,9 @@ h1 {
         font-size: 15px;
     }
     .one {
-        margin-top: 100px;
-        margin-bottom: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
     }
     .two>h1 {
         margin-left: 4px;
