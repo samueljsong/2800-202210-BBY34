@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/fav', (req, res) => {
-  let doc = fs.readFileSync("./html/fav.html", 'utf-8');
+  let doc = fs.readFileSync("../html/fav.html", 'utf-8');
   res.send(doc);
 });
 
