@@ -97,6 +97,15 @@ app.get('/recipe', (req, res) => {
     res.send(doc);
 });
 
+app.get('/viewRestaurants', (req, res) => {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", 'utf-8');
+    res.send(doc);
+});
+
+app.get('/mainPage', (req, res) => {
+    let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
+    res.send(doc);
+});
 
 app.get('/adminMain', (req, res) => {
     let doc = fs.readFileSync("../html/admin/adminMain.html", 'utf-8');
