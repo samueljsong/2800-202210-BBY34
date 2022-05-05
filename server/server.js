@@ -2,6 +2,7 @@
 
 require("dotenv").config();
 require("./db/mongoose");
+const bodyParser = require("body-parser");
 const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -11,6 +12,7 @@ const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
