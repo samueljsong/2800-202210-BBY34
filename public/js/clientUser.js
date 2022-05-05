@@ -16,6 +16,8 @@ ready(function() {
         xhr.send();
     }
 
+    
+
     document.querySelector("#homeUser").addEventListener("click", function(e) {
         e.preventDefault();
         ajaxGET("/profileUser", function(data) {
@@ -76,22 +78,6 @@ ready(function() {
         e.preventDefault();
         ajaxGET("/fav", function(data) {
             window.location.replace("/fav");
-
-        });
-    });
-
-    document.querySelector("#logoutProfilePic").addEventListener("click", function(e) {
-        e.preventDefault();
-        ajaxGET("/", function(data) {
-            window.location.replace("/");
-
-        });
-    });
-
-    document.querySelector("#logoutProfilePic2").addEventListener("click", function(e) {
-        e.preventDefault();
-        ajaxGET("/", function(data) {
-            window.location.replace("/");
 
         });
     });
