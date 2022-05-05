@@ -47,11 +47,11 @@
                     </li>
                 </ul>
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button" action="/api/logout" method="get">Logout</button></li>
+                        <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';" method="get">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                 </li>
             </ul>
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" action="/api/logout" method="get" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="/api/logout" method="get" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
                     <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                 </a>
             </div>

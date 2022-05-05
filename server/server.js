@@ -59,13 +59,13 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-app.post("/api/logout", (req, res) => {
+app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
+    res.redirect("/");
     res.send("Logged out");
   } else {
     res.send("Logout Failed");
-    res.redirect("/");
   }
 });
 
