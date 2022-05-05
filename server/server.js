@@ -77,6 +77,7 @@ app.use(express.static("public"));
 app.use("/js", express.static("../public/js"));
 app.use("/css", express.static("../public/css"));
 app.use("/img", express.static("../public/img"));
+app.use("/favicon", express.static("../public/favicon"));
 
 app.get("/", (req, res) => {
   let doc = fs.readFileSync("../html/login.html", "utf-8");
