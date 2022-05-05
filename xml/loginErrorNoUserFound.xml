@@ -1,0 +1,6 @@
+<div class="card">
+  <img class="card-img-top" src="/img/sorry.jpg" alt="Card image cap">
+  <div class="card-body" id="sorry">
+    <h5 class="card-text">Seem like you haven't been our members yet! Sign up with us instead! <span class="material-icons">&#xea22;</span></h5>
+  </div>
+</div>

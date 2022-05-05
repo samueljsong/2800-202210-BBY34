@@ -17,10 +17,12 @@ html, body {
 body {
     min-height: 100%;
 }
+
 a{
     text-decoration: none;
     color: white;
 }
+
 #backgroundImgContainer {
     display: grid;
     grid-template-columns: 100%;
@@ -78,6 +80,9 @@ a{
     border: 0px !important;
 }
 
+#sorry {
+    color: rgb(1, 54, 4) !important;
+}
 
 #formName{
     font-weight: 4;

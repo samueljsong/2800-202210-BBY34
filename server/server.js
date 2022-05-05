@@ -1,4 +1,4 @@
-//requires
+"use strict";
 
 require("dotenv").config();
 require("./db/mongoose");
@@ -55,54 +55,6 @@ app.post("/api/login", async(req, res) => {
   }
 });
 
-//Samuel's code
-
-app.use(express.static('public'));
-app.use("/js", express.static("../public/js"));
-app.use("/css", express.static("../public/css"));
-app.use("/img", express.static("../public/img"));
-
-// This is for the HOME ROUTE
-app.get('/', (req, res) => {
-  let doc = fs.readFileSync("../html/login.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/fav', (req, res) => {
-  let doc = fs.readFileSync("../html/fav.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/profileAdmin', (req, res) => {
-  let doc = fs.readFileSync("../html/profileAdmin.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/mainPageUser', (req, res) => {
-  let doc = fs.readFileSync("../html/mainPageUser.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/profileUser', (req, res) => {
-  let doc = fs.readFileSync("../html/profileUser.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/recipe', (req, res) => {
-  let doc = fs.readFileSync("../html/recipe.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/mainPage', (req, res) => {
-  let doc = fs.readFileSync("../html/mainPage.html", 'utf-8');
-  res.send(doc);
-});
-
-app.get('/adminMain', (req, res) => {
-  let doc = fs.readFileSync("../html/adminMain.html", 'utf-8');
-  res.send(doc);
-});
-
 app.post("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
@@ -120,6 +72,56 @@ app.post("/api/signup", async(req, res) => {
   } catch (err) {
     res.status(400).send(err.toString());
   }
+});
+
+app.use(express.static("public"));
+app.use("/js", express.static("../public/js"));
+app.use("/css", express.static("../public/css"));
+app.use("/img", express.static("../public/img"));
+
+app.get("/", (req, res) => {
+  let doc = fs.readFileSync("../html/login.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/loginErrorNoUserFound", (req, res) => {
+  let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", "utf-8");
+  res.send(doc);
+});
+
+app.get("/fav", (req, res) => {
+  let doc = fs.readFileSync("../html/fav.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/profileAdmin", (req, res) => {
+  let doc = fs.readFileSync("../html/admin/profileAdmin.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/mainPageUser", (req, res) => {
+  let doc = fs.readFileSync("../html/user/mainPageUser.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/profileUser", (req, res) => {
+  let doc = fs.readFileSync("../html/user/profileUser.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/recipe", (req, res) => {
+  let doc = fs.readFileSync("../html/recipe.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/viewRestaurants", (req, res) => {
+  let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/adminMain", (req, res) => {
+  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
+  res.send(doc);
 });
 
 app.listen(port, () => {
