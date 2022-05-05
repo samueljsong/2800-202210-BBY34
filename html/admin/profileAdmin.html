@@ -51,7 +51,7 @@
                         <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button" id="logoutProfilePic">Logout</button></li>
+                        <li><button class="dropdown-item" type="button" action="/api/logout" method="get">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -75,8 +75,8 @@
                     <a class="material-icons" href="#" id="recipes2">description</a>
                 </li>
             </ul>
-            <div class="dropdown" id="logoutProfilePic2">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" action="/api/logout" method="get" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
                     <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                 </a>
             </div>

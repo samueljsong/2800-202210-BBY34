@@ -11,6 +11,10 @@ const User = require("./models/user");
 const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 3000;
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -38,8 +42,11 @@ app.use(
 );
 
 app.post("/api/login", async (req, res) => {
+  console.log(req.body);
   const email = req.body.email;
+  console.log(email);
   const password = req.body.password;
+  console.log(password);
   const user = await User.findOne({ email: email });
 
   if (user) {
@@ -62,6 +69,7 @@ app.post("/api/logout", (req, res) => {
     res.send("Logged out");
   } else {
     res.send("Logout Failed");
+    res.redirect("/");
   }
 });
 

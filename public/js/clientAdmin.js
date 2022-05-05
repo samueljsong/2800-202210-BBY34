@@ -64,21 +64,6 @@ ready(function() {
         });
     });
 
-    document.querySelector("#logoutProfilePic").addEventListener("click", function(e) {
-        e.preventDefault();
-        ajaxGET("/", function(data) {
-            window.location.replace("/");
-
-        });
-    });
-
-    document.querySelector("#logoutProfilePic2").addEventListener("click", function(e) {
-        e.preventDefault();
-        ajaxGET("/", function(data) {
-            window.location.replace("/");
-
-        });
-    });
 });
 
 
