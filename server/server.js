@@ -11,9 +11,6 @@ const User = require("./models/user");
 const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 3000;
-var bodyParser = require('body-parser')
-
-app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -63,13 +60,13 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-app.post("/api/logout", (req, res) => {
+app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
+    res.redirect("/");
     res.send("Logged out");
   } else {
     res.send("Logout Failed");
-    res.redirect("/");
   }
 });
 
