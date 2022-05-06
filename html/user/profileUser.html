@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -52,7 +53,7 @@
                         <img src="/img/profilePic.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button" id="logoutProfilePic">Logout</button></li>
+                        <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';" method="get">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -76,8 +77,8 @@
                     <a class="material-icons" href="#" id="favourites2">favorites</a>
                 </li>
             </ul>
-            <div class="dropdown" id="logoutProfilePic2">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="/api/logout" method="get" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
                     <img src="/img/profilePic.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                 </a>
             </div>
@@ -159,7 +160,6 @@
         <script src="/js/navbar.js"></script>
         <script src="/js/popover.js"></script>
         <script src="/js/clientUser.js" defer="defer"></script>
-        <script src="/js/server.js" defer></script>
 
     </div>
 </body>

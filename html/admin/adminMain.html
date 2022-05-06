@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
 
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -61,12 +62,12 @@
                     </li>
                 </ul>
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdownMenu2"
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button" id="logoutProfilePic">Logout</button></li>
+                        <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';" method="get">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -90,8 +91,8 @@
                     <a class="material-icons" href="#" id="recipes2">description</a>
                 </li>
             </ul>
-            <div class="dropdown" id="logoutProfilePic2">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="/api/logout" method="get" role="button"
                     data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
                     <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
                 </a>

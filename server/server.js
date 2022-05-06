@@ -2,6 +2,7 @@
 
 require("dotenv").config();
 require("./db/mongoose");
+const bodyParser = require("body-parser");
 const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -12,6 +13,7 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
@@ -37,8 +39,11 @@ app.use(
 );
 
 app.post("/api/login", async(req, res) => {
+  console.log(req.body);
   const email = req.body.email;
+  console.log(email);
   const password = req.body.password;
+  console.log(password);
   const user = await User.findOne({ email: email });
 
   if (user) {
@@ -55,9 +60,10 @@ app.post("/api/login", async(req, res) => {
   }
 });
 
-app.post("/api/logout", (req, res) => {
+app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
+    res.redirect("/");
     res.send("Logged out");
   } else {
     res.send("Logout Failed");
@@ -78,6 +84,7 @@ app.use(express.static("public"));
 app.use("/js", express.static("../public/js"));
 app.use("/css", express.static("../public/css"));
 app.use("/img", express.static("../public/img"));
+app.use("/favicon", express.static("../public/favicon"));
 
 app.get("/", (req, res) => {
   let doc = fs.readFileSync("../html/login.html", "utf-8");
