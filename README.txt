@@ -6,3 +6,5 @@ Team Members:
 [Leerang Byun], [A01199376], [2022-05-05]
 
 This assignment is [100]% complete.
+
+You can check our database follow this link: mongosh "mongodb+srv://2800-bby34.to1kn.mongodb.net/myFirstDatabase" --apiVersion 1 --username PhuongNg12
