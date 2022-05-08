@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
-    <!-- Google Icons (Material Design)-->
+    <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,8 +30,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-
-    <title>Main Page</title>
 </head>
 
 <body>
@@ -60,12 +59,13 @@
                     </li>
                 </ul>
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';" method="get">Logout</button></li>
+                        <li><button class="dropdown-item" type="button"
+                                onclick="location.href='/api/logout';">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -90,9 +90,9 @@
                 </li>
             </ul>
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="/api/logout" method="get" role="button"
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="/api/logout" role="button"
                     data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Logout">
-                    <img src="/img/admin.png" id="picProfile" class="rounded-circle" alt="profilePicture" />
+                    <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
                 </a>
             </div>
         </div>
@@ -104,8 +104,9 @@
                 <h1>Hi Admin</h1>
             </div>
             <div class='two'>
-                <h1>Popular Restaurants <a href="/viewRestaurants"><button class="btn" type='button'>View All</button>
-                </h1></a>
+                <h1>Popular Restaurants <button class="btn" onclick="location.href='/viewRestaurants';"
+                        type='button'>View All</button>
+                </h1>
                 <div class='slider'>
                     <!--Change page direction -->
                     <div class='slide'>
@@ -126,7 +127,8 @@
                 </div>
             </div>
             <div class="three">
-                <h1>Popular Recipes<a href="/recipe"><button class="btn" type='button'>View All</button></h1></a>
+                <h1>Popular Recipes<button class="btn" onclick="location.href='/viewRestaurants';" type='button'>View
+                        All</button></h1>
                 <div class='slider'>
                     <!--Change page direction -->
                     <div class='slide'>
@@ -146,12 +148,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
 
-        <script src="/js/navbar.js"></script>
-        <script src="/js/popover.js"></script>
-        <script src="/js/clientAdmin.js" defer></script>
+    
+    <script src="/js/navbar.js"></script>
+    <script src="/js/popover.js"></script>
+    <script src="/js/clientAdmin.js" defer></script>
 
 
 </body>
