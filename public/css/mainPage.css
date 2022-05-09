@@ -130,7 +130,7 @@ h1 {
     }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 415px) {
     #container {
         background-position: center;
     }
@@ -138,7 +138,7 @@ h1 {
     .ima1 {
         transform: translateY(-80px);
         max-width: 100%;
-        max-height: auto;
+        max-height: none;
     }
     .ima2 {
         transform: translateY(-80px);
@@ -231,7 +231,11 @@ h1 {
 }
 
 @media(max-width: 415px) {
-    #picProfile {
-        height: 12vw;
+    .picProfile {
+        height: 12vw !important;
+    }
+
+    footer {
+        padding-bottom: 70px;
     }
 }

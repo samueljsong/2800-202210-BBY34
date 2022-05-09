@@ -10,11 +10,7 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
-<<<<<<< HEAD
-const port = 3000;
-=======
 const port = 8000;
->>>>>>> 02cab5d67cf9978e9b632ed5a8c6145a2a076189
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -27,7 +23,7 @@ app.use(
 );
 app.use(
   session({
-    secret: "burnaby34",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -35,7 +31,7 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
+      mongoUrl: process.env.MONGODB_URI,
       collectionName: "sessions",
     }),
   })
@@ -51,7 +47,7 @@ app.post("/api/login", async (req, res) => {
       req.session.email = user.email;
       req.session.isAuth = true;
       req.session.save();
-      res.status(200).send(user.userType);
+      res.status(200).send(JSON.stringify(user.userType));
     } else {
       res.status(401).send("Login failed");
     }
@@ -64,8 +60,10 @@ app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
     res.redirect("/");
+    res.send("Logged out");
   } else {
     res.redirect("/");
+    res.send("Logout Failed");
   }
 });
 

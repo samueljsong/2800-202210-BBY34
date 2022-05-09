@@ -1,7 +1,5 @@
 "use strict";
 ready(function () {
-  console.log("Client script loaded.");
-
   function ajaxGET(url, callback) {
     const xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -15,17 +13,32 @@ ready(function () {
     xhr.send();
   }
 
-  document.querySelector("#homeUser").addEventListener("click", function (e) {
-    e.preventDefault();
-    ajaxGET("/profileUser", function (data) {
-      window.location.replace("/profileUser");
+  let homeArr = document.getElementsByClassName("homeUser");
+
+  Array.from(homeArr).forEach(element => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/mainPageUser", function (data) {
+        window.location.replace("/mainPageUser");
+      });
     });
   });
 
   document.querySelector("#homeUser2").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/profileUser", function (data) {
-      window.location.replace("/profileUser");
+    ajaxGET("/mainPageUser", function (data) {
+      window.location.replace("/mainPageUser");
+    });
+  });
+
+  let dropUpDownArr = document.getElementsByClassName("picProfile");
+
+  Array.from(dropUpDownArr).forEach(element => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/profileUser", function (data) {
+        window.location.replace("/profileUser");
+      });
     });
   });
 
@@ -81,9 +94,7 @@ ready(function () {
 function ready(callback) {
   if (document.readyState != "loading") {
     callback();
-    console.log("ready state is 'complete'");
   } else {
     document.addEventListener("DOMContentLoaded", callback);
-    console.log("Listener was invoked");
   }
 }

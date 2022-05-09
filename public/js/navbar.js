@@ -1,4 +1,5 @@
 "use strict";
+
 function windowSize() {
   const maxWidth = 415;
   var w = document.documentElement.clientWidth;

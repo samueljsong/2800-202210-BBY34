@@ -24,8 +24,6 @@
     left: 0;
     grid-row: 1 / 2;
     height: 180px;
-    /* border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%; */
     background-color: rgb(51, 49, 49);
     width: 100%;
   }
@@ -125,13 +123,13 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
     cursor: pointer;
   }
-  #pic {
+  .pic {
     height: 80px;
     width: 100px;
     align-self: center;
     justify-self: center;
   }
-  #dots {
+  .dots {
     align-self: center;
   }
   .place {
@@ -170,26 +168,4 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
     cursor: pointer;
   }
-  /* CSS for the square version */
-  /* .square-card {
-    grid-row: 8 / 9;
-    display: grid;
-    grid-template-columns: 30%;
-    grid-template-rows: auto;
-    height: 200px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
-    cursor: pointer;
-  }
-  #pic-square {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
-    width: 100%;
-  }
-  .text-square {
-    grid-row: 2 / 3;
-    align-self: center;
-    justify-self: center;
-  } */
 }
