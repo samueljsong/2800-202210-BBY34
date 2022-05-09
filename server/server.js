@@ -10,7 +10,11 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
+<<<<<<< HEAD
 const port = 3000;
+=======
+const port = 8000;
+>>>>>>> 02cab5d67cf9978e9b632ed5a8c6145a2a076189
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -47,7 +51,7 @@ app.post("/api/login", async (req, res) => {
       req.session.email = user.email;
       req.session.isAuth = true;
       req.session.save();
-      res.status(200).send({ message: "login success" });
+      res.status(200).send(user.userType);
     } else {
       res.status(401).send("Login failed");
     }
@@ -60,9 +64,8 @@ app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
     res.redirect("/");
-    res.send("Logged out");
   } else {
-    res.send("Logout Failed");
+    res.redirect("/");
   }
 });
 
