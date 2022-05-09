@@ -10,7 +10,7 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -38,11 +38,8 @@ app.use(
 );
 
 app.post("/api/login", async (req, res) => {
-  console.log(req.body);
   const email = req.body.email;
-  console.log(email);
   const password = req.body.password;
-  console.log(password);
   const user = await User.findOne({ email: email });
 
   if (user) {
@@ -50,7 +47,7 @@ app.post("/api/login", async (req, res) => {
       req.session.email = user.email;
       req.session.isAuth = true;
       req.session.save();
-      res.status(200).send({ message: "login success" });
+      res.status(200).send(user.userType);
     } else {
       res.status(401).send("Login failed");
     }
@@ -63,9 +60,8 @@ app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
     res.redirect("/");
-    res.send("Logged out");
   } else {
-    res.send("Logout Failed");
+    res.redirect("/");
   }
 });
 
