@@ -10,7 +10,7 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -23,7 +23,7 @@ app.use(
 );
 app.use(
   session({
-    secret: process.env.SECRET,
+    secret: "burnaby34",
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -31,18 +31,15 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
+      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
       collectionName: "sessions",
     }),
   })
 );
 
 app.post("/api/login", async (req, res) => {
-  console.log(req.body);
   const email = req.body.email;
-  console.log(email);
   const password = req.body.password;
-  console.log(password);
   const user = await User.findOne({ email: email });
 
   if (user) {

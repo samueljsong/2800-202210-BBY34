@@ -72,35 +72,38 @@ ready(function () {
                     xhr.send(params);
                 });
 
-            document.querySelector("#submitLogin").addEventListener("click", function (e) {
-                e.preventDefault();
-                let email = document.getElementById("typeEmailX");
-                let password = document.getElementById("typePasswordX");
-                let queryString = "email=" + email.value + "&password=" + password.value;
+            if (data) {
+                let dataParsed = JSON.parse(data);
+                console.log(dataParsed);
+                if (dataParsed.status == "fail") {
+                    document.getElementById("errorMsg").innerHTML = dataParsed.msg;
+                } else {
+                    window.location.replace("/mainPageUser");
+                }
+            }
 
-                ajaxPOST("/api/login", function (data) {
+            ajaxPOST("/api/login", function (data) {
 
-                    if (data) {
-                        let dataParsed = JSON.parse(data);
-                        console.log(dataParsed);
-                        if (dataParsed.status == "fail") {
-                            document.getElementById("errorMsg").innerHTML = dataParsed.msg;
-                        } else {
-                            window.location.replace("/adminMain");
-                        }
+                if (data) {
+                    let dataParsed = JSON.parse(data);
+                    console.log(dataParsed);
+                    if (dataParsed.status == "fail") {
+                        document.getElementById("errorMsg").innerHTML = dataParsed.msg;
+                    } else {
+                        window.location.replace("/adminMain");
                     }
+                }
 
-                }, queryString);
-            });
+            }, queryString);
         });
+});
 
-    function ready(callback) {
-        if (document.readyState != "loading") {
-            callback();
-            console.log("ready state is 'complete'");
-        } else {
-            document.addEventListener("DOMContentLoaded", callback);
-            console.log("Listener was invoked");
-        }
+function ready(callback) {
+    if (document.readyState != "loading") {
+        callback();
+        console.log("ready state is 'complete'");
+    } else {
+        document.addEventListener("DOMContentLoaded", callback);
+        console.log("Listener was invoked");
     }
-})
+}
