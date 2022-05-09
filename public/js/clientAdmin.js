@@ -1,7 +1,5 @@
 "use strict";
 ready(function () {
-  console.log("Client script loaded.");
-
   function ajaxGET(url, callback) {
     const xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -15,17 +13,32 @@ ready(function () {
     xhr.send();
   }
 
-  document.querySelector("#homeAdmin").addEventListener("click", function (e) {
-    e.preventDefault();
-    ajaxGET("/profileAdmin", function (data) {
-      window.location.replace("/profileAdmin");
+  let homeArr = document.getElementsByClassName("homeAdmin");
+
+  Array.from(homeArr).forEach(element => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/adminMain", function (data) {
+        window.location.replace("/adminMain");
+      });
     });
   });
 
   document.querySelector("#homeAdmin2").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/profileAdmin", function (data) {
-      window.location.replace("/profileAdmin");
+    ajaxGET("/adminMain", function (data) {
+      window.location.replace("/adminMain");
+    });
+  });
+
+  let dropUpDownArr = document.getElementsByClassName("picProfile");
+
+  Array.from(dropUpDownArr).forEach(element => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/profileAdmin", function (data) {
+        window.location.replace("/profileAdmin");
+      });
     });
   });
 
@@ -65,9 +78,7 @@ ready(function () {
 function ready(callback) {
   if (document.readyState != "loading") {
     callback();
-    console.log("ready state is 'complete'");
   } else {
     document.addEventListener("DOMContentLoaded", callback);
-    console.log("Listener was invoked");
   }
 }
