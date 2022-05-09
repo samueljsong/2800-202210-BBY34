@@ -47,7 +47,7 @@ app.post("/api/login", async (req, res) => {
       req.session.email = user.email;
       req.session.isAuth = true;
       req.session.save();
-      res.status(200).send(user.userType);
+      res.status(200).send(JSON.stringify(user.userType));
     } else {
       res.status(401).send("Login failed");
     }
@@ -60,8 +60,10 @@ app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
     res.redirect("/");
+    res.send("Logged out");
   } else {
     res.redirect("/");
+    res.send("Logout Failed");
   }
 });
 
