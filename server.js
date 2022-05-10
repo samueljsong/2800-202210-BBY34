@@ -1,6 +1,7 @@
 "use strict";
-
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 require("./db/mongoose");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -76,53 +77,53 @@ app.post("/api/signup", async (req, res) => {
 });
 
 app.use(express.static("public"));
-app.use("/js", express.static("../public/js"));
-app.use("/css", express.static("../public/css"));
-app.use("/img", express.static("../public/img"));
-app.use("/favicon", express.static("../public/favicon"));
+app.use("/js", express.static("./public/js"));
+app.use("/css", express.static("./public/css"));
+app.use("/img", express.static("./public/img"));
+app.use("/favicon", express.static("./public/favicon"));
 
 app.get("/", (req, res) => {
-  let doc = fs.readFileSync("../html/login.html", "utf-8");
+  let doc = fs.readFileSync("./html/login.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/loginErrorNoUserFound", (req, res) => {
-  let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", "utf-8");
+  let doc = fs.readFileSync("./xml/loginErrorNoUserFound.xml", "utf-8");
   res.send(doc);
 });
 
 app.get("/fav", (req, res) => {
-  let doc = fs.readFileSync("../html/fav.html", "utf-8");
+  let doc = fs.readFileSync("./html/fav.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/profileAdmin", (req, res) => {
-  let doc = fs.readFileSync("../html/admin/profileAdmin.html", "utf-8");
+  let doc = fs.readFileSync("./html/admin/profileAdmin.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/mainPageUser", (req, res) => {
-  let doc = fs.readFileSync("../html/user/mainPageUser.html", "utf-8");
+  let doc = fs.readFileSync("./html/user/mainPageUser.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/profileUser", (req, res) => {
-  let doc = fs.readFileSync("../html/user/profileUser.html", "utf-8");
+  let doc = fs.readFileSync("./html/user/profileUser.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/recipe", (req, res) => {
-  let doc = fs.readFileSync("../html/recipe.html", "utf-8");
+  let doc = fs.readFileSync("./html/recipe.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/viewRestaurants", (req, res) => {
-  let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+  let doc = fs.readFileSync("./html/viewRestaurants.html", "utf-8");
   res.send(doc);
 });
 
 app.get("/adminMain", (req, res) => {
-  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
+  let doc = fs.readFileSync("./html/admin/adminMain.html", "utf-8");
   res.send(doc);
 });
 
