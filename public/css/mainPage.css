@@ -214,6 +214,7 @@ h1 {
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
+        border-radius: 50px;
     }
     .slide {
         flex-shrink: 0;
