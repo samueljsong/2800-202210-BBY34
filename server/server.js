@@ -10,7 +10,7 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -60,10 +60,8 @@ app.get("/api/logout", (req, res) => {
   if (req.session.isAuth) {
     req.session.destroy();
     res.redirect("/");
-    res.send("Logged out");
   } else {
     res.redirect("/");
-    res.send("Logout Failed");
   }
 });
 
