@@ -37,7 +37,7 @@ app.use(
   })
 );
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", async(req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const user = await User.findOne({ email: email });
@@ -65,7 +65,7 @@ app.get("/api/logout", (req, res) => {
   }
 });
 
-app.post("/api/signup", async (req, res) => {
+app.post("/api/signup", async(req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
