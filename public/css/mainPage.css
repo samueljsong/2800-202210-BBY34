@@ -137,54 +137,74 @@ h1 {
     /*Popular restaurant images*/
     .ima1 {
         transform: translateY(-80px);
+        border-radius: 50px;
         max-width: 100%;
-        max-height: none;
+        height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima2 {
         transform: translateY(-80px);
+        border-radius: 50px;
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima3 {
         transform: translateY(-80px);
+        border-radius: 50px;
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima4 {
         transform: translateY(-80px);
+        border-radius: 50px;
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima5 {
         transform: translateY(-80px);
+        border-radius: 50px;
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     /*Popular recipes images*/
     .ima6 {
         transform: translateY(-80px);
+        border-radius: 50px;
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima7 {
         transform: translateY(-80px);
+        border-radius: 50px;
         width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima8 {
         transform: translateY(-80px);
+        border-radius: 50px;
         max-width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima9 {
         transform: translateY(-80px);
+        border-radius: 50px;
         max-width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima10 {
         transform: translateY(-80px);
+        border-radius: 50px;
         max-width: 100%;
         height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .slider {
         max-width: 100%;
@@ -194,6 +214,7 @@ h1 {
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
+        border-radius: 50px;
     }
     .slide {
         flex-shrink: 0;
@@ -204,6 +225,7 @@ h1 {
     }
     .slider>div {
         scroll-snap-align: start;
+        counter-reset: item;
     }
     .one {
         text-align: center;
@@ -211,15 +233,16 @@ h1 {
         margin-bottom: 50px;
     }
     .two>h1 {
-        margin-left: 1px;
+        margin-left: 5px;
+        margin-bottom: 10px;
         font-size: 20px;
     }
     .two {
-        font-size: 12px;
         margin-bottom: 50px;
     }
     .three>h1 {
-        margin-left: 1px;
+        margin-left: 5px;
+        margin-bottom: 10px;
         font-size: 20px;
     }
     .btn {
@@ -227,6 +250,7 @@ h1 {
         color: white !important;
         border: none;
         margin-left: 6px;
+        font-size: 14px !important;
     }
 }
 
@@ -234,7 +258,6 @@ h1 {
     .picProfile {
         height: 12vw !important;
     }
-
     footer {
         padding-bottom: 70px;
     }
