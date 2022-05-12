@@ -76,6 +76,60 @@ app.patch("/api/user/:id", async (req, res) => {
   }
 });
 
+app.delete("/api/user/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.session.userID });
+      const targetUser = await User.findOne({ _id: req.params.id });
+
+      if (currentUser.userType === "User") {
+        if (currentUser.id === targetUser.id) {
+          const deletedUser = await User.findOneAndDelete({
+            _id: req.session.userID,
+          });
+          res.send(`${deletedUser.email} deleted`);
+        } else {
+          res.send("Not Authorized");
+        }
+      }
+
+      if (currentUser.userType === "Admin") {
+        let adminCount = 0;
+        const users = await User.find();
+        users.forEach((user) => {
+          if (user.userType === "Admin") {
+            adminCount++;
+          }
+        });
+
+        if (targetUser.userType === "Admin") {
+          if (adminCount > 1) {
+            const deletedUser = await User.findOneAndDelete({
+              _id: targetUser.id,
+            });
+            res.send(`${deletedUser.email} deleted`);
+          } else {
+            res.send(
+              `Cannot delete ${targetUser.email} as they are the last admin`
+            );
+          }
+        }
+
+        if (targetUser.userType === "User") {
+          const deletedUser = await User.findOneAndDelete({
+            _id: targetUser.id,
+          });
+          res.send(`${deletedUser.email} deleted`);
+        }
+      }
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.post("/api/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
