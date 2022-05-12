@@ -128,35 +128,35 @@ h1 {
     /*Popular restaurant images*/
     .ima1 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima2 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima3 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima4 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima5 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
@@ -164,35 +164,35 @@ h1 {
     /*Popular recipes images*/
     .ima6 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima7 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima8 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima9 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
     }
     .ima10 {
         transform: translateY(-80px);
-        border-radius: 50px;
+        border-radius: 25px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
@@ -205,7 +205,7 @@ h1 {
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        border-radius: 50px;
+        border-radius: 25px;
         margin-left: 20px;
         margin-right: 20px;
     }
@@ -222,23 +222,23 @@ h1 {
     }
     .one {
         text-align: left;
-        margin-left: 18px;
+        margin-left: 19px;
         margin-top: 30px;
         margin-bottom: 50px;
     }
     .two>h1 {
         text-align: left;
-        margin-left: 18px;
+        margin-left: 19px;
         margin-bottom: 10px;
         font-size: 20px;
     }
     .two {
-        margin-bottom: 50px;
+        margin-bottom: 25px;
     }
     .three>h1 {
         text-align: left;
-        margin-left: 18px;
-        margin-bottom: 10px;
+        margin-left: 19px;
+        /* margin-bottom: 10px; */
         font-size: 20px;
     }
     .btn {
