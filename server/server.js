@@ -56,6 +56,26 @@ app.post("/api/admin/signup", async (req, res) => {
   }
 });
 
+app.patch("/api/user/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.send(user);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.post("/api/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
