@@ -38,6 +38,17 @@ app.use(
   })
 );
 
+app.get("/api/users", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const users = await User.find();
+      res.send(users);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
 app.post("/api/admin/signup", async (req, res) => {
   if (req.session.isAuth) {
     try {
