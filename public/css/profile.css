@@ -43,17 +43,6 @@ body {
     margin-right: 1px;
 }
 
-.btn-outline-primary {
-    background-color: #5f985f !important;
-    color: white !important;
-    border: none !important;
-    margin-right: 1px;
-}
-
-#checkOthers {
-    background-color: #73bd73 !important;
-}
-
 #navbarContainer,
 #navbarContainerBottom {
     background-color: #e1f1e1 !important;
@@ -76,8 +65,21 @@ body {
     gap: 40px;
 }
 
+input#file-upload-button{
+    background: #199419 !important;
+}
+
+#closeButton {
+    border: none; 
+    background-color: transparent;
+}
+
 .picProfile {
     height: 5vw;
+}
+
+footer {
+    padding-top: 70px;
 }
 
 @media(min-width: 992px) {

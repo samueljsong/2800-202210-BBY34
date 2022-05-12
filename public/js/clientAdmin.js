@@ -73,6 +73,17 @@ ready(function () {
       window.location.replace("/recipe");
     });
   });
+
+  let dashboardArr = document.getElementsByClassName("dashboardAdmin");
+
+  Array.from(dashboardArr).forEach(element => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/dashboardAdmin", function (data) {
+        window.location.replace("/dashboardAdmin");
+      });
+    });
+  });
 });
 
 function ready(callback) {
