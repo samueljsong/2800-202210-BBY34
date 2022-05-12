@@ -9,6 +9,7 @@ const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
+const { find, findOne, findOneAndDelete } = require("./models/user");
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -25,9 +26,9 @@ app.use(
   session({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
-      maxAge: 12345,
+      maxAge: 123456789,
       secure: false,
     },
     store: MongoStore.create({
@@ -37,6 +38,109 @@ app.use(
   })
 );
 
+app.get("/api/users", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const users = await User.find();
+      res.send(users);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+app.post("/api/admin/signup", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.session.userID });
+      if (currentUser.userType === "User") {
+        res.send("Only admin can add new users");
+      }
+      if (currentUser.userType === "Admin") {
+        const newUser = new User(req.body);
+        await newUser.save();
+        res.send(`${newUser.email} created`);
+      }
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+app.patch("/api/user/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.send(user);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.delete("/api/user/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.session.userID });
+      const targetUser = await User.findOne({ _id: req.params.id });
+
+      if (currentUser.userType === "User") {
+        if (currentUser.id === targetUser.id) {
+          const deletedUser = await User.findOneAndDelete({
+            _id: req.session.userID,
+          });
+          res.send(`${deletedUser.email} deleted`);
+        } else {
+          res.send("Not Authorized");
+        }
+      }
+
+      if (currentUser.userType === "Admin") {
+        let adminCount = 0;
+        const users = await User.find();
+        users.forEach((user) => {
+          if (user.userType === "Admin") {
+            adminCount++;
+          }
+        });
+
+        if (targetUser.userType === "Admin") {
+          if (adminCount > 1) {
+            const deletedUser = await User.findOneAndDelete({
+              _id: targetUser.id,
+            });
+            res.send(`${deletedUser.email} deleted`);
+          } else {
+            res.send(
+              `Cannot delete ${targetUser.email} as they are the last admin`
+            );
+          }
+        }
+
+        if (targetUser.userType === "User") {
+          const deletedUser = await User.findOneAndDelete({
+            _id: targetUser.id,
+          });
+          res.send(`${deletedUser.email} deleted`);
+        }
+      }
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.post("/api/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -44,6 +148,7 @@ app.post("/api/login", async (req, res) => {
 
   if (user) {
     if (password == user.password) {
+      req.session.userID = user.id;
       req.session.email = user.email;
       req.session.isAuth = true;
       req.session.save();
@@ -91,8 +196,8 @@ app.get("/loginErrorNoUserFound", (req, res) => {
   res.send(doc);
 });
 
-app.get("/fav", (req, res) => {
-  let doc = fs.readFileSync("../html/fav.html", "utf-8");
+app.get("/adminMain", (req, res) => {
+  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
   res.send(doc);
 });
 
@@ -111,6 +216,11 @@ app.get("/profileUser", (req, res) => {
   res.send(doc);
 });
 
+app.get("/fav", (req, res) => {
+  let doc = fs.readFileSync("../html/fav.html", "utf-8");
+  res.send(doc);
+});
+
 app.get("/recipe", (req, res) => {
   let doc = fs.readFileSync("../html/recipe.html", "utf-8");
   res.send(doc);
@@ -118,11 +228,6 @@ app.get("/recipe", (req, res) => {
 
 app.get("/viewRestaurants", (req, res) => {
   let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
-  res.send(doc);
-});
-
-app.get("/adminMain", (req, res) => {
-  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
   res.send(doc);
 });
 

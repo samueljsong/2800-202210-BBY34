@@ -22,6 +22,10 @@ const userSchema = new Schema({
     maxlength: 20,
   },
 
+  picture: {
+    type: String,
+  },
+
   userType: {
     type: String,
     enum: ["User", "Admin"],
