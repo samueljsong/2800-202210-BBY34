@@ -24,7 +24,7 @@ app.use(
 );
 app.use(
   session({
-    secret: process.env.SECRET,
+    secret: "burnaby34",
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -32,7 +32,7 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
+      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
       collectionName: "sessions",
     }),
   })
@@ -228,6 +228,16 @@ app.get("/recipe", (req, res) => {
 
 app.get("/viewRestaurants", (req, res) => {
   let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/adminMain", (req, res) => {
+  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
+  res.send(doc);
+});
+
+app.get("/dashboardAdmin", (req, res) => {
+  let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
   res.send(doc);
 });
 
