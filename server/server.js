@@ -241,6 +241,13 @@ app.get("/dashboardAdmin", (req, res) => {
   res.send(doc);
 });
 
+app.get("/signUp", (req, res) => {
+  let doc = fs.readFileSync("../html/signUp.html", "utf-8");
+  res.send(doc);
+});
+
+
+
 app.listen(port, () => {
   console.log(`server running on port: ${port}`);
 });

@@ -49,7 +49,6 @@ ready(function () {
         ajaxPOST("/api/login", function (data) {
 
             if (data) {
-                // console.log(data);
                 let dataParsed = JSON.parse(data);
                 console.log(dataParsed);
                 if (dataParsed.status == "fail") {
@@ -62,9 +61,15 @@ ready(function () {
                     }
                 }
             }
-
         }, queryString);
     });
+
+    document.querySelector("#signUp").addEventListener("click", function (e) {
+        e.preventDefault();
+        ajaxGET("/signUp", function (data) {
+          window.location.replace("/signUp");
+        });
+      });
 });
 
 
