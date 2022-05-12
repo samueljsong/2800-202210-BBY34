@@ -9,6 +9,7 @@ const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
+const { find, findOne, findOneAndDelete } = require("./models/user");
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -25,9 +26,9 @@ app.use(
   session({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
-      maxAge: 12345,
+      maxAge: 123456789,
       secure: false,
     },
     store: MongoStore.create({
@@ -37,13 +38,32 @@ app.use(
   })
 );
 
-app.post("/api/login", async(req, res) => {
+app.post("/api/admin/signup", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.session.userID });
+      if (currentUser.userType === "User") {
+        res.send("Only admin can add new users");
+      }
+      if (currentUser.userType === "Admin") {
+        const newUser = new User(req.body);
+        await newUser.save();
+        res.send(`${newUser.email} created`);
+      }
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+app.post("/api/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const user = await User.findOne({ email: email });
 
   if (user) {
     if (password == user.password) {
+      req.session.userID = user.id;
       req.session.email = user.email;
       req.session.isAuth = true;
       req.session.save();
@@ -65,7 +85,7 @@ app.get("/api/logout", (req, res) => {
   }
 });
 
-app.post("/api/signup", async(req, res) => {
+app.post("/api/signup", async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
@@ -91,8 +111,8 @@ app.get("/loginErrorNoUserFound", (req, res) => {
   res.send(doc);
 });
 
-app.get("/fav", (req, res) => {
-  let doc = fs.readFileSync("../html/fav.html", "utf-8");
+app.get("/adminMain", (req, res) => {
+  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
   res.send(doc);
 });
 
@@ -111,6 +131,11 @@ app.get("/profileUser", (req, res) => {
   res.send(doc);
 });
 
+app.get("/fav", (req, res) => {
+  let doc = fs.readFileSync("../html/fav.html", "utf-8");
+  res.send(doc);
+});
+
 app.get("/recipe", (req, res) => {
   let doc = fs.readFileSync("../html/recipe.html", "utf-8");
   res.send(doc);
@@ -118,11 +143,6 @@ app.get("/recipe", (req, res) => {
 
 app.get("/viewRestaurants", (req, res) => {
   let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
-  res.send(doc);
-});
-
-app.get("/adminMain", (req, res) => {
-  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
   res.send(doc);
 });
 
