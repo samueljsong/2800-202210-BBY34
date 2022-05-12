@@ -31,7 +31,8 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
+      mongoUrl:
+        "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
       collectionName: "sessions",
     }),
   })
@@ -273,11 +274,6 @@ app.get("/viewRestaurants", (req, res) => {
   } else {
     res.redirect("/");
   }
-});
-
-app.get("/adminMain", (req, res) => {
-  let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
-  res.send(doc);
 });
 
 app.get("/dashboardAdmin", (req, res) => {
