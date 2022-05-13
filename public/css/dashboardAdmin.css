@@ -8,17 +8,17 @@
     font-size: 40px;
 }
 
-#listContainer{
+.listContainer{
     display: grid;
-    grid-template-rows: 5% 95% 5%;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 5% 90% 5%;
+    grid-template-columns: 10% 80% 10%;
     height: 100%;
     width: 100%;
     z-index: -1;
     min-height: 30vh;
 }
 
-#listOfUsers{
+.listOfUsers{
     grid-row: 2/span 1;
     grid-column: 2/span 1;
     align-self: center;
@@ -31,8 +31,9 @@
 
 .users{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    flex-direction: column;
 }
 
 .dangerIcon{

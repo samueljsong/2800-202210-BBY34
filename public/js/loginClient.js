@@ -50,13 +50,12 @@ ready(function () {
 
             if (data) {
                 let dataParsed = JSON.parse(data);
-                console.log(dataParsed);
                 if (dataParsed.status == "fail") {
                     document.getElementById("errorMsg").innerHTML = dataParsed.msg;
                 } else {
-                    if(dataParsed.toUpperCase() === "USER") {
+                    if(dataParsed.msg.toUpperCase() === "USER") {
                         window.location.replace("/mainPageUser");
-                    } else if (dataParsed.toUpperCase() === "ADMIN") {
+                    } else if (dataParsed.msg.toUpperCase() === "ADMIN") {
                         window.location.replace("/adminMain");
                     }
                 }

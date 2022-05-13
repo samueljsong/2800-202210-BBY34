@@ -38,25 +38,25 @@
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="material-icons">&#xe7fd;</i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="formSignUpName" class="form-control" />
-                        <label class="form-label" for="formSignUpName">Your Name</label>
+                      <div class="was-validated form-outline flex-fill mb-0">
+                        <input type="text" id="userSignUpName" minlength="5" maxlength="20" class="form-control is-invalid" placeholder="Required 5-20 characters" />
+                        <label class="form-label is-invalid" for="userSignUpName">Your Name</label>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="material-icons">&#xe158;</i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="formSignUpEmail" class="form-control" />
-                        <label class="form-label" for="formSignUpEmail">Your Email</label>
+                      <div class="was-validated form-outline flex-fill mb-0">
+                        <input type="email" id="userSignUpEmail" minlength="5" maxlength="30" class="form-control is-invalid" placeholder="Required 5-30 characters" />
+                        <label class="form-label" for="userSignUpEmail">Your Email</label>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="material-icons">&#xe897;</i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="formSignUpPassword" class="form-control" />
-                        <label class="form-label" for="formSignUpPassword">Password</label>
+                      <div class="was-validated form-outline flex-fill mb-0">
+                        <input type="password" id="userSignUpPassword" minlength="8" maxlength="20" class="form-control is-invalid" placeholder="Required 8-20 characters" />
+                        <label class="form-label" for="userSignUpPassword">Password</label>
                       </div>
                     </div>
 
