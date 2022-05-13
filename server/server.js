@@ -275,6 +275,15 @@ app.get("/viewRestaurants", (req, res) => {
   }
 });
 
+app.get("/dashboardAdmin", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.listen(port, () => {
   console.log(`server running on port: ${port}`);
 });
