@@ -116,49 +116,6 @@ ready(function () {
             
         })
 
-        // document.getElementById('nameFormControlInput').addEventListener('click', function(e){
-        //     e.preventDefault();
-        //     ajaxPATCH("/api/user/" + queryString, function (data){
-        //         console.log(data)
-        //     },queryString)
-        // })
-
-        // document.getElementById('emailFormControlInput').addEventListener('click', function(e){
-        //     e.preventDefault();
-        //     ajaxPOST("/api/user/" + queryString, function (data){
-        //         console.log(data)  
-        //     },queryString)
-        // })
-
-        // document.getElementById('passwordFormControlInput').addEventListener('click', function(e){
-        //     e.preventDefault();
-        //     ajaxPOST("/api/user/" + queryString, function (data){
-        //         console.log(data)  
-        //     },queryString)
-        // })
-
-        // const uploadProfilePic = document.getElementById("uploadProfilePic");
-        // uploadProfilePic.addEventListener("click", uploadImages);
-
-        // function uploadImages(e) {
-        //     e.preventDefault();
-        //     const imageUpload = document.querySelector('#controlUploadPic');
-        //     const formData = new FormData();
-        //     for(let i = 0; i < imageUpload.files.length; i++) {
-        //         formData.append("files", imageUpload.files[i]);
-        //     }
-        //     console.log(formData);
-        //     const options = {
-        //         method: 'POST',
-        //         body: formData,
-        //     };
-        //     fetch("/api/user/" + parentIdEdit, options
-        //     ).then(function(res) {
-        //         console.log(res);
-        //     }).catch(function(err) {("Error:", err)}
-        //     );
-        // }
-
         localStorage.removeItem('adminUpdate')
 
 

@@ -17,6 +17,10 @@ h1 {
     color: white;
 }
 
+.material-icons {
+    color: #199419 !important;
+}
+
 @media(min-width: 415px) and (max-width:2000px) {
     #container {
         background-position: center;
