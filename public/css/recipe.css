@@ -8,6 +8,9 @@
     grid-template-rows: auto;
     grid-row-gap: 10px;
   }
+  .info-container {
+    display: grid;
+  }
   .extra {
     padding: 10px 0px 10px 0px;
     display: grid;

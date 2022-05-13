@@ -98,7 +98,7 @@ h1 {
     }
     .btn {
         background: none;
-        color: black !important;
+        color: rgba(201, 242, 219, 0.521) !important;
         border: none;
         margin-left: 10px;
         font-size: 15px;
@@ -250,6 +250,7 @@ h1 {
         border: none;
         margin-left: 6px;
         font-size: 14px !important;
+        color: rgba(83, 158, 115, 0.521) !important;
     }
 }
 
