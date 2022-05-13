@@ -70,9 +70,7 @@
 
     <nav id="navbarGoBackButton" class="navbar sticky-top navbar-light bg-light">
         <div class="container">
-            <a class="material-icons" id="goBackButton" href="#">
-                &#xe5c4;
-            </a>
+            <a class="material-icons" id="goBackButton" href="#">&#xe5c4;</a>
             <a class="navbar-brand" href="#">Dashboard</a>
         </div>
     </nav>
@@ -106,62 +104,77 @@
         </div>
     </nav>
 
-    <div id="listContainer">
-        <ul id="listOfUsers" class="list-group list-group-flush">
+
+    <div class="listContainer">
+        <ul id="postParent" class="list-group list-group-flush listOfUsers">
+            <template id="container">
+                <li class="list-group-item list-group-item-action userListForAdmin">
+                    <div class="users">
+                        <div class="userID"></div>
+                        <div class="userName"></div>
+                        <div class="email"></div>
+                    </div>
+                    <div class="usersBtn">
+                        <button type="button" id="editInfo" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#profileEditModal">Edit</button>
+                        <button type="button" id="deleteInfo" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#profileDeleteModal">Delete</button>
+                    </div>
+                </li>
+            </template>
             <li class="list-group-item list-group-item-action">
-                <div class="users">User 1</div>
+                <div></div>
                 <div class="usersBtn">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#profileEditModal">Edit</button>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#profileDeleteModal">Delete</button>
-                </div>
-            </li>
-            <li class="list-group-item list-group-item-action">
-                <div class="users">User 2</div>
-                <div class="usersBtn">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#profileEditModal">Edit</button>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#profileDeleteModal">Delete</button>
-                </div>
-            </li>
-            <li class="list-group-item list-group-item-action">
-                <div class="users">User 3</div>
-                <div class="usersBtn">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#profileEditModal">Edit</button>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#profileDeleteModal">Delete</button>
-                </div>
-            </li>
-            <li class="list-group-item list-group-item-action">
-                <div class="users">User 4</div>
-                <div class="usersBtn">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#profileEditModal">Edit</button>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#profileDeleteModal">Delete</button>
-                </div>
-            </li>
-            <li class="list-group-item list-group-item-action">
-                <div class="users">User 5</div>
-                <div class="usersBtn">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#profileEditModal">Edit</button>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                        data-bs-target="#profileDeleteModal">Delete</button>
-                </div>
-            </li>
-            <li class="list-group-item list-group-item-action">
-                <div class="users"></div>
-                <div class="usersBtn">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#profileDeleteModal">Add user</button>
+                    <button type="button" id="addNewUser" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#addUserModal">Add user</button>
                 </div>
             </li>
         </ul>
     </div>
+
+
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Add a new user here</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeButton">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload a profile photo</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nameAddedByAdmin" class="form-label">Full Name</label>
+                        <input class="form-control" id="nameAddedByAdmin" placeholder="Type user name here">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nameAddedByAdmin" class="form-label">User Type</label>
+                        <input class="form-control" id="userTypeAddedByAdmin" placeholder="Type user type here">
+                    </div>
+                    <div class="was-validated mb-3">
+                        <label for="emailAddedByAdmin" class="form-label">Email</label>
+                        <input type="email" class="form-control is-invalid" id="emailAddedByAdmin" minlength="5"
+                            maxlength="30" placeholder="Required 5-30 characters">
+                    </div>
+                    <div class="was-validated mb-3">
+                        <label for="passwordAddedByAdmin" class="form-label">Password</label>
+                        <input type="password" class="form-control is-invalid" id="passwordAddedByAdmin" minlength="8"
+                            maxlength="20" placeholder="Required 8-20 characters">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="saveNewUser" class="btn btn-primary" data-bs-dismiss="modal">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="modal fade" id="profileEditModal" tabindex="-1" aria-labelledby="profileEditModalLabel"
         aria-hidden="true">
@@ -174,13 +187,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
+                    <div id="uploadProfilePic" class="mb-3">
                         <label for="formFile" class="form-label">Upload your new profile photo</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" id="userProfilePic">
                     </div>
-                    <div class="mb-3">
-                        <label for="nameFormControlInput" class="form-label">Full Name</label>
-                        <input class="form-control" id="nameFormControlInput" placeholder="Type your new name here">
+                    <div class="mb-3 was-validated">
+                        <label for="nameFormControlInput" class="form-label is-invalid">Full Name</label>
+                        <input class="form-control" minlength="5" maxlength="20" id="nameFormControlInput" placeholder="Required 5-20 characters">
                     </div>
                     <div class="was-validated mb-3">
                         <label for="emailFormControlInput" class="form-label">Email</label>
@@ -195,7 +208,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
+                    <button type="button" id="saveEdit" class="btn btn-primary" data-bs-dismiss="modal">Save
                         changes</button>
                 </div>
             </div>
@@ -222,47 +235,21 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete anyway</button>
+                    <button type="button" id="deleteUser" class="btn btn-danger" data-bs-dismiss="modal">Delete
+                        anyway</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- <footer id="footerStickyBottom" class="bg-light text-center text-lg-start fixed-bottom">
-        <div class="text-center py-3" style="background-color: rgba(201, 242, 219, 0.521);">
-            © 2022 Copyright:
-            <a class="text-dark" href="mainPageUser.html">MooVE</a>
-        </div>
-    </footer> -->
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-muted">© 2022 MooVE, BBY34</p>
-
-        <!-- <a class="navbar-brand homeAdmin" href="#">
-            <img src="/img/MooVElogo.png" alt="" width="70">
-        </a> -->
-    
-        <!-- <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="/img/MooVElogo.png" alt="" width="70">
-        </a> -->
-    
-        <!-- <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Dashboard</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Restaurants</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Recipes</a></li>
-        </ul> -->
     </footer>
-
-    <!-- <footer id="footerNonStickyBottom" class="bg-light text-center text-lg-start">
-        <div class="text-center py-3" style="background-color: rgba(201, 242, 219, 0.521);">
-            © 2022 Copyright:
-            <a class="text-dark" href="mainPageUser.html">MooVE</a>
-        </div>
-    </footer> -->
 
     <script src="/js/navbarGoBack.js"></script>
     <script src="/js/clientAdmin.js"></script>
+    <script src="/js/dashboardAdmin.js"></script>
+
 
 
 </body>

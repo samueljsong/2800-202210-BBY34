@@ -49,22 +49,26 @@ ready(function () {
         ajaxPOST("/api/login", function (data) {
 
             if (data) {
-                // console.log(data);
                 let dataParsed = JSON.parse(data);
-                console.log(dataParsed);
                 if (dataParsed.status == "fail") {
                     document.getElementById("errorMsg").innerHTML = dataParsed.msg;
                 } else {
-                    if(dataParsed.toUpperCase() === "USER") {
+                    if(dataParsed.msg.toUpperCase() === "USER") {
                         window.location.replace("/mainPageUser");
-                    } else if (dataParsed.toUpperCase() === "ADMIN") {
+                    } else if (dataParsed.msg.toUpperCase() === "ADMIN") {
                         window.location.replace("/adminMain");
                     }
                 }
             }
-
         }, queryString);
     });
+
+    document.querySelector("#signUp").addEventListener("click", function (e) {
+        e.preventDefault();
+        ajaxGET("/signUp", function (data) {
+          window.location.replace("/signUp");
+        });
+      });
 });
 
 
