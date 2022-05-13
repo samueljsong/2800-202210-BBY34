@@ -56,7 +56,7 @@ app.post("/api/signup", async (req, res) => {
     await user.save();
     res.status(201).send({
       status: "success",
-      msg: `${user.username} created`
+      msg: `${user._id} created`
     });
   } catch (err) {
     res.status(400).send({status:"fail",msg:err.toString()});
@@ -99,6 +99,30 @@ app.patch("/api/user/:id", async (req, res) => {
         }
       );
       res.send(user);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/api/users", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const users = await User.find();
+      res.send(users);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+app.get("/api/user/:id", async (req, res) => {
+  console.log(req.params.id)
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.params.id });
+      res.send(currentUser);
     } catch (err) {
       res.send(err);
     }
@@ -175,7 +199,8 @@ app.post("/api/login", async (req, res) => {
       req.session.save();
       res.status(200).send({
         status: "success",
-        msg: user.userType
+        msg: user.userType, 
+        userId: user._id
       })
     } else {
       res.status(401).send({

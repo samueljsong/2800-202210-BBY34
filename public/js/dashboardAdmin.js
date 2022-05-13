@@ -58,19 +58,14 @@ ready(function () {
     }
 
     function updateUser(parentIdEdit) {
-       
         let idString =  String(localStorage.getItem('adminUpdate'));
-        let queryString = "";
-        //console.log("id:" + queryString);
         let emailVal;
         let passwordVal;
         let nameVal;
         let picVal;
         document.getElementById('saveEdit').addEventListener('click', function(e){
             e.preventDefault();
-
-            
-
+            let queryString = "";
             if (document.querySelectorAll("#nameFormControlInput")[0].value != 0) {
                 if(queryString.length == 0) {
                     nameVal = document.querySelectorAll("#nameFormControlInput")[0].value;
@@ -111,6 +106,8 @@ ready(function () {
             if(queryString.length != 0) {
                 ajaxPATCH("/api/user/" + idString, function (data){
                     console.log(data)
+                    window.location.replace("/dashboardAdmin");
+
                 },queryString)
             }
             
@@ -118,13 +115,9 @@ ready(function () {
 
         localStorage.removeItem('adminUpdate')
 
-
-
     }
 
-
-    function deleteUser(parentIdDelete) {
-        
+    function deleteUser(parentIdDelete) {      
         let queryString =  String(localStorage.getItem('adminDelete'));
         console.log("id:" + queryString);
         document.getElementById('deleteUser').addEventListener('click', function(e){

@@ -53,6 +53,7 @@ ready(function () {
                 if (dataParsed.status == "fail") {
                     document.getElementById("errorMsg").innerHTML = dataParsed.msg;
                 } else {
+                    localStorage.setItem("currentUserID", dataParsed.userId);
                     if(dataParsed.msg.toUpperCase() === "USER") {
                         window.location.replace("/mainPageUser");
                     } else if (dataParsed.msg.toUpperCase() === "ADMIN") {

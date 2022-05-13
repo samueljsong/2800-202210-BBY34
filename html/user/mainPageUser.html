@@ -95,7 +95,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><button class="dropdown-item" type="button"
-                            onclick="location.href='/api/logout';">Logout</button></li>
+                            onclick="cleanUp()">Logout</button></li>
                 </ul>
             </div>
         </div>
@@ -157,6 +157,14 @@
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-muted">© 2022 MooVE, BBY34</p>
     </footer>
+
+    <script>
+        function cleanUp(){
+            localStorage.removeItem("currentUserID");
+            location.href='/api/logout';
+        }
+        
+    </script>
     <script src="/js/navbar.js"></script>
     <script src="/js/clientUser.js" defer></script>
 </body>
