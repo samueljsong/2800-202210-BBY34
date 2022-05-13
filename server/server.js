@@ -37,10 +37,7 @@ app.use(
     })
 );
 
-<<
-<<
-<<
-<
+
 HEAD
 app.get("/api/users", async(req, res) => {
     if (req.session.isAuth) {
@@ -99,9 +96,7 @@ app.patch("/api/user/:id", async(req, res) => {
                             req.body, {
                                 new: true,
                                 runValidators: true,
-                                ===
-                                ===
-                                =
+
                                 app.get("/api/users", async(req, res) => {
                                     if (req.session.isAuth) {
                                         try {
@@ -116,10 +111,7 @@ app.patch("/api/user/:id", async(req, res) => {
                                     }
                                 });
 
-                                <<
-                                <<
-                                <<
-                                <
+
                                 HEAD
                                 app.delete("/api/user/:id", async(req, res) => {
                                         if (req.session.isAuth) {
@@ -135,9 +127,9 @@ app.patch("/api/user/:id", async(req, res) => {
                                                         });
                                                         res.send(`${deletedUser.email} deleted`);
                                                     } else {
-                                                        res.send("Not Authorized"); ===
-                                                        ===
-                                                        =
+                                                        res.send("Not Authorized");
+
+
                                                         app.post("/api/admin/signup", async(req, res) => {
                                                             if (req.session.isAuth) {
                                                                 try {
