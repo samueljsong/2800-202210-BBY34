@@ -1,0 +1,57 @@
+#navbarGoBackButton{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: transparent !important;
+}
+
+#goBackButton{
+    font-size: 40px;
+}
+
+#listContainer{
+    display: grid;
+    grid-template-rows: 5% 95% 5%;
+    grid-template-columns: 15% 70% 15%;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    min-height: 30vh;
+}
+
+#listOfUsers{
+    grid-row: 2/span 1;
+    grid-column: 2/span 1;
+    align-self: center;
+}
+
+.list-group-item {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.users{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dangerIcon{
+    color: rgb(98, 14, 14) !important;
+    margin-right: 10px;
+}
+
+@media(min-width: 992px) {
+    #listContainer{
+        grid-template-columns: 25% 50% 25%;
+    }
+}
+
+@media(max-width: 415px) {
+    #listContainer{
+        grid-template-columns: 5% 90% 5%;
+    }
+
+    footer {
+        margin-bottom: 40px !important;
+    }
+}
