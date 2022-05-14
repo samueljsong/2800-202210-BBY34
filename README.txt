@@ -1,12 +1,12 @@
 Team Members:
 
-[Samuel (Joo-Hun) Song], [A01308345], [Set 1D],[2022-05-05]
-[Phuong Nguyen], [A01275205], [Set 2D], [2022-05-05]
-[Dinuja Gunawardana], [A01295467], [Set 1D], [2022-05-05]
-[Leerang (Naomi) Byun], [A01199376], [Set 2D], [2022-05-05]
+[Samuel (Joo-Hun) Song], [A01308345], [Set 1D],[2022-05-13]
+[Phuong Nguyen], [A01275205], [Set 2D], [2022-05-13]
+[Dinuja Gunawardana], [A01295467], [Set 1D], [2022-05-13]
+[Leerang (Naomi) Byun], [A01199376], [Set 2D], [2022-05-13]
 
 
-First milestone: This assignment is [84]% complete.
+Second milestone: This assignment is 100% complete.
 
 You can check our database using this link in cmd: 
 

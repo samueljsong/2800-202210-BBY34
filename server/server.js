@@ -10,7 +10,7 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -52,7 +52,6 @@ app.get("/api/users", async (req, res) => {
 
 app.post("/api/signup", async (req, res) => {
   const user = new User(req.body);
-  console.log(user.user);
   try {
     await user.save();
     res.status(201).send({
@@ -99,7 +98,6 @@ app.get("/api/users", async (req, res) => {
   }
 });
 app.get("/api/user/:id", async (req, res) => {
-  console.log(req.params.id);
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.params.id });
@@ -117,8 +115,6 @@ app.delete("/api/user/:id", async (req, res) => {
     try {
       const currentUser = await User.findOne({ _id: req.session.userID });
       const targetUser = await User.findOne({ _id: req.params.id });
-      console.log(currentUser);
-      console.log(targetUser);
       if (currentUser.userType === "User") {
         if (currentUser.id === targetUser.id) {
           const deletedUser = await User.findOneAndDelete({
@@ -321,6 +317,15 @@ app.get("/viewRestaurants", (req, res) => {
 app.get("/dashboardAdmin", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/viewRecipes", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
