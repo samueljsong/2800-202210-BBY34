@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1200px) {
   body {
-    background-color: white
+    background-color: #dfffdf;
   }
   .general {
     display: grid;
@@ -8,16 +8,77 @@
     grid-template-rows: auto;
     grid-row-gap: 10px;
   }
+  .info-container {
+    display: grid;
+  }
+  .extra {
+    padding: 10px 0px 10px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  #back {
+    grid-column: 1/2;
+    justify-self: left;
+    align-self: center;
+    cursor: pointer;
+  }
+  #back:hover {
+    color: #86b386;
+  }
+  .extra-right {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column: 2 / 3;
+    justify-items: right;
+  }
+  #share {
+    grid-row: 1/2;
+    cursor: pointer;
+  }
+  #share:hover {
+    color: #86b386;
+  }
+  #heart {
+    grid-row: 1/2;
+    padding-left: 5px;
+    cursor: pointer;
+  }
+  #heart:hover {
+    color: #86b386;
+  }
+  .name {
+    display: grid;
+    border-radius: 5px;
+    background-color: rgb(51, 49, 49);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #ingredients-for {
+    color: rgb(51, 49, 49);
+    font-size: 5vw;
+  }
+  #recipe-title {
+    justify-self: center;
+    color: #86b386;
+  }
   .rating {
-    color: #86b386
+    color: rgb(51, 49, 49);
+    padding: 20px 0px 20px 0px;
+  }
+  #thumbs {
+    color: black;
   }
   #taco {
     max-width: 100%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
   }
   .servings-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
   }
   .control {
     display: grid;
@@ -30,16 +91,44 @@
     width: 150px;
     color: #86b386;
     background-color: rgb(51, 49, 49);
+    border-radius: 5px;
   }
   #plus {
     cursor: pointer;
-    color: #86b386
+    color: #86b386;
   }
   #minus {
     cursor: pointer;
-    color: #86b386
+    color: #86b386;
   }
   #context {
     align-self: center;
+  }
+  ul li {
+    color: rgb(51, 49, 49);
+    margin: 5px;
+    list-style: none;
+  }
+  ol li {
+    color: rgb(51, 49, 49);
+    margin: 5px;
+  }
+  .list {
+    display: grid;
+    background-color: rgb(241, 241, 241);
+    margin: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    border-radius: 5px;
+  }
+  .instructions {
+    display: grid;
+    background-color: rgb(241, 241, 241);
+    margin: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    border-radius: 5px;
+  }
+  #instruction-header {
+    font-size: 5vw;
+    color: rgb(51, 49, 49);
   }
 }

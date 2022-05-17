@@ -7,9 +7,11 @@ function windowSize() {
   if (w <= maxWidth) {
     document.getElementById("navbarContainer").style.display = "none";
     document.getElementById("navbarContainerBottom").style.display = "flex";
+    document.getElementById("navbarGoBackButton").style.display = "flex";
   } else {
     document.getElementById("navbarContainer").style.display = "flex";
     document.getElementById("navbarContainerBottom").style.display = "none";
+    document.getElementById("navbarGoBackButton").style.display = "none";
   }
 }
 

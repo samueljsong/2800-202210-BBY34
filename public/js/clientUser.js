@@ -15,7 +15,7 @@ ready(function () {
 
   let homeArr = document.getElementsByClassName("homeUser");
 
-  Array.from(homeArr).forEach(element => {
+  Array.from(homeArr).forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
       ajaxGET("/mainPageUser", function (data) {
@@ -33,7 +33,7 @@ ready(function () {
 
   let dropUpDownArr = document.getElementsByClassName("picProfile");
 
-  Array.from(dropUpDownArr).forEach(element => {
+  Array.from(dropUpDownArr).forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
       ajaxGET("/profileUser", function (data) {
@@ -76,8 +76,8 @@ ready(function () {
 
   document.querySelector("#favourites").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/fav", function (data) {
-      window.location.replace("/fav");
+    ajaxGET("/fav2", function (data) {
+      window.location.replace("/fav2");
     });
   });
 
@@ -85,8 +85,8 @@ ready(function () {
     .querySelector("#favourites2")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      ajaxGET("/fav", function (data) {
-        window.location.replace("/fav");
+      ajaxGET("/fav2", function (data) {
+        window.location.replace("/fav2");
       });
     });
 });

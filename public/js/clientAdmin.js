@@ -15,7 +15,7 @@ ready(function () {
 
   let homeArr = document.getElementsByClassName("homeAdmin");
 
-  Array.from(homeArr).forEach(element => {
+  Array.from(homeArr).forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
       ajaxGET("/adminMain", function (data) {
@@ -33,7 +33,7 @@ ready(function () {
 
   let dropUpDownArr = document.getElementsByClassName("picProfile");
 
-  Array.from(dropUpDownArr).forEach(element => {
+  Array.from(dropUpDownArr).forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
       ajaxGET("/profileAdmin", function (data) {
@@ -71,6 +71,17 @@ ready(function () {
     e.preventDefault();
     ajaxGET("/recipe", function (data) {
       window.location.replace("/recipe");
+    });
+  });
+
+  let dashboardArr = document.getElementsByClassName("dashboardAdmin");
+
+  Array.from(dashboardArr).forEach((element) => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/dashboardAdmin", function (data) {
+        window.location.replace("/dashboardAdmin");
+      });
     });
   });
 });

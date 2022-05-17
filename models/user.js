@@ -1,3 +1,4 @@
+"use strict";
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
@@ -20,6 +21,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
     maxlength: 20,
+  },
+
+  picture: {
+    type: String,
   },
 
   userType: {
