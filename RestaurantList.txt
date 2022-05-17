@@ -1,0 +1,13 @@
+The Wallflower
+Description: Informal neighbourhood eatery offering diner comfort food for meat eaters, vegans & celiacs alike
+Address: 2420 Main St, Vancouver, BC V5T 3H9
+Phone: 604-568-7554
+Hours {
+Sunday: 9a.m.–10p.m.
+Monday: 10a.m.–10p.m
+Tuesday: 10a.m.–10p.m.
+Wednesday: 10a.m.–10p.m.
+Thursday: 10a.m.–10p.m.
+Friday: 10a.m.–10p.m.
+Saturday: 9a.m.–10p.m.
+}
