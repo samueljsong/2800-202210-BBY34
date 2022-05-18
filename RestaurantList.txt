@@ -41,3 +41,17 @@ Hours{
     Friday: 10:00a.m.–8:00p.m.
     Saturday: 10:00a.m.–8:00p.m.
 }
+
+The Naam
+Description: Casual spot with local art, a garden patio & nightly live music, serving natural & vegetarian foods
+Address: 2724 W 4th Ave, Vancouver, BC V6K 1R1
+Phone: 604-738-7151
+Hours{
+    Sunday: 9a.m.–11p.m.
+    Monday: 9a.m.–11p.m.
+    Tuesday	11a.m.–11p.m.
+    Wednesday: 11a.m.–11p.m.
+    Thursday: 11a.m.–11p.m.
+    Friday: 11a.m.–11p.m.
+    Saturday: 9a.m.–11p.m.
+}
