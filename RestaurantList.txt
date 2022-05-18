@@ -11,3 +11,19 @@ Thursday: 10a.m.–10p.m.
 Friday: 10a.m.–10p.m.
 Saturday: 9a.m.–10p.m.
 }
+
+MeeT
+Locations: MeeT on Main (604-696-1010)
+           Meet in Gastown (604-696-1111)
+Description:Innovative vegan & vegetarian dishes are the draw at this vibrant, simply appointed bistro.
+Address: Meet in Gastown:  inner Courtyard, 12 Water St, Vancouver, BC V6B 4K7
+         Meet on Main: 4288 Main St, Vancouver, BC V5V 3P9
+Hours (Both locations){
+Sunday: 11a.m.–10p.m.
+Monday: 11a.m.–10p.m.
+Tuesday: 11a.m.–10p.m.
+Wednesday: 11a.m.–10p.m.
+Thursday: 11a.m.–10p.m.
+Friday: 11a.m.–11p.m.
+Saturday: 11a.m.–11p.m.
+}
