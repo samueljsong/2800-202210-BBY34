@@ -21,7 +21,6 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
-
 app.use(
   session({
     secret: "burnaby34",
@@ -97,6 +96,7 @@ app.get("/api/users", async (req, res) => {
     }
   }
 });
+
 app.get("/api/user/:id", async (req, res) => {
   if (req.session.isAuth) {
     try {
@@ -260,6 +260,15 @@ app.get("/adminMain", (req, res) => {
   }
 });
 
+app.get("/dashboardAdmin", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.get("/profileAdmin", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/admin/profileAdmin.html", "utf-8");
@@ -305,18 +314,27 @@ app.get("/recipe", (req, res) => {
   }
 });
 
-app.get("/viewRestaurants", (req, res) => {
+app.get("/recipeInput", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+    let doc = fs.readFileSync("../html/recipeInput.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
   }
 });
 
-app.get("/dashboardAdmin", (req, res) => {
+app.get("/restaurant", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/signUp", (req, res) => {
+  if (!req.session.isAuth) {
+    let doc = fs.readFileSync("../html/signUp.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
@@ -326,6 +344,15 @@ app.get("/dashboardAdmin", (req, res) => {
 app.get("/viewRecipes", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/viewRestaurants", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
