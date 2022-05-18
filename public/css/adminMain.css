@@ -27,6 +27,10 @@ body {
     height: 100vh;
 }
 
+.material-icons {
+    color: #199419 !important;
+}
+
 @media(min-width: 1200px) {
     .navbar {
         overflow: hidden;

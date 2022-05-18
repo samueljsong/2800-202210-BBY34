@@ -1,8 +1,8 @@
 "use strict";
-ready(function() {
+ready(function () {
   function ajaxGET(url, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = function () {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         callback(this.responseText);
       } else {
@@ -13,13 +13,10 @@ ready(function() {
     xhr.send();
   }
 
-  document.querySelector("#back").addEventListener("click", function(e) {
+  document.querySelector("#back").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/mainPageUser", function(data) {
+    ajaxGET("/mainPageUser", function (data) {
       window.location.replace("/mainPageUser");
     });
   });
-
-
-
 });

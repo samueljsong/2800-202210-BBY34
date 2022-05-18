@@ -17,6 +17,10 @@ h1 {
     color: white;
 }
 
+.material-icons {
+    color: #199419 !important;
+}
+
 @media(min-width: 415px) and (max-width:2000px) {
     #container {
         background-position: center;
@@ -94,7 +98,7 @@ h1 {
     }
     .btn {
         background: none;
-        color: black !important;
+        color: rgba(201, 242, 219, 0.521) !important;
         border: none;
         margin-left: 10px;
         font-size: 15px;
@@ -246,6 +250,7 @@ h1 {
         border: none;
         margin-left: 6px;
         font-size: 14px !important;
+        color: rgba(83, 158, 115, 0.521) !important;
     }
 }
 
@@ -254,6 +259,6 @@ h1 {
         height: 12vw !important;
     }
     footer {
-        padding-bottom: 70px;
+        padding-bottom: 50px;
     }
 }
