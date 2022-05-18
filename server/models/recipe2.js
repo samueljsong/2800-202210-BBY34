@@ -1,0 +1,54 @@
+const { Schema, model } = require("mongoose");
+
+const recipeSchema = new Schema(
+  {
+    posted: {
+      type: Date,
+      default: Date.now,
+      required: true,
+    },
+
+    author: {
+      type: Schema.ObjectId,
+      ref: "User",
+    },
+
+    picture: {
+      type: String,
+    },
+
+    recipeName: {
+      type: String,
+      required: true,
+    },
+
+    ingredients: {
+      type: String,
+      required: true,
+    },
+
+    instructions: {
+      type: String,
+      required: true,
+    },
+
+    serving: {
+      type: Number,
+      required: true,
+    },
+
+    rating: {
+      type: Number,
+      required: true,
+      min: 0,
+      max: 5,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Recipe2 = model("Recipe2", recipe2Schema);
+
+module.exports = Recipe2;
