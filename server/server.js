@@ -367,7 +367,6 @@ app.get("/viewRestaurants", (req, res) => {
     res.redirect("/");
   }
 });
-
 app.listen(port, () => {
   console.log(`server running on port: ${port}`);
 });
