@@ -1,3 +1,4 @@
+"use strict";
 const { Schema, model } = require("mongoose");
 
 const locationSchema = new Schema({
@@ -5,19 +6,19 @@ const locationSchema = new Schema({
     type: String,
     required: true,
     minlength: 0,
-    maxlength: 20
+    maxlength: 20,
   },
   address: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 30
+    maxlength: 30,
   },
   phoneNumber: {
     type: Number,
     min: 10,
-    max: 10
-  }
+    max: 10,
+  },
 });
 
 const Location = model("Location", locationSchema);
