@@ -10,7 +10,7 @@ const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -23,7 +23,6 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
-
 app.use(
   session({
     secret: "burnaby34",
@@ -40,8 +39,6 @@ app.use(
   })
 );
 
-
-
 app.get("/api/users", async (req, res) => {
   if (req.session.isAuth) {
     try {
@@ -55,12 +52,11 @@ app.get("/api/users", async (req, res) => {
 
 app.post("/api/signup", async (req, res) => {
   const user = new User(req.body);
-  console.log(user.user);
   try {
     await user.save();
     res.status(201).send({
       status: "success",
-      msg: `${user._id} created`
+      msg: `${user._id} created`,
     });
   } catch (err) {
     res.status(400).send({
@@ -109,8 +105,8 @@ app.get("/api/users", async (req, res) => {
     }
   }
 });
+
 app.get("/api/user/:id", async (req, res) => {
-  console.log(req.params.id)
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({
@@ -134,8 +130,7 @@ app.delete("/api/user/:id", async (req, res) => {
       const targetUser = await User.findOne({
         _id: req.params.id
       });
-      console.log(currentUser);
-      console.log(targetUser);
+
       if (currentUser.userType === "User") {
         if (currentUser.id === targetUser.id) {
           const deletedUser = await User.findOneAndDelete({
@@ -205,13 +200,13 @@ app.post("/api/login", async (req, res) => {
     } else {
       res.status(401).send({
         status: "fail",
-        msg: "Login Failed"
+        msg: "Login Failed",
       });
     }
   } else {
     res.status(400).send({
       status: "fail",
-      msg: "User email not found."
+      msg: "User email not found.",
     });
   }
 });
@@ -244,8 +239,6 @@ app.patch("/api/user/:id", async (req, res) => {
     res.redirect("/");
   }
 });
-
-
 
 app.use(express.static("public"));
 app.use("/js", express.static("../public/js"));
@@ -281,6 +274,15 @@ app.get("/loginErrorNoUserFound", (req, res) => {
 app.get("/adminMain", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/dashboardAdmin", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
@@ -332,18 +334,45 @@ app.get("/recipe", (req, res) => {
   }
 });
 
-app.get("/viewRestaurants", (req, res) => {
+app.get("/recipeInput", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+    let doc = fs.readFileSync("../html/recipeInput.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
   }
 });
 
-app.get("/dashboardAdmin", (req, res) => {
+app.get("/restaurant", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/signUp", (req, res) => {
+  if (!req.session.isAuth) {
+    let doc = fs.readFileSync("../html/signUp.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/viewRecipes", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/viewRestaurants", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
