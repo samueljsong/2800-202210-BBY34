@@ -55,3 +55,15 @@ Hours{
     Friday: 11a.m.–11p.m.
     Saturday: 9a.m.–11p.m.
 }
+
+Earls Kitchen + Bar (Multiple Locations)
+Description: Sleek, upscale chain serving gourmet burgers, global comfort food, cocktails, wines & beers.
+Hours{
+    Sunday: 10a.m.–12a.m.
+    Monday: 11:30a.m.–12a.m.
+    Tuesday: 11:30a.m.–12a.m  
+    Wednesday: 11:30a.m.–12a.m.
+    Thursday: 11:30a.m.–12a.m.
+    Friday: 11:30a.m.–1a.m.
+    Saturday: 10a.m.–1a.m.
+}
