@@ -58,7 +58,7 @@
                         <img src="/img/profilePic.png" class="rounded-circle picProfile" alt="profilePicture" />
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button"
+                        <li><button id="logOutBtn" class="dropdown-item" type="button"
                                 onclick="location.href='/api/logout';">Logout</button></li>
                     </ul>
                 </div>
@@ -90,8 +90,9 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><button class="dropdown-item" type="button"
-                            onclick="location.href='/api/logout';">Logout</button></li>
+                            onclick="cleanUp()">Logout</button></li>
                 </ul>
+                
             </div>
         </div>
     </nav>
@@ -104,11 +105,11 @@
                         <div class="card-body text-center">
                             <img src="/img/profilePic.png" alt="avatar" class="rounded-circle img-fluid"
                                 style="width: 150px;">
-                            <h5 class="my-3">Kate Luxemburgh</h5>
+                            <h5 id="profileName" class="my-3"></h5>
                             <p class="text-muted mb-1">Librarian</p>
                             <p class="text-muted mb-4">3700 Willingdon Avenue, Burnaby, BC, V5G 3H2</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profileEditModal">Edit</button>
+                                <button type="button" id="editInfo" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profileEditModal">Edit</button>
                                 <div class="modal fade" id="profileEditModal" tabindex="-1" aria-labelledby="profileEditModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                       <div class="modal-content">
@@ -120,8 +121,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="mb-3">
-                                                <label for="formFile" class="form-label">Upload your new profile photo</label>
-                                                <input class="form-control" type="file" id="formFile">
+                                                <label for="userProfilePic" class="form-label">Upload your new profile photo</label>
+                                                <input class="form-control" type="file" id="userProfilePic">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nameFormControlInput" class="form-label">Full Name</label>
@@ -138,7 +139,7 @@
                                         </div>
                                         <div class="modal-footer">
                                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                          <button type="button" id="saveEdit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
                                         </div>
                                       </div>
                                     </div>
@@ -154,8 +155,8 @@
                                 <div class="col-sm-3">
                                     <p class="mb-0">Full Name</p>
                                 </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Kate Luxemburgh</p>
+                                <div  class="col-sm-9">
+                                    <p id="fullName" class="text-muted mb-0"></p>
                                 </div>
                             </div>
                             <hr>
@@ -164,7 +165,7 @@
                                     <p class="mb-0">Email</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">kateluxemburgh@bcit.ca</p>
+                                    <p id="email" class="text-muted mb-0"></p>
                                 </div>
                             </div>
                             <hr>
@@ -200,17 +201,22 @@
             </div>
         </div>
 
-        <footer class="bg-light text-center text-lg-start">
-            <div class="text-center py-3" style="background-color: rgba(201, 242, 219, 0.521);">
-                © 2022 Copyright:
-                <a class="text-dark" href="mainPageUser.html">MooVE</a>
-            </div>
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">© 2022 MooVE, BBY34</p>
         </footer>
 
-
+        <script>
+            function cleanUp(){
+                localStorage.removeItem("currentUserID");
+                location.href='/api/logout';
+            }
+            
+        </script>
 
         <script src="/js/navbar.js"></script>
         <script src="/js/clientUser.js" defer="defer"></script>
+        <script src="/js/editUser.js" defer="defer"></script>
+
 
     </div>
 </body>

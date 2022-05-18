@@ -1,3 +1,4 @@
+"use strict";
 const { Schema, model } = require("mongoose");
 
 const recipeSchema = new Schema({
@@ -5,7 +6,7 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
     minlength: 0,
-    maxlength: 20
+    maxlength: 20,
   },
   ingredients: {
     type: String,
@@ -17,8 +18,8 @@ const recipeSchema = new Schema({
   rating: {
     type: Number,
     min: 0,
-    max: 5
-  }
+    max: 5,
+  },
 });
 
 const Recipe = model("Recipe", recipeSchema);
