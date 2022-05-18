@@ -27,3 +27,17 @@ Thursday: 11a.m.–10p.m.
 Friday: 11a.m.–11p.m.
 Saturday: 11a.m.–11p.m.
 }
+
+Bruncheria 
+Description: 
+Address: 502 East Columbia Street, New Westminster, British Columbia V3L 1B1, Canada
+Phone: 604-544-0018
+Hours{
+    Sunday: 10:00a.m.–8:00p.m.
+    Monday: 10:00a.m.–2:00 p.m.
+    Tuesday: 10:00a.m.–2:00 p.m.
+    Wednesday: 10:00a.m.–8:00p.m.
+    Thursday: 10:00a.m.–8:00p.m.
+    Friday: 10:00a.m.–8:00p.m.
+    Saturday: 10:00a.m.–8:00p.m.
+}
