@@ -58,7 +58,7 @@ Hours{
 
 Earls Kitchen + Bar (Multiple Locations)
 Description: Sleek, upscale chain serving gourmet burgers, global comfort food, cocktails, wines & beers.
-Hours{
+Hours (All Locations){
     Sunday: 10a.m.–12a.m.
     Monday: 11:30a.m.–12a.m.
     Tuesday: 11:30a.m.–12a.m  
