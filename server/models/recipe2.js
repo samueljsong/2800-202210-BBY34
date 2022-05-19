@@ -11,6 +11,7 @@ const recipeSchema = new Schema(
     author: {
       type: Schema.ObjectId,
       ref: "User",
+      required: true,
     },
 
     picture: {
@@ -49,6 +50,6 @@ const recipeSchema = new Schema(
   }
 );
 
-const Recipe2 = model("Recipe2", recipe2Schema);
+const Recipe2 = model("Recipe2", recipeSchema);
 
 module.exports = Recipe2;
