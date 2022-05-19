@@ -59,8 +59,29 @@ app.post("/api/recipe", async (req, res) => {
 
       const recipe = new Recipe2(recipeData);
 
-      const res = await recipe.save();
-      res.send(res);
+      const result = await recipe.save();
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.patch("/api/recipe/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const recipeId = req.params.id;
+      const recipe = await Recipe2.findOneAndUpdate(
+        { _id: recipeId },
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.send(recipe);
     } catch (err) {
       res.send(err);
     }
