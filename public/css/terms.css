@@ -1,7 +1,6 @@
-button{
- height:100%;
- width:180px;
- font-size:40px;
+span{
+    font-size:16px;
+    text-decoration: none !important;
 }
 
 #conditions{
@@ -9,7 +8,16 @@ button{
     padding-left: 1px;
 }
 
+@media (max-width: 896px) {
+
 span{
     font-size:16px;
     text-decoration: none !important;
+}
+
+button{
+    height:100%;
+    width:180px;
+    font-size:40px;
+   }
 }
