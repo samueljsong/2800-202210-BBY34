@@ -39,10 +39,20 @@ app.use(
   })
 );
 
+app.get("/api/users", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const users = await User.find();
+      res.send(users);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
 app.get("/api/recipe", async (req, res) => {
   if (req.session.isAuth) {
-    const recipes = await Recipe2.find();
-    console.log(recipes);
+    const recipes = await Recipe2.find({ author: req.session.userID });
     res.send(recipes);
   } else {
     res.redirect("/");
