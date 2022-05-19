@@ -21,6 +21,7 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
+
 app.use(
   session({
     secret: "burnaby34",
@@ -95,7 +96,6 @@ app.get("/api/users", async(req, res) => {
     }
   }
 });
-
 app.get("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
@@ -189,173 +189,146 @@ app.post("/api/login", async(req, res) => {
       status: "fail",
       msg: "User email not found.",
     });
-  } catch (err) {
-    res.status(400).send({ status: "fail", msg: err.toString() });
   }
 });
 
-app.post("/api/admin/signup", async(req, res) => {
-      if (req.session.isAuth) {
-        try {
-          await user.save();
-          res.status(201).send({
-            status: "success",
-            msg: `${user.username} created`
-          });
-        } catch (err) {
-          res.status(400).send({ status: "fail", msg: err.toString() });
+app.get("/api/logout", (req, res) => {
+  if (req.session.isAuth) {
+    req.session.destroy();
+    res.redirect("/");
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.patch("/api/user/:id", async(req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const user = await User.findOneAndUpdate({ _id: req.params.id },
+        req.body, {
+          new: true,
+          runValidators: true,
         }
-      });
+      );
+      res.send(user);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.patch("/api/user/:id", async(req, res) => {
-      if (req.session.isAuth) {
-        try {
-          const user = await User.findOneAndUpdate({ _id: req.params.id },
-            req.body, {
-              new: true,
-              runValidators: true,
-            }
-          );
-          res.send(user);
-        } catch (err) {
-          res.send(err);
-        }
+app.use(express.static("public"));
+app.use("/js", express.static("../public/js"));
+app.use("/css", express.static("../public/css"));
+app.use("/img", express.static("../public/img"));
+app.use("/favicon", express.static("../public/favicon"));
+
+app.get("/", async(req, res) => {
+  if (!req.session.isAuth) {
+    let doc = fs.readFileSync("../html/login.html", "utf-8");
+    res.send(doc);
+  } else {
+    try {
+      const currentUser = await User.findOne({ _id: req.session.userID });
+      if (currentUser.userType === "User") {
+        res.redirect("/mainPageUser");
       } else {
-        res.redirect("/");
+        res.redirect("/adminMain");
       }
-    });
+    } catch (err) {
+      res.status(500).send(err.toString());
+    }
+  }
+});
 
-    app.use(express.static("public")); app.use("/js", express.static("../public/js")); app.use("/css", express.static("../public/css")); app.use("/img", express.static("../public/img")); app.use("/favicon", express.static("../public/favicon"));
+app.get("/loginErrorNoUserFound", (req, res) => {
+  let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", "utf-8");
+  res.send(doc);
+});
 
-    app.get("/", async(req, res) => {
-      if (!req.session.isAuth) {
-        let doc = fs.readFileSync("../html/login.html", "utf-8");
-        res.send(doc);
-      } else {
-        try {
-          const currentUser = await User.findOne({ _id: req.session.userID });
-          if (currentUser.userType === "User") {
-            res.redirect("/mainPageUser");
-          } else {
-            res.redirect("/adminMain");
-          }
-        } catch (err) {
-          res.status(500).send(err.toString());
-        }
-      }
-    });
+app.get("/adminMain", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/loginErrorNoUserFound", (req, res) => {
-      let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", "utf-8");
-      res.send(doc);
-    });
+app.get("/profileAdmin", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/profileAdmin.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/adminMain", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/mainPageUser", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/user/mainPageUser.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/dashboardAdmin", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/profileUser", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/user/profileUser.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/profileAdmin", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/admin/profileAdmin.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/fav", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/fav.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/mainPageUser", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/user/mainPageUser.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/recipe", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/recipe.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/profileUser", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/user/profileUser.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/viewRestaurants", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/fav", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/fav.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/dashboardAdmin", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/recipe", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/recipe.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
+app.get("/viewRecipes", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
 
-    app.get("/recipeInput", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/recipeInput.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
-
-    app.get("/restaurant", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
-
-    app.get("/signUp", (req, res) => {
-      if (!req.session.isAuth) {
-        let doc = fs.readFileSync("../html/signUp.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
-
-    app.get("/viewRecipes", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    });
-
-    app.get("/viewRestaurants", (req, res) => {
-      if (req.session.isAuth) {
-        let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
-        res.send(doc);
-      } else {
-        res.redirect("/");
-      }
-    }); app.listen(port, () => {
-      console.log(`server running on port: ${port}`);
-    });
+app.listen(port, () => {
+  console.log(`server running on port: ${port}`);
+});
