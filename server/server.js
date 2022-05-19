@@ -12,9 +12,7 @@ const fs = require("fs");
 const app = express();
 const port = 8000;
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
@@ -33,7 +31,8 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
+      mongoUrl:
+        "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
       collectionName: "sessions",
     }),
   })
@@ -59,23 +58,18 @@ app.post("/api/signup", async (req, res) => {
       msg: `${user._id} created`,
     });
   } catch (err) {
-    res.status(400).send({
-      status: "fail",
-      msg: err.toString()
-    });
+    res.status(400).send({ status: "fail", msg: err.toString() });
   }
 });
 
 app.post("/api/admin/signup", async (req, res) => {
   if (req.session.isAuth) {
     try {
-      const currentUser = await User.findOne({
-        _id: req.session.userID
-      });
+      const currentUser = await User.findOne({ _id: req.session.userID });
       if (currentUser.userType === "User") {
         res.send({
           status: "fail",
-          msg: "Only admin can add new users"
+          msg: "Only admin can add new users",
         });
       }
       if (currentUser.userType === "Admin") {
@@ -83,14 +77,11 @@ app.post("/api/admin/signup", async (req, res) => {
         await newUser.save();
         res.status(201).send({
           status: "success",
-          msg: `${newUser.email} created`
+          msg: `${newUser.email} created`,
         });
       }
     } catch (err) {
-      res.status(400).send({
-        status: "fail",
-        msg: err.toString()
-      });
+      res.status(400).send({ status: "fail", msg: err.toString() });
     }
   }
 });
@@ -109,9 +100,7 @@ app.get("/api/users", async (req, res) => {
 app.get("/api/user/:id", async (req, res) => {
   if (req.session.isAuth) {
     try {
-      const currentUser = await User.findOne({
-        _id: req.params.id
-      });
+      const currentUser = await User.findOne({ _id: req.params.id });
       res.send(currentUser);
     } catch (err) {
       res.send(err);
@@ -124,13 +113,8 @@ app.get("/api/user/:id", async (req, res) => {
 app.delete("/api/user/:id", async (req, res) => {
   if (req.session.isAuth) {
     try {
-      const currentUser = await User.findOne({
-        _id: req.session.userID
-      });
-      const targetUser = await User.findOne({
-        _id: req.params.id
-      });
-
+      const currentUser = await User.findOne({ _id: req.session.userID });
+      const targetUser = await User.findOne({ _id: req.params.id });
       if (currentUser.userType === "User") {
         if (currentUser.id === targetUser.id) {
           const deletedUser = await User.findOneAndDelete({
@@ -182,9 +166,7 @@ app.delete("/api/user/:id", async (req, res) => {
 app.post("/api/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  const user = await User.findOne({
-    email: email
-  });
+  const user = await User.findOne({ email: email });
 
   if (user) {
     if (password == user.password) {
@@ -195,8 +177,8 @@ app.post("/api/login", async (req, res) => {
       res.status(200).send({
         status: "success",
         msg: user.userType,
-        userId: user._id
-      })
+        userId: user._id,
+      });
     } else {
       res.status(401).send({
         status: "fail",
@@ -223,10 +205,10 @@ app.get("/api/logout", (req, res) => {
 app.patch("/api/user/:id", async (req, res) => {
   if (req.session.isAuth) {
     try {
-      const user = await User.findOneAndUpdate({
-          _id: req.params.id
-        },
-        req.body, {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        {
           new: true,
           runValidators: true,
         }
@@ -252,9 +234,7 @@ app.get("/", async (req, res) => {
     res.send(doc);
   } else {
     try {
-      const currentUser = await User.findOne({
-        _id: req.session.userID
-      });
+      const currentUser = await User.findOne({ _id: req.session.userID });
       if (currentUser.userType === "User") {
         res.redirect("/mainPageUser");
       } else {
