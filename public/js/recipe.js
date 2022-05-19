@@ -1,5 +1,16 @@
 "use strict";
 
+//HTTPS request
+const Http = new XMLHttpRequest();
+const url = 'http://localhost:8000/api/recipe';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+
+
 // this is for the image
 const img = document.getElementById('taco');
 const ingredient = document.getElementById("list");
