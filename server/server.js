@@ -423,6 +423,15 @@ app.get("/viewRestaurants", (req, res) => {
   }
 });
 
+app.get("/conditions", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/terms.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.listen(port, () => {
   console.log(`server running on port: ${port}`);
 });
