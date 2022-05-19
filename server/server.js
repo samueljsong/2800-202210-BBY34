@@ -39,14 +39,13 @@ app.use(
   })
 );
 
-app.get("/api/users", async (req, res) => {
+app.get("/api/recipe", async (req, res) => {
   if (req.session.isAuth) {
-    try {
-      const users = await User.find();
-      res.send(users);
-    } catch (err) {
-      res.send(err);
-    }
+    const recipes = await Recipe2.find();
+    console.log(recipes);
+    res.send(recipes);
+  } else {
+    res.redirect("/");
   }
 });
 
@@ -81,6 +80,20 @@ app.patch("/api/recipe/:id", async (req, res) => {
           runValidators: true,
         }
       );
+      res.send(recipe);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.delete("/api/recipe/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const recipeId = req.params.id;
+      const recipe = await Recipe2.findOneAndDelete({ _id: recipeId });
       res.send(recipe);
     } catch (err) {
       res.send(err);
