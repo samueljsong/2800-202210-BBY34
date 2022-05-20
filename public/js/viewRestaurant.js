@@ -14,23 +14,6 @@ ready(function() {
     xhr.send();
   }
 
-  window.addEventListener("load", function(e) {
-    e.preventDefault();
-    let currentUser = String(this.localStorage.getItem("currentUserID"));
-    ajaxGET("/api/recipe", function(data) {
-      let dataParsed = JSON.parse(data);
-      let i = 0;
-      let total = "";
-      dataParsed.forEach(function(e) {
-        const name = document.getElementById('title');
-        const info = document.getElementById('description');
-        name.textContent = dataParsed[i].recipeName;
-        info.textContent = dataParsed[i].ingredients;
-        i++;
-      });
-    });
-  });
-
   document.querySelector('.info').addEventListener('click', function() {
     window.location.replace("/recipe");
   });
@@ -41,10 +24,6 @@ ready(function() {
 
   document.getElementById('search-btn').addEventListener('click', function() {
     window.location.replace('/mainPageUser');
-  })
-
-  document.getElementById('post').addEventListener('click', function() {
-    window.location.replace('/recipeInput');
   })
 
 });

@@ -1,8 +1,8 @@
 "use strict";
-ready(function () {
+ready(function() {
   function ajaxGET(url, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.onload = function () {
+    xhr.onload = function() {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         callback(this.responseText);
       } else {
@@ -13,10 +13,10 @@ ready(function () {
     xhr.send();
   }
 
-  window.addEventListener("load", function (e) {
+  window.addEventListener("load", function(e) {
     e.preventDefault();
-    ajaxGET("/api/users", function (data) {
-      console.log(JSON.parse(data));
+    ajaxGET("/api/users", function(data) {
+      
       let dataParsed = JSON.parse(data);
       dataParsed.forEach((element) => display(element));
       attachEventListener();
@@ -38,23 +38,21 @@ ready(function () {
     let editInfo = document.querySelectorAll("#editInfo");
     let deleteInfo = document.querySelectorAll("#deleteInfo");
     for (let x = 0; x < editInfo.length; x++) {
-      editInfo[x].addEventListener("click", function () {
+      editInfo[x].addEventListener("click", function() {
         let parentIdEdit = this.parentNode.parentNode.id;
         let IDupdate =
           document.getElementById(parentIdEdit).firstElementChild
-            .firstElementChild.textContent;
+          .firstElementChild.textContent;
         localStorage.setItem("adminUpdate", IDupdate);
         updateUser(parentIdEdit);
       });
-      deleteInfo[x].addEventListener("click", function () {
+      deleteInfo[x].addEventListener("click", function() {
         let parentIdDelete = this.parentNode.parentNode.id;
         let IDdelete =
           document.getElementById(parentIdDelete).firstElementChild
-            .firstElementChild.textContent;
+          .firstElementChild.textContent;
         localStorage.setItem("adminDelete", IDdelete);
         deleteUser(parentIdDelete);
-
-        //localStorage.removeItem('adminDelete')
       });
     }
   }
@@ -65,7 +63,7 @@ ready(function () {
     let passwordVal;
     let nameVal;
     let picVal;
-    document.getElementById("saveEdit").addEventListener("click", function (e) {
+    document.getElementById("saveEdit").addEventListener("click", function(e) {
       e.preventDefault();
       let queryString = "";
       if (document.querySelectorAll("#nameFormControlInput")[0].value != 0) {
@@ -85,7 +83,7 @@ ready(function () {
 
       if (
         document.querySelectorAll("#passwordFormControlInput")[0].value
-          .length != 0
+        .length != 0
       ) {
         passwordVal = document.querySelectorAll("#passwordFormControlInput")[0]
           .value;
@@ -108,7 +106,7 @@ ready(function () {
       if (queryString.length != 0) {
         ajaxPATCH(
           "/api/user/" + idString,
-          function (data) {
+          function(data) {
             window.location.replace("/dashboardAdmin");
           },
           queryString
@@ -123,7 +121,7 @@ ready(function () {
     let queryString = String(localStorage.getItem("adminDelete"));
     document
       .getElementById("deleteUser")
-      .addEventListener("click", function (e) {
+      .addEventListener("click", function(e) {
         e.preventDefault();
         document
           .getElementById(parentIdDelete)
@@ -131,7 +129,7 @@ ready(function () {
         document.getElementById(parentIdDelete).style.display = "none";
         ajaxDelete(
           "/api/user/" + queryString,
-          function (data) {
+          function(data) {
             console.log(data);
           },
           queryString
@@ -142,17 +140,17 @@ ready(function () {
 
   function ajaxPATCH(url, callback, data) {
     let params =
-      typeof data == "string"
-        ? data
-        : Object.keys(data)
-            .map(function (k) {
-              return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-            })
-            .join("&");
+      typeof data == "string" ?
+      data :
+      Object.keys(data)
+      .map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      })
+      .join("&");
 
     const xhr = new XMLHttpRequest();
 
-    xhr.onload = function () {
+    xhr.onload = function() {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         callback(this.responseText);
       } else {
@@ -167,17 +165,17 @@ ready(function () {
 
   function ajaxDelete(url, callback, data) {
     let params =
-      typeof data == "string"
-        ? data
-        : Object.keys(data)
-            .map(function (k) {
-              return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-            })
-            .join("&");
+      typeof data == "string" ?
+      data :
+      Object.keys(data)
+      .map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      })
+      .join("&");
 
     const xhr = new XMLHttpRequest();
 
-    xhr.onload = function () {
+    xhr.onload = function() {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
         callback(this.responseText);
       } else {
@@ -192,17 +190,17 @@ ready(function () {
 
   function ajaxPOST(url, callback, data) {
     let params =
-      typeof data == "string"
-        ? data
-        : Object.keys(data)
-            .map(function (k) {
-              return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-            })
-            .join("&");
+      typeof data == "string" ?
+      data :
+      Object.keys(data)
+      .map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      })
+      .join("&");
 
     const xhr = new XMLHttpRequest();
 
-    xhr.onload = function () {
+    xhr.onload = function() {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
         callback(this.responseText);
       } else {
@@ -217,7 +215,7 @@ ready(function () {
 
   document
     .querySelector("#saveNewUser")
-    .addEventListener("click", function (e) {
+    .addEventListener("click", function(e) {
       e.preventDefault();
       let userName = document.getElementById("nameAddedByAdmin");
       let userType = document.getElementById("userTypeAddedByAdmin");
@@ -236,7 +234,7 @@ ready(function () {
 
       ajaxPOST(
         "/api/admin/signup",
-        function (data) {
+        function(data) {
           if (data) {
             let dataParsed = JSON.parse(data);
             if (dataParsed.status == "fail") {
