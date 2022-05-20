@@ -31,14 +31,21 @@ ready(function () {
     });
   });
 
-  let dropUpDownArr = document.getElementsByClassName("picProfile");
+  document
+  .querySelector("#userProfilePhotoNavBarTop")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    ajaxGET("/profileAdmin", function (data) {
+      window.location.replace("/profileAdmin");
+    });
+  });
 
-  Array.from(dropUpDownArr).forEach(element => {
-    element.addEventListener("click", function (e) {
-      e.preventDefault();
-      ajaxGET("/profileAdmin", function (data) {
-        window.location.replace("/profileAdmin");
-      });
+document
+  .querySelector("#userProfilePhotoNavBarBot")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    ajaxGET("/profileAdmin", function (data) {
+      window.location.replace("/profileAdmin");
     });
   });
 
@@ -73,6 +80,43 @@ ready(function () {
       window.location.replace("/recipe");
     });
   });
+
+  let dashboardArr = document.getElementsByClassName("dashboardAdmin");
+
+  Array.from(dashboardArr).forEach(element => {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      ajaxGET("/dashboardAdmin", function (data) {
+        window.location.replace("/dashboardAdmin");
+      });
+    });
+  });
+
+  window.addEventListener("load", function (e) {
+    e.preventDefault();
+    let currentUser = String(this.localStorage.getItem("currentUserID"));
+    console.log(currentUser);
+    ajaxGET("/api/user/" + currentUser, function (data) {
+      console.log(JSON.parse(data));
+      let dataParsed = JSON.parse(data);
+      document.getElementById("fullName").textContent = dataParsed.username;
+      let picData = "/img/";
+      let imgSrc = picData.concat(dataParsed.picture);
+      let photoIdNavBarBot = "userProfilePhotoNavBarBot";
+      let photoIdNavBarTop = "userProfilePhotoNavBarTop";
+
+      displayUserProfilePic(imgSrc, photoIdNavBarBot);
+      displayUserProfilePic(imgSrc, photoIdNavBarTop);
+    });
+  });
+
+  function displayUserProfilePic(photo, photoId){
+    var img = document.createElement("img");
+    img.src = photo;
+    var div = document.getElementById(photoId);
+    div.appendChild(img);
+  }
+
 });
 
 function ready(callback) {

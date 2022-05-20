@@ -8,6 +8,9 @@
     grid-template-rows: auto;
     grid-row-gap: 10px;
   }
+  .info-container {
+    display: grid;
+  }
   .extra {
     padding: 10px 0px 10px 0px;
     display: grid;
@@ -58,6 +61,7 @@
   #recipe-title {
     justify-self: center;
     color: #86b386;
+    font-size: 7vw;
   }
   .rating {
     color: rgb(51, 49, 49);
@@ -110,14 +114,14 @@
     color: rgb(51, 49, 49);
     margin: 5px;
   }
-  .list {
+  #list {
     display: grid;
     background-color: rgb(241, 241, 241);
     margin: 15px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
     border-radius: 5px;
   }
-  .instructions {
+  #instructions {
     display: grid;
     background-color: rgb(241, 241, 241);
     margin: 15px;

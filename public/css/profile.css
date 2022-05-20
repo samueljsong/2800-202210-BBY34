@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&family=Open+Sans:wght@300;400;500&display=swap');
+
 html {
     overflow-y: scroll !important;
     overflow-x: hidden !important;
@@ -43,17 +44,6 @@ body {
     margin-right: 1px;
 }
 
-.btn-outline-primary {
-    background-color: #5f985f !important;
-    color: white !important;
-    border: none !important;
-    margin-right: 1px;
-}
-
-#checkOthers {
-    background-color: #73bd73 !important;
-}
-
 #navbarContainer,
 #navbarContainerBottom {
     background-color: #e1f1e1 !important;
@@ -76,8 +66,39 @@ body {
     gap: 40px;
 }
 
-.picProfile {
-    height: 5vw;
+input#file-upload-button {
+    background: #199419 !important;
+}
+
+#closeButton {
+    border: none;
+    background-color: transparent;
+}
+
+#userProfilePhoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#userProfilePhoto img {
+    border-radius: 50%;
+    width: 150px;
+}
+
+#userProfilePhotoNavBarBot img {
+    height: 10vw;
+    border-radius: 50%;
+
+}
+
+#userProfilePhotoNavBarTop img {
+    height: 7vw;
+    border-radius: 50%;
+}
+
+footer {
+    padding-top: 70px;
 }
 
 @media(min-width: 992px) {
@@ -90,6 +111,7 @@ body {
     .picProfile {
         height: 12vw;
     }
+
     footer {
         padding-bottom: 70px;
     }
