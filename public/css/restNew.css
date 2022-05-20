@@ -9,9 +9,9 @@
     background-attachment: fixed;
   }
   /* img {
-    width: 50;
-    height: 100%;
-  } */
+      width: 50;
+      height: 100%;
+    } */
   .general {
     display: grid;
     grid-template-columns: 1fr;
@@ -20,13 +20,7 @@
   }
   .search-container {
     display: grid;
-    grid-template-columns: auto;
-  }
-  #post {
-    justify-self: right;
-    width: 8vw;
-    align-self: center;
-    cursor: pointer;
+    grid-template-columns: 1fr;
   }
   #search {
     width: 70%;
