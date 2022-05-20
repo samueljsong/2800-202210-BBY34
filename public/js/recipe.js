@@ -1,22 +1,29 @@
 "use strict";
-ready(function () {
-  function ajaxGET(url, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-      if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        callback(this.responseText);
-      } else {
-        console.log(this.status);
-      }
-    };
-    xhr.open("GET", url);
-    xhr.send();
-  }
 
-  document.querySelector("#back").addEventListener("click", function (e) {
-    e.preventDefault();
-    ajaxGET("/mainPageUser", function (data) {
-      window.location.replace("/mainPageUser");
-    });
-  });
-});
+// this is for the image
+const img = document.getElementById('taco');
+const ingredient = document.getElementById("list");
+const instruction = document.getElementById("instructions");
+const title = document.getElementById('recipe-title');
+
+//title
+let header = "<h1>"
+header += "MONGODB"
+header += "</h1>"
+
+//ingredients
+let ing = "<text>";
+ing += "test run of the ingredients from MONGO";
+ing += "</text>";
+
+//instructions
+let ins = "<text>";
+ins += "test run of the instructions from MONGO";
+ins += "</text>";
+
+//changing the HTML for that element
+ingredient.innerHTML = ing;
+instruction.innerHTML = ins;
+title.innerHTML = header;
+
+img.style.backgroundImage = "url('MONGO')";

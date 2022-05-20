@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&family=Open+Sans:wght@300;400;500&display=swap');
+
 html {
     overflow-y: scroll !important;
     overflow-x: hidden !important;
@@ -65,17 +66,35 @@ body {
     gap: 40px;
 }
 
-input#file-upload-button{
+input#file-upload-button {
     background: #199419 !important;
 }
 
 #closeButton {
-    border: none; 
+    border: none;
     background-color: transparent;
 }
 
-.picProfile {
-    height: 5vw;
+#userProfilePhoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#userProfilePhoto img {
+    border-radius: 50%;
+    width: 150px;
+}
+
+#userProfilePhotoNavBarBot img {
+    height: 10vw;
+    border-radius: 50%;
+
+}
+
+#userProfilePhotoNavBarTop img {
+    height: 7vw;
+    border-radius: 50%;
 }
 
 footer {
@@ -92,6 +111,7 @@ footer {
     .picProfile {
         height: 12vw;
     }
+
     footer {
         padding-bottom: 70px;
     }

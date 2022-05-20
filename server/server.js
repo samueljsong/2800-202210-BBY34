@@ -9,7 +9,6 @@ const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
-const Recipe2 = require("./models/recipe2");
 const app = express();
 const port = 8000;
 
@@ -282,6 +281,19 @@ app.patch("/api/user/:id", async (req, res) => {
   }
 });
 
+app.get("/api/user/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.params.id });
+      res.send(currentUser);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.use(express.static("public"));
 app.use("/js", express.static("../public/js"));
 app.use("/css", express.static("../public/css"));
@@ -424,8 +436,12 @@ app.get("/viewRestaurants", (req, res) => {
 });
 
 app.get("/terms", (req, res) => {
+  if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/terms.html", "utf-8");
     res.send(doc);
+  } else {
+    res.redirect("/");
+  }
 });
 
 app.listen(port, () => {

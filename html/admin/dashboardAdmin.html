@@ -57,7 +57,7 @@
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
+                    <div id="userProfilePhotoNavBarTop"></div>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <li><button class="dropdown-item" type="button"
@@ -94,7 +94,7 @@
             <div class="dropup">
                 <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
+                    <div id="userProfilePhotoNavBarBot"></div>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><button class="dropdown-item" type="button"
@@ -104,7 +104,8 @@
         </div>
     </nav>
 
-
+    <div id="adminDashboardHeader"><h1> <span id="fullName"></span> <a href="#" id="easterEgg">'s Dashboard</a></h1></div>
+    
     <div class="listContainer">
         <ul id="postParent" class="list-group list-group-flush listOfUsers">
             <template id="container">
@@ -249,6 +250,8 @@
     <script src="/js/navbarGoBack.js"></script>
     <script src="/js/clientAdmin.js"></script>
     <script src="/js/dashboardAdmin.js"></script>
+    <script src="/js/easterEgg.js"></script>
+
 
 
 

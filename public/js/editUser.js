@@ -22,9 +22,27 @@ ready(function () {
       document.getElementById("profileName").textContent = dataParsed.username;
       document.getElementById("fullName").textContent = dataParsed.username;
       document.getElementById("email").textContent = dataParsed.email;
+      
+      let picData = "/img/";
+      let imgSrc = picData.concat(dataParsed.picture);
+      let photoId = "userProfilePhoto";
+      let photoIdNavBarBot = "userProfilePhotoNavBarBot";
+      let photoIdNavBarTop = "userProfilePhotoNavBarTop";
+
+      displayUserProfilePic(imgSrc, photoId);
+      displayUserProfilePic(imgSrc, photoIdNavBarBot);
+      displayUserProfilePic(imgSrc, photoIdNavBarTop);
+
       attachEventListener();
     });
   });
+
+  function displayUserProfilePic(photo, photoId){
+    var img = document.createElement("img");
+    img.src = photo;
+    var div = document.getElementById(photoId);
+    div.appendChild(img);
+  }
 
   function attachEventListener() {
     document.getElementById("editInfo").addEventListener("click", function () {
