@@ -24,15 +24,22 @@ ready(function () {
       document.getElementById("email").textContent = dataParsed.email;
       let picData = "/img/";
       let imgSrc = picData.concat(dataParsed.picture);
-      displayUserProfilePic(imgSrc);
+      let photoId = "userProfilePhoto";
+      let photoIdNavBarBot = "userProfilePhotoNavBarBot";
+      let photoIdNavBarTop = "userProfilePhotoNavBarTop";
+
+      displayUserProfilePic(imgSrc, photoId);
+      displayUserProfilePic(imgSrc, photoIdNavBarBot);
+      displayUserProfilePic(imgSrc, photoIdNavBarTop);
+
       attachEventListener();
     });
   });
 
-  function displayUserProfilePic(photo){
+  function displayUserProfilePic(photo, photoId){
     var img = document.createElement("img");
     img.src = photo;
-    var div = document.getElementById("userProfilePhoto");
+    var div = document.getElementById(photoId);
     div.appendChild(img);
   }
 
