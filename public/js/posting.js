@@ -24,6 +24,7 @@ ready(function() {
         callback(this.responseText);
       } else {
         console.log(this.status);
+        window.location.replace("/viewRecipes");
       }
     };
     xhr.open("POST", url);
