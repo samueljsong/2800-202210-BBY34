@@ -56,7 +56,8 @@
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
+                    <div id="userProfilePhotoNavBarTop"></div>
+                        <!-- <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" /> -->
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <li><button class="dropdown-item" type="button"
@@ -87,7 +88,7 @@
             <div class="dropup">
                 <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
+                    <div id="userProfilePhotoNavBarBot"></div>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><button class="dropdown-item" type="button"
@@ -103,9 +104,8 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="/img/admin.png" alt="avatar" class="rounded-circle img-fluid"
-                                style="width: 150px;">
-                            <h5 class="my-3">Karen Luxemburgh</h5>
+                            <div id="userProfilePhoto"></div>
+                            <h5 id="profileName" class="my-3"></h5>
                             <p class="text-muted mb-1">Librarian</p>
                             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
                             <div class="d-flex justify-content-center mb-2">
@@ -122,7 +122,7 @@
                                     <p class="mb-0">Full Name</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                    <p id="fullName" class="text-muted mb-0"></p>
                                 </div>
                             </div>
                             <hr>
@@ -131,7 +131,7 @@
                                     <p class="mb-0">Email</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">example@example.com</p>
+                                    <p id="email" class="text-muted mb-0"></p>
                                 </div>
                             </div>
                             <hr>
@@ -174,6 +174,8 @@
 
     <script src="/js/navbar.js"></script>
     <script src="/js/clientAdmin.js"></script>
+    <script src="/js/displayAdminInfo.js"></script>
+
 
 </body>
 
