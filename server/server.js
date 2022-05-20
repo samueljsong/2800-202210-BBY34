@@ -9,6 +9,7 @@ const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
+const Recipe2 = require("./models/recipe2");
 const app = express();
 const port = 8000;
 
@@ -28,7 +29,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 123456789,
+      maxAge: 365 * 24 * 60 * 60 * 1000,
       secure: false,
     },
     store: MongoStore.create({
@@ -46,6 +47,68 @@ app.get("/api/users", async(req, res) => {
     } catch (err) {
       res.send(err);
     }
+  }
+});
+
+app.get("/api/recipe", async(req, res) => {
+  console.log(req.body);
+  if (req.session.isAuth) {
+    const recipes = await Recipe2.find({ author: req.session.userID });
+    res.send(recipes);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.post("/api/recipe", async(req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const recipeData = req.body;
+      const author = req.session.userID;
+      recipeData.author = author;
+
+      const recipe = new Recipe2(recipeData);
+
+      const result = await recipe.save();
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.patch("/api/recipe/:id", async(req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const recipeId = req.params.id;
+      const recipe = await Recipe2.findOneAndUpdate({ _id: recipeId },
+        req.body, {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.send(recipe);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.delete("/api/recipe/:id", async(req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const recipeId = req.params.id;
+      const recipe = await Recipe2.findOneAndDelete({ _id: recipeId });
+      res.send(recipe);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
   }
 });
 
@@ -86,21 +149,16 @@ app.post("/api/admin/signup", async(req, res) => {
   }
 });
 
-app.get("/api/users", async(req, res) => {
+app.patch("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
-      const users = await User.find();
-      res.send(users);
-    } catch (err) {
-      res.send(err);
-    }
-  }
-});
-app.get("/api/user/:id", async(req, res) => {
-  if (req.session.isAuth) {
-    try {
-      const currentUser = await User.findOne({ _id: req.params.id });
-      res.send(currentUser);
+      const user = await User.findOneAndUpdate({ _id: req.params.id },
+        req.body, {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.send(user);
     } catch (err) {
       res.send(err);
     }
@@ -244,13 +302,26 @@ app.get("/", async(req, res) => {
 });
 
 app.get("/loginErrorNoUserFound", (req, res) => {
-  let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", "utf-8");
-  res.send(doc);
+  if (!req.session.isAuth) {
+    let doc = fs.readFileSync("../xml/loginErrorNoUserFound.xml", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
 });
 
 app.get("/adminMain", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/dashboardAdmin", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
@@ -302,18 +373,27 @@ app.get("/recipe", (req, res) => {
   }
 });
 
-app.get("/viewRestaurants", (req, res) => {
+app.get("/recipeInput", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+    let doc = fs.readFileSync("../html/recipeInput.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
   }
 });
 
-app.get("/dashboardAdmin", (req, res) => {
+app.get("/restaurant", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
+    let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/signUp", (req, res) => {
+  if (!req.session.isAuth) {
+    let doc = fs.readFileSync("../html/signUp.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
@@ -323,6 +403,15 @@ app.get("/dashboardAdmin", (req, res) => {
 app.get("/viewRecipes", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/viewRestaurants", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");

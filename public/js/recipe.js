@@ -1,40 +1,68 @@
 "use strict";
-
 //HTTPS request
-const Http = new XMLHttpRequest();
-const url = 'http://localhost:8000/api/recipe';
-Http.open("GET", url);
-Http.send();
+ready(function() {
+  function ajaxGET(url, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+        callback(this.responseText);
+      } else {
+        console.log(this.status);
+      }
+    };
+    xhr.open("GET", url);
+    xhr.send();
+  }
 
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
+  function ajaxPOST(url, callback, data) {
+    let params =
+      typeof data == "string" ?
+      data :
+      Object.keys(data)
+      .map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      })
+      .join("&");
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+      if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
+        callback(this.responseText);
+      } else {
+        console.log(this.status);
+      }
+    };
+    xhr.open("POST", url);
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(params);
+  }
+
+  window.addEventListener("load", function(e) {
+    e.preventDefault();
+    let currentUser = String(this.localStorage.getItem("currentUserID"));
+    console.log(currentUser);
+
+  });
+
+  window.addEventListener("load", function(e) {
+    e.preventDefault();
+    ajaxGET("/api/recipe", function(data) {
+      console.log(JSON.parse(data));
+      let dataParsed = JSON.parse(data);
+      console.log(dataParsed);
+      console.log(dataParsed.recipeName);
+    });
+  });
+
+
+});
+
+function ready(callback) {
+  if (document.readyState != "loading") {
+    callback();
+  } else {
+    document.addEventListener("DOMContentLoaded", callback);
+  }
 }
-
-
-// this is for the image
-const img = document.getElementById('taco');
-const ingredient = document.getElementById("list");
-const instruction = document.getElementById("instructions");
-const title = document.getElementById('recipe-title');
-
-//title
-let header = "<h1>"
-header += "MONGODB"
-header += "</h1>"
-
-//ingredients
-let ing = "<text>";
-ing += "test run of the ingredients from MONGO";
-ing += "</text>";
-
-//instructions
-let ins = "<text>";
-ins += "test run of the instructions from MONGO";
-ins += "</text>";
-
-//changing the HTML for that element
-ingredient.innerHTML = ing;
-instruction.innerHTML = ins;
-title.innerHTML = header;
-
-img.style.backgroundImage = "url('MONGO')";
