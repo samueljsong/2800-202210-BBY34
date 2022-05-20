@@ -14,6 +14,14 @@ html, body {
     
 }
 
+.form-check-input{
+    transform: translateX(10px) !important;
+}
+.form-check-label{
+    transform:translateX(10px);
+    font-size: 15px;
+}
+
 body {
     min-height: 100%;
     background-color: rgb(118, 177, 118) !important;
@@ -24,11 +32,9 @@ a{
     color: white;
 }
 
-#signUpFormbg{
-    width: auto;
-    height: auto;
+.card{
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
 }
-
 .material-icons{
     padding-right: 15px;
     padding-bottom: 30px;
@@ -41,4 +47,16 @@ a{
 .btn-primary:visited {
     background-color: #199419 !important;
     border: none !important;
+}
+
+@media (max-width:896px) {
+    #signUpFormbg {
+        width: auto;
+        height: 200px !important;
+        margin-left:69px;
+    }
+
+    .form-check-label{
+        margin: 0 !important;
+    }
 }

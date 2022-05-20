@@ -9,7 +9,6 @@ const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
 const fs = require("fs");
-const Recipe2 = require("./models/recipe2");
 const app = express();
 const port = 8000;
 
@@ -22,7 +21,6 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
-
 app.use(
   session({
     secret: "burnaby34",
@@ -51,7 +49,6 @@ app.get("/api/users", async(req, res) => {
 });
 
 app.get("/api/recipe", async(req, res) => {
-  console.log(req.body);
   if (req.session.isAuth) {
     const recipes = await Recipe2.find({ author: req.session.userID });
     res.send(recipes);
@@ -277,6 +274,19 @@ app.patch("/api/user/:id", async(req, res) => {
   }
 });
 
+app.get("/api/user/:id", async(req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const currentUser = await User.findOne({ _id: req.params.id });
+      res.send(currentUser);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.use(express.static("public"));
 app.use("/js", express.static("../public/js"));
 app.use("/css", express.static("../public/css"));
@@ -412,6 +422,15 @@ app.get("/viewRecipes", (req, res) => {
 app.get("/viewRestaurants", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/terms", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/terms.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
