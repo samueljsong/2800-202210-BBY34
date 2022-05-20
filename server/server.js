@@ -8,9 +8,11 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const User = require("./models/user");
+const Recipe2 = require("./models/recipe2");
 const fs = require("fs");
 const app = express();
 const port = 8000;
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());

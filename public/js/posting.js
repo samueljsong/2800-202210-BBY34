@@ -15,14 +15,7 @@ ready(function() {
   }
 
   function ajaxPOST(url, callback, data) {
-    let params =
-      typeof data == "string" ?
-      data :
-      Object.keys(data)
-      .map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-      })
-      .join("&");
+    console.log(data);
 
     const xhr = new XMLHttpRequest();
 
@@ -35,25 +28,22 @@ ready(function() {
     };
     xhr.open("POST", url);
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(params);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
   }
 
-  document.getElementById('btn').addEventListener('click', function(e) {
+  document.getElementById("btn").addEventListener("click", function(e) {
     e.preventDefault();
-    let title = document.getElementById('userRecipeTitle').value;
-    let ing = document.getElementById('ingredientsInput').value;
-    let ins = document.getElementById('recipeInput').value;
+    const title = document.getElementById("userRecipeTitle").value;
+    const ing = document.getElementById("ingredientsInput").value;
+    const ins = document.getElementById("recipeInput").value;
 
+    const recipeJSON = JSON.stringify({
+      recipeName: title,
+      ingredients: ing,
+      instructions: ins,
+    });
 
-    let queryString =
-      "recipeName=" +
-      title +
-      "&ingredients=" +
-      ing +
-      "&instructions=" +
-      ins;
-    console.log(queryString);
     ajaxPOST(
       "/api/recipe",
       function(data) {
@@ -67,10 +57,9 @@ ready(function() {
           }
         }
       },
-      queryString
+      recipeJSON
     );
   });
-
 });
 
 function ready(callback) {
