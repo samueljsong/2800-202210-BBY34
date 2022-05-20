@@ -35,12 +35,10 @@ const recipeSchema = new Schema(
 
     serving: {
       type: Number,
-      required: true,
     },
 
     rating: {
       type: Number,
-      required: true,
       min: 0,
       max: 5,
     },
