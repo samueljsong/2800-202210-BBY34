@@ -53,7 +53,6 @@ ready(function() {
           if (dataParsed.status == "fail") {
             console.log(dataParsed.msg);
           } else {
-            console.log(dataParsed.msg);
             window.location.replace("/recipe");
           }
         }

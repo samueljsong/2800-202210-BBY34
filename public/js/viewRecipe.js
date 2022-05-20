@@ -17,19 +17,13 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
     ajaxGET("/api/recipe", function(data) {
-      console.log(JSON.parse(data));
       let dataParsed = JSON.parse(data);
       let i = 0;
       let total = "";
-
-
-
       dataParsed.forEach(function(e) {
         const name = document.getElementById('title');
         const info = document.getElementById('description');
-
         name.textContent = dataParsed[i].recipeName;
         info.textContent = dataParsed[i].ingredients;
         i++;

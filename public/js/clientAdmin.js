@@ -95,9 +95,9 @@ document
   window.addEventListener("load", function (e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
+    
     ajaxGET("/api/user/" + currentUser, function (data) {
-      console.log(JSON.parse(data));
+      
       let dataParsed = JSON.parse(data);
       document.getElementById("fullName").textContent = dataParsed.username;
       let picData = "/img/";

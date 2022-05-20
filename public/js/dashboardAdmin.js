@@ -16,7 +16,7 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     ajaxGET("/api/users", function(data) {
-      console.log(JSON.parse(data));
+      
       let dataParsed = JSON.parse(data);
       dataParsed.forEach((element) => display(element));
       attachEventListener();
@@ -53,8 +53,6 @@ ready(function() {
           .firstElementChild.textContent;
         localStorage.setItem("adminDelete", IDdelete);
         deleteUser(parentIdDelete);
-
-        //localStorage.removeItem('adminDelete')
       });
     }
   }
