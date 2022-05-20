@@ -22,6 +22,7 @@ ready(function () {
       document.getElementById("profileName").textContent = dataParsed.username;
       document.getElementById("fullName").textContent = dataParsed.username;
       document.getElementById("email").textContent = dataParsed.email;
+      
       let picData = "/img/";
       let imgSrc = picData.concat(dataParsed.picture);
       let photoId = "userProfilePhoto";

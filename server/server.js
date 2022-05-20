@@ -21,6 +21,7 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
+
 app.use(
   session({
     secret: "burnaby34",
@@ -31,14 +32,13 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl:
-        "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
+      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
       collectionName: "sessions",
     }),
   })
 );
 
-app.get("/api/users", async (req, res) => {
+app.get("/api/users", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const users = await User.find();
@@ -49,7 +49,7 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-app.post("/api/signup", async (req, res) => {
+app.post("/api/signup", async(req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
@@ -62,7 +62,7 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-app.post("/api/admin/signup", async (req, res) => {
+app.post("/api/admin/signup", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.session.userID });
@@ -86,7 +86,7 @@ app.post("/api/admin/signup", async (req, res) => {
   }
 });
 
-app.get("/api/users", async (req, res) => {
+app.get("/api/users", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const users = await User.find();
@@ -96,8 +96,7 @@ app.get("/api/users", async (req, res) => {
     }
   }
 });
-
-app.get("/api/user/:id", async (req, res) => {
+app.get("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.params.id });
@@ -110,7 +109,7 @@ app.get("/api/user/:id", async (req, res) => {
   }
 });
 
-app.delete("/api/user/:id", async (req, res) => {
+app.delete("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.session.userID });
@@ -163,7 +162,7 @@ app.delete("/api/user/:id", async (req, res) => {
   }
 });
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", async(req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const user = await User.findOne({ email: email });
@@ -202,13 +201,11 @@ app.get("/api/logout", (req, res) => {
   }
 });
 
-app.patch("/api/user/:id", async (req, res) => {
+app.patch("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
-      const user = await User.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        {
+      const user = await User.findOneAndUpdate({ _id: req.params.id },
+        req.body, {
           new: true,
           runValidators: true,
         }
@@ -228,7 +225,7 @@ app.use("/css", express.static("../public/css"));
 app.use("/img", express.static("../public/img"));
 app.use("/favicon", express.static("../public/favicon"));
 
-app.get("/", async (req, res) => {
+app.get("/", async(req, res) => {
   if (!req.session.isAuth) {
     let doc = fs.readFileSync("../html/login.html", "utf-8");
     res.send(doc);
@@ -254,15 +251,6 @@ app.get("/loginErrorNoUserFound", (req, res) => {
 app.get("/adminMain", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/admin/adminMain.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
-
-app.get("/dashboardAdmin", (req, res) => {
-  if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
@@ -314,27 +302,18 @@ app.get("/recipe", (req, res) => {
   }
 });
 
-app.get("/recipeInput", (req, res) => {
+app.get("/viewRestaurants", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/recipeInput.html", "utf-8");
+    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
   }
 });
 
-app.get("/restaurant", (req, res) => {
+app.get("/dashboardAdmin", (req, res) => {
   if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
-
-app.get("/signUp", (req, res) => {
-  if (!req.session.isAuth) {
-    let doc = fs.readFileSync("../html/signUp.html", "utf-8");
+    let doc = fs.readFileSync("../html/admin/dashboardAdmin.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
@@ -350,14 +329,6 @@ app.get("/viewRecipes", (req, res) => {
   }
 });
 
-app.get("/viewRestaurants", (req, res) => {
-  if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
 app.listen(port, () => {
   console.log(`server running on port: ${port}`);
 });
