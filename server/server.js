@@ -421,6 +421,15 @@ app.get("/viewRecipes", (req, res) => {
   }
 });
 
+app.get("/viewRestNew", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/viewRestNew.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.get("/viewRestaurants", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");

@@ -60,6 +60,11 @@ ready(function() {
       recipeJSON
     );
   });
+
+  document.getElementById('goBackButton').addEventListener('click', function() {
+    window.location.replace('/mainPageUser');
+  })
+
 });
 
 function ready(callback) {
