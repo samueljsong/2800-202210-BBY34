@@ -59,6 +59,42 @@ body {
     margin-right: 10px;
 }
 
+#adminDashboardHeader{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+
+#adminDashboardHeader h1{
+    grid-column: 2/span 1;
+    color: #495057;
+}
+
+#fullName {
+    color: #495057;
+}
+
+#adminDashboardHeader a:link {
+    text-decoration: none !important;
+}
+
+#adminDashboardHeader a:visited {
+    text-decoration: none !important;
+}
+
+#adminDashboardHeader a:hover {
+    text-decoration: none !important;
+}
+
+#adminDashboardHeader a:active {
+    text-decoration: none !important;
+}
+
+#adminDashboardHeader a {
+    color: #495057 !important;
+}
+
+
+
 @media(min-width: 992px) {
     .listContainer{
         grid-template-columns: 25% 50% 25%;
@@ -68,6 +104,10 @@ body {
 @media(max-width: 415px) {
     .listContainer{
         grid-template-columns: 1% 98% 1%;
+    }
+
+    #adminDashboardHeader{
+        grid-template-columns: 5% 90% 5%;
     }
 
     footer {

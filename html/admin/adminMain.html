@@ -54,7 +54,9 @@
                 </ul>
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
+                    <div id="userProfilePhotoNavBarTop"></div>
+                       
+                        <!-- <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" /> -->
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';">Logout</button></li>
@@ -83,7 +85,9 @@
             </ul>
             <div class="dropup">
                 <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" />
+                    <div id="userProfilePhotoNavBarBot"></div>
+                    
+                    <!-- <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" /> -->
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';">Logout</button></li>
@@ -95,7 +99,7 @@
     <div id='container'>
         <div id='overlay'>
             <div class='one'>
-                <h1>Hi Admin</h1>
+                <h1><a href="#" id="easterEgg">Hi</a> <span id="fullName"></span>!</h1>
             </div>
             <div class='two'>
                 <h1>Popular Restaurants <button class="btn" onclick="location.href='/viewRestaurants';" type='button'>View All</button>
@@ -151,6 +155,8 @@
 
     <script src="/js/navbar.js"></script>
     <script src="/js/clientAdmin.js" defer></script>
+    <script src="/js/easterEgg.js"></script>
+
 
 
 </body>
