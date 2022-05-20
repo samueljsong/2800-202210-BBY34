@@ -39,22 +39,37 @@ ready(function() {
     xhr.send(params);
   }
 
-  window.addEventListener("load", function(e) {
+  document.getElementById('btn').addEventListener('click', function(e) {
     e.preventDefault();
-    let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
+    let title = document.getElementById('userRecipeTitle').value;
+    let ing = document.getElementById('ingredientsInput').value;
+    let ins = document.getElementById('recipeInput').value;
 
+
+    let queryString =
+      "recipeName=" +
+      title +
+      "&ingredients=" +
+      ing +
+      "&instructions=" +
+      ins;
+    console.log(queryString);
+    ajaxPOST(
+      "/api/recipe",
+      function(data) {
+        if (data) {
+          let dataParsed = JSON.parse(data);
+          if (dataParsed.status == "fail") {
+            console.log(dataParsed.msg);
+          } else {
+            console.log(dataParsed.msg);
+            window.location.replace("/recipe");
+          }
+        }
+      },
+      queryString
+    );
   });
-
-  window.addEventListener("load", function(e) {
-    e.preventDefault();
-    ajaxGET("/api/recipe", function(data) {
-      console.log(JSON.parse(data));
-      let dataParsed = JSON.parse(data);
-      console.log(dataParsed);
-    });
-  });
-
 
 });
 
