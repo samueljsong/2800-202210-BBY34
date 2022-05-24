@@ -37,11 +37,6 @@ h1 {
     color: #199419 !important;
 }
 
-
-/* .row {
-    transform: translateY(10px);
-} */
-
 @media(min-width: 415px) and (max-width:2000px) {
     #container {
         background-position: center;
@@ -145,7 +140,7 @@ h1 {
         font-size: calc(18px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
     .two {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
     .three>h1 {
         margin-left: 4px;
@@ -157,6 +152,12 @@ h1 {
         border: none;
         margin-left: 10px;
         font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+    img {
+        opacity: 1.0;
+        transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
     }
 }
 
