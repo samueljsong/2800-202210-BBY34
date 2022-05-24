@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/recipe.css">
-  <link rel="stylesheet" href="../public/css/recipe.css">
   <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
   <title>Recipe</title>
 
@@ -19,6 +18,10 @@
       <div class="name">
         <h1 id="recipe-title">Easy Beyond Meat Tacos</h1>
       </div>
+
+      <svg id="back" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
+        <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
+      </svg>
 
       <div class="extra">
 
@@ -62,7 +65,7 @@
         </div>
       </div>
 
-      <div class="list">
+      <div id="list">
         <ul>
           <li>
             4 burger buns
@@ -101,7 +104,7 @@
 
     </div>
     <h1 id="instruction-header">Instructions</h1>
-    <div class="instructions">
+    <div id="instructions">
       <ol type="1">
         <li>
           Mix together the burger, red peppers, onions, garlic, steak sauce, cilantro, oregano, and optional jalapeno. Form into 4 patties. Refrigerate patties or freeze to firm them up and keep the patties from falling apart.
@@ -126,6 +129,7 @@
 
   </div>
   <script src="/js/recipe.js"></script>
+
 </body>
 
 </html>

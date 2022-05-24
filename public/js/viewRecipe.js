@@ -17,23 +17,35 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
-
-  });
-
-  window.addEventListener("load", function(e) {
-    e.preventDefault();
     ajaxGET("/api/recipe", function(data) {
-      console.log(JSON.parse(data));
       let dataParsed = JSON.parse(data);
-      console.log(dataParsed);
+      let i = 0;
+      let total = "";
+      dataParsed.forEach(function(e) {
+        const name = document.getElementById('title');
+        const info = document.getElementById('description');
+        name.textContent = dataParsed[i].recipeName;
+        info.textContent = dataParsed[i].ingredients;
+        i++;
+      });
     });
   });
 
-  document.getElementById('back').addEventListener('click', function() {
+  document.querySelector('.info').addEventListener('click', function() {
+    window.location.replace("/recipe");
+  });
+
+  document.querySelector('.image-box').addEventListener('click', function() {
+    window.location.replace("/recipe");
+  })
+
+  document.getElementById('search-btn').addEventListener('click', function() {
     window.location.replace('/mainPageUser');
   })
 
+  document.getElementById('post').addEventListener('click', function() {
+    window.location.replace('/recipeInput');
+  })
 
 });
 

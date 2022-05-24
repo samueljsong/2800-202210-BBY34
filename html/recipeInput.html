@@ -34,7 +34,7 @@
   <nav id="navbarContainer" class="navbar sticky-top navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand homeUser" href="#">
-        <img src="/img/MooVElogo.png" alt="" width="70">
+        <img src="/img/MooVElogo.png" alt="" width="70" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,10 +58,14 @@
         <div class="dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/img/profilePic.png" class="rounded-circle picProfile" alt="profilePicture" />
+            <div id="userProfilePhotoNavBarTop"></div>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';">Logout</button></li>
+            <li>
+              <button class="dropdown-item" type="button" onclick="location.href='/api/logout';">
+                Logout
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -70,8 +74,8 @@
 
   <nav id="navbarGoBackButton" class="navbar sticky-top navbar-light bg-light">
     <div class="container">
-      <i class="material-icons" id="goBackButton" href="#">&#xe5c4;</i>
-      <a class="navbar-brand" href="#">Your recipe</a>
+      <a class="material-icons" id="goBackButton" href="/viewRecipes">&#xe5c4;</a>
+      <a class="navbar-brand" href="#">Your recipes</a>
     </div>
   </nav>
 
@@ -95,10 +99,14 @@
       <div class="dropup">
         <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button"
           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="/img/profilePic.png" class="rounded-circle picProfile" alt="profilePicture" />
+          <div id="userProfilePhotoNavBarBot"></div>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-          <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';">Logout</button></li>
+          <li>
+            <button class="dropdown-item" type="button" onclick="cleanUp()">
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -106,11 +114,11 @@
 
   <div id="inputRecipeContainer">
     <div id="recipe">
-      <h1 class="text-success">Let's write your recipe here! <i class="material-icons">sentiment_very_satisfied</i>
+      <h1 class="text-success">Let's write <span id="fullName"></span> <a href="#" id="easterEgg">'s recipe here! </a> <i class="material-icons">sentiment_very_satisfied</i>
       </h1>
       <label class="text-success lead">Add a title (for your recipe)<i class="material-icons">rate_review</i></label>
       <br>
-      <input type="text" id="userRecipeTitle" class="form-control" />
+      <input type="text" id="userRecipeTitle" class="form-control" value="" />
 
       <div class="mb-3 mt-3">
         <label for="ingredientsInput" class="text-success lead">Ingredients <i
@@ -125,7 +133,7 @@
 
 
       <div class="d-grid gap-2">
-        <button class="btn btn-primary btn-lg" type="button">Submit</button>
+        <button class="btn btn-primary btn-lg" id="btn" type="button">Submit</button>
       </div>
 
     </div>
@@ -141,6 +149,13 @@
   <script src="/js/navbar.js"></script>
   <script src="/js/recipeInput.js"></script>
   <script src="/js/navbarGoBack.js"></script>
+  <script src="/js/posting.js"></script>
+  <script src="/js/cleanUp.js"></script>
+  <script src="/js/clientUser.js" defer></script>
+  <script src="/js/displayUserInfo.js" defer></script>
+  <script src="/js/easterEgg.js"></script>
+
+
 
 
 </body>

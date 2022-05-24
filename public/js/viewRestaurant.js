@@ -14,26 +14,17 @@ ready(function() {
     xhr.send();
   }
 
-  window.addEventListener("load", function(e) {
-    e.preventDefault();
-    let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
-
+  document.querySelector('.info').addEventListener('click', function() {
+    window.location.replace("/recipe");
   });
 
-  window.addEventListener("load", function(e) {
-    e.preventDefault();
-    ajaxGET("/api/recipe", function(data) {
-      console.log(JSON.parse(data));
-      let dataParsed = JSON.parse(data);
-      console.log(dataParsed);
-    });
-  });
-
-  document.getElementById('back').addEventListener('click', function() {
-    window.location.replace('/mainPageUser');
+  document.querySelector('.image-box').addEventListener('click', function() {
+    window.location.replace("/recipe");
   })
 
+  document.getElementById('search-btn').addEventListener('click', function() {
+    window.location.replace('/mainPageUser');
+  })
 
 });
 
