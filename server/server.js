@@ -64,6 +64,15 @@ app.post("/api/restaurant", async (req, res) => {
   }
 });
 
+app.get("/api/restaurant", async (req, res) => {
+  if (req.session.isAuth) {
+    const restaurants = await Restaurant.find();
+    res.send(restaurants);
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.get("/api/recipe", async (req, res) => {
   if (req.session.isAuth) {
     const recipes = await Recipe.find({ author: req.session.userID });
