@@ -50,6 +50,19 @@ app.get("/api/users", async (req, res) => {
     }
   }
 });
+app.post("/api/restaurant", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const restaurant = new Restaurant(req.body);
+      const result = await restaurant.save();
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
 
 app.get("/api/recipe", async (req, res) => {
   if (req.session.isAuth) {
