@@ -50,6 +50,7 @@ app.get("/api/users", async (req, res) => {
     }
   }
 });
+
 app.post("/api/restaurant", async (req, res) => {
   if (req.session.isAuth) {
     try {
@@ -68,6 +69,22 @@ app.get("/api/restaurant", async (req, res) => {
   if (req.session.isAuth) {
     const restaurants = await Restaurant.find();
     res.send(restaurants);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.delete("/api/restaurant/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const restaurantId = req.params.id;
+      const restaurant = await Restaurant.findOneAndDelete({
+        _id: restaurantId,
+      });
+      res.send(restaurant);
+    } catch (err) {
+      res.send(err);
+    }
   } else {
     res.redirect("/");
   }
