@@ -2,9 +2,8 @@
 const { Schema, model } = require("mongoose");
 
 const restaurantSchema = new Schema({
-  author: {
-    type: Schema.ObjectId,
-    ref: "User",
+  restaurantName: {
+    type: String,
     required: true,
   },
 
@@ -12,33 +11,40 @@ const restaurantSchema = new Schema({
     type: String,
   },
 
-  name: {
+  description: {
     type: String,
-    required: true,
   },
 
-  stars: {
-    type: Number,
-    min: 0,
-    max: 5,
-    required: true,
-  },
-
-  reviews: {
+  address: {
     type: String,
-    required: true,
   },
 
   phone: {
     type: String,
   },
 
-  address: {
-    type: Number,
-  },
-
-  price: {
-    type: String,
+  openingHours: {
+    sunday: {
+      type: String,
+    },
+    monday: {
+      type: String,
+    },
+    tuesday: {
+      type: String,
+    },
+    wednesday: {
+      type: String,
+    },
+    thursday: {
+      type: String,
+    },
+    friday: {
+      type: String,
+    },
+    saturday: {
+      type: String,
+    },
   },
 });
 
