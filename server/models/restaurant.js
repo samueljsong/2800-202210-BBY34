@@ -2,7 +2,7 @@
 const { Schema, model } = require("mongoose");
 
 const restaurantSchema = new Schema({
-  name: {
+  restaurantName: {
     type: String,
     required: true,
   },
@@ -13,11 +13,10 @@ const restaurantSchema = new Schema({
 
   description: {
     type: String,
-    required: true,
   },
 
   address: {
-    type: Number,
+    type: String,
   },
 
   phone: {
@@ -26,60 +25,25 @@ const restaurantSchema = new Schema({
 
   openingHours: {
     sunday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
     monday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
     tuesday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
     wednesday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
     thursday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
     friday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
     saturday: {
-      open: {
-        type: Number,
-      },
-      end: {
-        type: Number,
-      },
+      type: String,
     },
   },
 });
