@@ -51,6 +51,45 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
+app.post("/api/restaurant", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const restaurant = new Restaurant(req.body);
+      const result = await restaurant.save();
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/api/restaurant", async (req, res) => {
+  if (req.session.isAuth) {
+    const restaurants = await Restaurant.find();
+    res.send(restaurants);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.delete("/api/restaurant/:id", async (req, res) => {
+  if (req.session.isAuth) {
+    try {
+      const restaurantId = req.params.id;
+      const restaurant = await Restaurant.findOneAndDelete({
+        _id: restaurantId,
+      });
+      res.send(restaurant);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 app.get("/api/recipe", async (req, res) => {
   if (req.session.isAuth) {
     const recipes = await Recipe.find({ author: req.session.userID });
@@ -66,9 +105,7 @@ app.post("/api/recipe", async (req, res) => {
       const recipeData = req.body;
       const author = req.session.userID;
       recipeData.author = author;
-
       const recipe = new Recipe(recipeData);
-
       const result = await recipe.save();
       res.send(result);
     } catch (err) {
@@ -401,15 +438,6 @@ app.get("/recipeInput", (req, res) => {
   }
 });
 
-app.get("/restaurant", (req, res) => {
-  if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
-
 app.get("/signUp", (req, res) => {
   if (!req.session.isAuth) {
     let doc = fs.readFileSync("../html/signUp.html", "utf-8");
@@ -431,15 +459,6 @@ app.get("/terms", (req, res) => {
 app.get("/viewRecipes", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
-
-app.get("/viewRestaurants", (req, res) => {
-  if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
