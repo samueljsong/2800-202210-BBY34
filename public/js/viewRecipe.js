@@ -31,7 +31,7 @@ ready(function() {
         const info = document.getElementById('description');
 
         name.textContent = dataParsed[i].recipeName;
-        info.textContent = dataParsed[i].ingredients;
+        // info.textContent = dataParsed[i].ingredients;
         i++;
       });
     });
