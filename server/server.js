@@ -66,9 +66,7 @@ app.post("/api/recipe", async (req, res) => {
       const recipeData = req.body;
       const author = req.session.userID;
       recipeData.author = author;
-
       const recipe = new Recipe(recipeData);
-
       const result = await recipe.save();
       res.send(result);
     } catch (err) {
@@ -401,15 +399,6 @@ app.get("/recipeInput", (req, res) => {
   }
 });
 
-app.get("/restaurant", (req, res) => {
-  if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/restaurant.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
-
 app.get("/signUp", (req, res) => {
   if (!req.session.isAuth) {
     let doc = fs.readFileSync("../html/signUp.html", "utf-8");
@@ -431,15 +420,6 @@ app.get("/terms", (req, res) => {
 app.get("/viewRecipes", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/viewRecipes.html", "utf-8");
-    res.send(doc);
-  } else {
-    res.redirect("/");
-  }
-});
-
-app.get("/viewRestaurants", (req, res) => {
-  if (req.session.isAuth) {
-    let doc = fs.readFileSync("../html/viewRestaurants.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
