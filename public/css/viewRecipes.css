@@ -1,12 +1,50 @@
-@media only screen and (max-width: 1200px) {
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&family=Open+Sans:wght@300;400;500&display=swap');
+html {
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+}
+
+body {
+  min-height: 100%;
+}
+
+#viewRecipesHeader {
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+}
+
+#viewRecipesHeader h1 {
+  grid-column: 2/span 1;
+  color: #495057;
+}
+
+#navbarGoBackButton {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: transparent !important;
+}
+
+#goBackButton {
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 415px) {
   body {
-    display: grid;
-    grid-template-rows: 100%;
     background-image: url("../img/recipe-pic.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position-y: center;
     background-attachment: fixed;
+    z-index: -1;
   }
   /* img {
     width: 50;
@@ -47,13 +85,77 @@
   #recipe-pic {
     width: 100%;
   }
-  #card-template {
+  #card-template0 {
     display: grid;
     grid-template-columns: 30% 60% 10%;
     background-color: rgb(51, 49, 49);
-    grid-column-gap: 5px;
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 100%;
+    justify-self: center;
+  }
+  #card-template1 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template2 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template3 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template4 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template5 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template6 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template7 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
   }
   .image-box {
     background-image: url(../img/taco.jpg);
@@ -76,6 +178,177 @@
   }
   #description {
     font-size: 3vw;
+    color: white;
+  }
+  .others {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #dot {
+    grid-row: 1 / 2;
+    align-self: center;
+    color: #86b386;
+    cursor: pointer;
+  }
+  #heart {
+    grid-row: 2 / 3;
+    align-self: center;
+    color: #86b386;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 416px) {
+  body {
+    background-image: url("../img/recipe-pic.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-attachment: fixed;
+    z-index: -1;
+  }
+  #viewRecipesHeader {
+    grid-template-columns: 25% 50% 25%;
+  }
+  /* img {
+    width: 50;
+    height: 100%;
+  } */
+  .general {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+  }
+  .search-container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  #post {
+    justify-self: right;
+    width: 8vw;
+    align-self: center;
+    cursor: pointer;
+  }
+  #search {
+    width: 70%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border: solid 1px #86b386;
+    font-size: 16px;
+    justify-self: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  }
+  #search-btn {
+    position: absolute;
+    align-self: center;
+    color: rgb(51, 49, 49);
+  }
+  #recipe-pic {
+    width: 100%;
+  }
+  #card {
+    display: grid;
+    justify-items: center;
+    max-width: 1fr;
+  }
+  #card-template0 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 70%;
+    justify-self: center;
+  }
+  #card-template1 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template2 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 50%;
+    justify-self: center;
+  }
+  #card-template3 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template4 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template5 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template6 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template7 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  .image-box {
+    background-image: url(../img/taco.jpg);
+    background-size: 100%;
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+  }
+  .info {
+    display: grid;
+    grid-template-columns: 1fr;
+    cursor: pointer;
+    font-size: 2vw;
+  }
+  #title {
+    font-size: 2vw;
+    color: #86b386;
+  }
+  #description {
+    font-size: 1.5vw;
     color: white;
   }
   .others {

@@ -1,17 +1,20 @@
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 650px) {
   body {
-    display: grid;
-    grid-template-rows: 100%;
     background-image: url("../img/recipe-pic.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position-y: center;
     background-attachment: fixed;
+    z-index: -1;
+  }
+  #card {
+    display: grid;
+    grid-row-gap: 10px;
   }
   /* img {
-      width: 50;
-      height: 100%;
-    } */
+    width: 50;
+    height: 100%;
+  } */
   .general {
     display: grid;
     grid-template-columns: 1fr;
@@ -20,7 +23,19 @@
   }
   .search-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+  }
+  #post {
+    justify-self: right;
+    width: 8vw;
+    align-self: center;
+    cursor: pointer;
+  }
+  #post {
+    justify-self: right;
+    width: 8vw;
+    align-self: center;
+    cursor: pointer;
   }
   #search {
     width: 70%;
@@ -41,11 +56,66 @@
   #recipe-pic {
     width: 100%;
   }
-  #card-template {
+  #card-template0 {
     display: grid;
     grid-template-columns: 30% 60% 10%;
     background-color: rgb(51, 49, 49);
     grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template1 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template2 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template3 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template4 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template5 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template6 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    grid-column-gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+  }
+  #card-template7 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
   }
@@ -70,6 +140,278 @@
   }
   #description {
     font-size: 3vw;
+    color: white;
+  }
+  .others {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #dot {
+    grid-row: 1 / 2;
+    align-self: center;
+    color: #86b386;
+    cursor: pointer;
+  }
+  #heart {
+    grid-row: 2 / 3;
+    align-self: center;
+    color: #86b386;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 416px) {
+  body {
+    background-image: url("../img/recipe-pic.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-attachment: fixed;
+    z-index: -1;
+  }
+  #viewRestaurantsHeader {
+    grid-template-columns: 25% 50% 25%;
+  }
+  /* img {
+    width: 50;
+    height: 100%;
+  } */
+  .general {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+  }
+  .search-container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  #post {
+    justify-self: right;
+    width: 8vw;
+    align-self: center;
+    cursor: pointer;
+  }
+  #search {
+    width: 70%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border: solid 1px #86b386;
+    font-size: 16px;
+    justify-self: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  }
+  #search-btn {
+    position: absolute;
+    align-self: center;
+    color: rgb(51, 49, 49);
+  }
+  #recipe-pic {
+    width: 100%;
+  }
+  #card-template {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 50%;
+    justify-self: center;
+  }
+  .image-box {
+    background-image: url(../img/taco.jpg);
+    background-size: 100%;
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+  }
+  .info {
+    display: grid;
+    grid-template-columns: 1fr;
+    cursor: pointer;
+    font-size: 2vw;
+  }
+  #title {
+    font-size: 2vw;
+    color: #86b386;
+  }
+  #description {
+    font-size: 1.5vw;
+    color: white;
+  }
+  .others {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #dot {
+    grid-row: 1 / 2;
+    align-self: center;
+    color: #86b386;
+    cursor: pointer;
+  }
+  #heart {
+    grid-row: 2 / 3;
+    align-self: center;
+    color: #86b386;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 651px) {
+  body {
+    display: grid;
+    grid-template-rows: 100%;
+    background-image: url("../img/recipe-pic.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-attachment: fixed;
+  }
+  /* img {
+    width: 50;
+    height: 100%;
+  } */
+  .general {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+  }
+  .search-container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  #post {
+    justify-self: right;
+    width: 8vw;
+    align-self: center;
+    cursor: pointer;
+  }
+  #search {
+    width: 70%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border: solid 1px #86b386;
+    font-size: 16px;
+    justify-self: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  }
+  #search-btn {
+    position: absolute;
+    align-self: center;
+    color: rgb(51, 49, 49);
+  }
+  #recipe-pic {
+    width: 100%;
+  }
+  #card {
+    display: grid;
+    grid-row-gap: 20px;
+    max-width: 100%;
+  }
+  #card-template0 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 100%;
+    justify-self: center;
+  }
+  #card-template1 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template2 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template3 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template4 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template5 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template6 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template7 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  .image-box {
+    background-image: url(../img/taco.jpg);
+    background-size: 100%;
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+  }
+  .info {
+    display: grid;
+    grid-template-columns: 1fr;
+    cursor: pointer;
+    font-size: 2vw;
+  }
+  #title {
+    font-size: 2vw;
+    color: #86b386;
+  }
+  #description {
+    font-size: 1.5vw;
     color: white;
   }
   .others {
