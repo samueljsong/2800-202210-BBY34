@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/css/restNew.css">
-  <link rel="stylesheet" href="/css/navbar.css"/>
+  <link rel="stylesheet" href="/css/navbar.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,8 +32,7 @@
       <a class="navbar-brand homeUser" href="#">
         <img src="/img/MooVElogo.png" alt="" width="70" />
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbarNav">
@@ -52,8 +51,7 @@
           </li>
         </ul>
         <div class="dropdown">
-          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdownMenu2" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div id="userProfilePhotoNavBarTop"></div>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -70,7 +68,7 @@
 
   <nav id="navbarGoBackButton" class="navbar sticky-top navbar-light bg-light">
     <div class="container">
-      <a class="material-icons" id="goBackButton" href="/mainPageUser">&#xe5c4;</a>
+      <a class="material-icons" id="goBackButton" href="/mainPageUser"></a>
       <a class="navbar-brand" href="#">Your Restaurants</a>
     </div>
   </nav>
@@ -92,8 +90,7 @@
         </li>
       </ul>
       <div class="dropup">
-        <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button"
-          data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <div id="userProfilePhotoNavBarBot"></div>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
@@ -107,28 +104,29 @@
     </div>
   </nav>
 
-  <div id="viewRestaurantsHeader"><h1> <span id="fullName"></span>'s Recipes</a></h1></div>
+  <div id="viewRestaurantsHeader">
+    <h1> <span id="fullName"></span>'s Recipes</a>
+    </h1>
+  </div>
   <div class="general">
     <div class="search-container">
       <input type="text" id="search">
+      <!-- <a id="search-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-search" viewBox="0 0 16 16">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+      </svg></a> -->
+      <i class="material-icons" id="search-btn" href="#"></i>
+
     </div>
 
-    <div id="card-template">
+    <svg id="post" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+    </svg>
 
-      <div class="image-box"></div>
-      <div class="info">
-        <h1 id="title">A&W</h1>
-        <p id="description"> Try our new BEYOND meat burger, a plant-based alternative!</p>
-      </div>
-      <div class="others">
-        <svg id="dot" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-          <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-        </svg>
-        <svg id="heart" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-        </svg>
-      </div>
-    </div>
+    <div id="card"></div>
+
+
   </div>
 
   <script src="/js/viewRestaurant.js"></script>
