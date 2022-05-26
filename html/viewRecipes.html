@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
-
+  <link rel="stylesheet" href="/css/navbar.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -26,24 +26,105 @@
 </head>
 
 <body>
+  <nav id="navbarContainer" class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand homeUser" href="#">
+        <img src="/img/MooVElogo.png" alt="" width="70" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active homeUser" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="restaurants">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="recipes">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="favourites">Favourites</a>
+          </li>
+        </ul>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div id="userProfilePhotoNavBarTop"></div>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li>
+              <button id="logOutBtn" class="dropdown-item" type="button" onclick="location.href='/api/logout';">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav id="navbarGoBackButton" class="navbar sticky-top navbar-light bg-light">
+    <div class="container">
+      <a class="material-icons" id="goBackButton" href="/mainPageUser">&#xe5c4;</a>
+      <a class="navbar-brand" href="#">Your Recipe</a>
+    </div>
+  </nav>
+
+  <nav id="navbarContainerBottom" class="navbar fixed-bottom justify-content-evenly navbar-light">
+    <div id="navbarBottom" class="container-fluid">
+      <ul id="navbarBottomUlUser" class="navbar-nav">
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="homeUser2">home</a>
+        </li>
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="restaurants2">restaurant</a>
+        </li>
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="recipes2">description</a>
+        </li>
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="favourites2">favorites</a>
+        </li>
+      </ul>
+      <div class="dropup">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div id="userProfilePhotoNavBarBot"></div>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <li>
+            <button class="dropdown-item" type="button" onclick="cleanUp()">
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="viewRecipesHeader">
+    <h1> <span id="fullName"></span>'s Recipes</a>
+    </h1>
+  </div>
+
   <div class="general">
     <div class="search-container">
       <input type="text" id="search">
       <a class="material-icons" id="search-btn"></a>
+      <!-- <a class="material-icons" id="search-btn" href="#"></a> -->
     </div>
 
     <svg id="post" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
     </svg>
-
-    <div id="card"></div>
-
-    <!-- <div id="card-template">
+    <div id="card">
+      <!-- <div id="card-template">
 
       <div class="image-box"></div>
       <div class="info">
         <h1 id="title">Easy Taco Recipe</h1>
-        <p id="description"> Easy to make plant based alternatives!</p>
+        <p id="description"> Easy to make Mexican tacos with plant based alternatives!</p>
       </div>
       <div class="others">
         <svg id="dot" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -54,10 +135,17 @@
         </svg>
       </div>
     </div> -->
+    </div>
 
   </div>
 
   <script src="/js/viewRecipe.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/navbarGoBack.js"></script>
+  <script src="/js/cleanUp.js"></script>
+  <script src="/js/clientUser.js" defer></script>
+  <script src="/js/displayUserInfo.js" defer></script>
+
 
 </body>
 

@@ -14,31 +14,6 @@ ready(function() {
         xhr.send();
     }
 
-    window.addEventListener("load", function(e) {
-        e.preventDefault();
-        let currentUser = String(this.localStorage.getItem("currentUserID"));
-        ajaxGET("/api/restaurant", function(data) {
-            let dataParsed = JSON.parse(data);
-            let i = 0;
-            let total = "";
-            dataParsed(function(e) {
-                const name = document.getElementById('title');
-                const info = document.getElementById('description');
-                const pic = document.getElementsByClassName('image-box');
-                const addr = document.getElementById('ad');
-                const num = document.getElementById('phoneNum');
-                const open = document.getElementById('opening');
-                name.textContent = dataParsed[i].restaurantName;
-                info.textContent = dataParsed[i].description;
-                pic.textContent = dataParsed[i].picture;
-                addr.textContent = dataParsed[i].address;
-                num.textContent = dataParsed[i].phone;
-                open.textContent = dataParsed[i].openingHours;
-                i++;
-            });
-        });
-    });
-
     document.querySelector('.info').addEventListener('click', function() {
         window.location.replace("/recipe");
     });
@@ -47,13 +22,22 @@ ready(function() {
         window.location.replace("/recipe");
     })
 
-    document.getElementById('search-btn').addEventListener('click', function() {
-        window.location.replace('/mainPageUser');
-    })
+    window.addEventListener("load", function(e) {
+        e.preventDefault();
+        let currentUser = String(this.localStorage.getItem("currentUserID"));
+        console.log(currentUser);
 
-    document.getElementById('post').addEventListener('click', function() {
-        window.location.replace('/recipeInput');
-    })
+    });
+
+    window.addEventListener("load", function(e) {
+        e.preventDefault();
+        ajaxGET("/api/restaurant", function(data) {
+            console.log(JSON.parse(data));
+            let dataParsed = JSON.parse(data);
+            console.log(dataParsed);
+        });
+    });
+
 
 });
 
