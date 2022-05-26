@@ -52,9 +52,9 @@ ready(function() {
           let length = card.length;
           let num = card.substring(length - 1);
           console.log(num);
-          window.localStorage.setItem('recipeID', JSON.stringify(dataParsed[num]))
-          console.log(JSON.parse(window.localStorage.getItem('recipeID')));
-          window.location.replace('/recipe');
+          window.localStorage.setItem('restaurantID', JSON.stringify(dataParsed[num]))
+          console.log(JSON.parse(window.localStorage.getItem('restaurantID')));
+          window.location.replace('/restaurantPage');
         })
       }
 

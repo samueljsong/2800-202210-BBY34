@@ -1,0 +1,209 @@
+  @media only screen and (max-width: 750px) {
+    body {
+      background-color: rgb(241, 241, 241)
+    }
+    .general {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 180px auto;
+      grid-row-gap: 10px;
+    }
+    .box {
+      display: grid;
+      grid-template-columns: 1fr;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 0;
+      grid-row: 1 / 2;
+      height: 180px;
+      background-color: rgb(51, 49, 49);
+      width: 100%;
+    }
+    #title {
+      font-size: 7vw;
+      color: #86b386;
+      justify-self: center;
+      align-self: center;
+    }
+    .card {
+      grid-row: 2 / 3;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 20px;
+      background-color: #86b386;
+      border: solid 5px #86b386;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    }
+    #description {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-self: center;
+      align-self: center;
+      background-color: white;
+      height: 80px;
+      width: 100%;
+      align-items: center;
+      border-radius: 5px;
+    }
+    #pin {
+      justify-self: center;
+    }
+    #location {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      background-color: white;
+      height: 50px;
+      align-items: center;
+      border-radius: 5px;
+    }
+    #availability {
+      display: grid;
+      grid-template-columns: 10% 25% 65%;
+      justify-items: center;
+      background-color: white;
+      border-radius: 5px;
+    }
+    #clock {
+      align-self: center;
+    }
+    #days {
+      align-self: center;
+    }
+    #hours {
+      align-self: center;
+    }
+    #list {
+      justify-self: center;
+    }
+    #menu {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      background-color: white;
+      height: 50px;
+      border-radius: 5px;
+      align-items: center;
+    }
+    #phone {
+      justify-self: center;
+    }
+    #contact {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      background-color: white;
+      border-radius: 5px;
+      height: 50px;
+      align-items: center;
+    }
+    ul {
+      list-style: none;
+    }
+  }
+  
+  @media only screen and (min-width: 751px) {
+    body {
+      background-color: rgb(241, 241, 241)
+    }
+    .general {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 180px auto;
+      grid-row-gap: 10px;
+    }
+    .box {
+      display: grid;
+      grid-template-columns: 1fr;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 0;
+      grid-row: 1 / 2;
+      height: 180px;
+      background-color: rgb(51, 49, 49);
+      width: 100%;
+    }
+    #title {
+      font-size: 6vw;
+      color: #86b386;
+      justify-self: center;
+      align-self: center;
+    }
+    .card {
+      grid-row: 2 / 3;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 20px;
+      background-color: #86b386;
+      border: solid 5px #86b386;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    }
+    #description {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-self: center;
+      align-self: center;
+      background-color: white;
+      height: 80px;
+      width: 100%;
+      align-items: center;
+      border-radius: 5px;
+    }
+    #pin {
+      justify-self: center;
+    }
+    #location {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      background-color: white;
+      height: 50px;
+      align-items: center;
+      border-radius: 5px;
+    }
+    #availability {
+      display: grid;
+      grid-template-columns: 10% 25% 65%;
+      justify-items: center;
+      background-color: white;
+      border-radius: 5px;
+    }
+    #clock {
+      align-self: center;
+    }
+    #days {
+      align-self: center;
+    }
+    #hours {
+      align-self: center;
+    }
+    #list {
+      justify-self: center;
+    }
+    #menu {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      background-color: white;
+      height: 50px;
+      border-radius: 5px;
+      align-items: center;
+    }
+    #phone {
+      justify-self: center;
+    }
+    #contact {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      background-color: white;
+      border-radius: 5px;
+      height: 50px;
+      align-items: center;
+    }
+    ul {
+      list-style: none;
+    }
+  }
