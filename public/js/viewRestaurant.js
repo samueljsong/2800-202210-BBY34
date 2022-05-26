@@ -18,7 +18,7 @@ ready(function() {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
     console.log(currentUser);
-    ajaxGET("/api/recipe", function(data) {
+    ajaxGET("/api/restaurant", function(data) {
       console.log(JSON.parse(data));
       let dataParsed = JSON.parse(data);
       let i = 0;
@@ -30,7 +30,7 @@ ready(function() {
 
       for (i = 0; i < dataParsed.length; i++) {
         let temp = '<div id="card-template' + i + '"><div class="image-box"></div><div class="info">'
-        temp += '<h1 id="title">' + dataParsed[i].recipeName;
+        temp += '<h1 id="title">' + dataParsed[i].restaurantName;
         temp += '</h1><p id="description"> Easy to make plant based alternatives!</p></div>'
         temp += '<div class="others"><svg id="dot" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">'
         temp += '<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>'
