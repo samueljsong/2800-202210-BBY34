@@ -22,6 +22,9 @@ ready(function() {
         window.location.replace("/recipe");
     })
 
+    document.getElementById('first').addEventListener('click', function() {
+        window.location.replace("/restaurantSchema");
+    })
 
 });
 
