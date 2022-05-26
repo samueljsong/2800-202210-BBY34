@@ -55,13 +55,9 @@ ready(function() {
                 })
             }
 
-            document.getElementById('search-btn').addEventListener('click', function() {
-                window.location.replace('/mainPageUser');
-            })
+            
 
-            document.getElementById('post').addEventListener('click', function() {
-                window.location.replace('/recipeInput');
-            })
+            
 
 
 
@@ -69,6 +65,14 @@ ready(function() {
         });
     });
 });
+
+document.getElementById('e').addEventListener('click', function() {
+    window.location.replace('/viewRestNew');
+})
+
+document.getElementById('rec').addEventListener('click', function(){
+    window.location.replace('/viewRecipes')
+})
 
 function ready(callback) {
     if (document.readyState != "loading") {
