@@ -1,0 +1,52 @@
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #199419 !important;
+    border: none !important;
+    margin-right: 1px;
+}
+
+#navbarContainer,
+#navbarContainerBottom {
+    background-color: #e1f1e1 !important;
+}
+
+.material-icons {
+    color: #199419;
+}
+
+#navbarBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#navbarBottomUlUser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+#userProfilePhoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#userProfilePhoto img {
+    border-radius: 50%;
+    width: 150px;
+}
+
+#userProfilePhotoNavBarBot img {
+    height: 10vw;
+    border-radius: 50%;
+
+}
+
+#userProfilePhotoNavBarTop img {
+    height: 7vw;
+    border-radius: 50%;
+}

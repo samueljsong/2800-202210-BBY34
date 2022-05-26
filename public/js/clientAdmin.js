@@ -53,8 +53,8 @@ document
     .querySelector("#restaurants")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      ajaxGET("/viewRestaurants", function (data) {
-        window.location.replace("/viewRestaurants");
+      ajaxGET("/viewRestNew", function (data) {
+        window.location.replace("/viewRestNew");
       });
     });
 
@@ -62,22 +62,22 @@ document
     .querySelector("#restaurants2")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      ajaxGET("/viewRestaurants", function (data) {
-        window.location.replace("/viewRestaurants");
+      ajaxGET("/viewRestNew", function (data) {
+        window.location.replace("/viewRestNew");
       });
     });
 
   document.querySelector("#recipes").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/recipe", function (data) {
-      window.location.replace("/recipe");
+    ajaxGET("/viewRecipes", function (data) {
+      window.location.replace("/viewRecipes");
     });
   });
 
   document.querySelector("#recipes2").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/recipe", function (data) {
-      window.location.replace("/recipe");
+    ajaxGET("/viewRecipes", function (data) {
+      window.location.replace("/viewRecipes");
     });
   });
 

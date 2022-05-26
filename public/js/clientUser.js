@@ -53,8 +53,8 @@ ready(function () {
     .querySelector("#restaurants")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      ajaxGET("/viewRestaurants", function (data) {
-        window.location.replace("/viewRestaurants");
+      ajaxGET("/viewRestNew", function (data) {
+        window.location.replace("/viewRestNew");
       });
     });
 
@@ -62,29 +62,29 @@ ready(function () {
     .querySelector("#restaurants2")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      ajaxGET("/viewRestaurants", function (data) {
-        window.location.replace("/viewRestaurants");
+      ajaxGET("/viewRestNew", function (data) {
+        window.location.replace("/viewRestNew");
       });
     });
 
   document.querySelector("#recipes").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/recipe", function (data) {
-      window.location.replace("/recipe");
+    ajaxGET("/viewRecipes", function (data) {
+      window.location.replace("/viewRecipes");
     });
   });
 
   document.querySelector("#recipes2").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/recipe", function (data) {
-      window.location.replace("/recipe");
+    ajaxGET("/viewRecipes", function (data) {
+      window.location.replace("/viewRecipes");
     });
   });
 
   document.querySelector("#favourites").addEventListener("click", function (e) {
     e.preventDefault();
-    ajaxGET("/fav2", function (data) {
-      window.location.replace("/fav2");
+    ajaxGET("/fav", function (data) {
+      window.location.replace("/fav");
     });
   });
 
@@ -92,8 +92,8 @@ ready(function () {
     .querySelector("#favourites2")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      ajaxGET("/fav2", function (data) {
-        window.location.replace("/fav2");
+      ajaxGET("/fav", function (data) {
+        window.location.replace("/fav");
       });
     });
 });

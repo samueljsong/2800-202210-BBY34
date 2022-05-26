@@ -17,7 +17,7 @@ ready(function () {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
     ajaxGET("/api/user/" + currentUser, function (data) {
-      console.log(JSON.parse(data));
+      
       let dataParsed = JSON.parse(data);
       document.getElementById("fullName").textContent = dataParsed.username;
       let picData = "/img/";
