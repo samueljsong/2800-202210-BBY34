@@ -17,7 +17,9 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
+    console.log(currentUser);
     ajaxGET("/api/recipe", function(data) {
+      console.log(JSON.parse(data));
       let dataParsed = JSON.parse(data);
       let i = 0;
       let j = 0;
