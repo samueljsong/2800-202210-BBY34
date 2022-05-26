@@ -33,14 +33,13 @@ app.use(
       secure: false,
     },
     store: MongoStore.create({
-      mongoUrl:
-        "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
+      mongoUrl: "mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority",
       collectionName: "sessions",
     }),
   })
 );
 
-app.get("/api/users", async (req, res) => {
+app.get("/api/users", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const users = await User.find();
@@ -51,7 +50,7 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-app.post("/api/restaurant", async (req, res) => {
+app.post("/api/restaurant", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const restaurant = new Restaurant(req.body);
@@ -65,7 +64,7 @@ app.post("/api/restaurant", async (req, res) => {
   }
 });
 
-app.get("/api/restaurant", async (req, res) => {
+app.get("/api/restaurant", async(req, res) => {
   if (req.session.isAuth) {
     const restaurants = await Restaurant.find();
     res.send(restaurants);
@@ -74,7 +73,7 @@ app.get("/api/restaurant", async (req, res) => {
   }
 });
 
-app.delete("/api/restaurant/:id", async (req, res) => {
+app.delete("/api/restaurant/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const restaurantId = req.params.id;
@@ -90,7 +89,7 @@ app.delete("/api/restaurant/:id", async (req, res) => {
   }
 });
 
-app.get("/api/recipe", async (req, res) => {
+app.get("/api/recipe", async(req, res) => {
   if (req.session.isAuth) {
     const recipes = await Recipe.find({ author: req.session.userID });
     res.send(recipes);
@@ -99,7 +98,7 @@ app.get("/api/recipe", async (req, res) => {
   }
 });
 
-app.post("/api/recipe", async (req, res) => {
+app.post("/api/recipe", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const recipeData = req.body;
@@ -116,14 +115,12 @@ app.post("/api/recipe", async (req, res) => {
   }
 });
 
-app.patch("/api/recipe/:id", async (req, res) => {
+app.patch("/api/recipe/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const recipeId = req.params.id;
-      const recipe = await Recipe.findOneAndUpdate(
-        { _id: recipeId },
-        req.body,
-        {
+      const recipe = await Recipe.findOneAndUpdate({ _id: recipeId },
+        req.body, {
           new: true,
           runValidators: true,
         }
@@ -137,7 +134,7 @@ app.patch("/api/recipe/:id", async (req, res) => {
   }
 });
 
-app.delete("/api/recipe/:id", async (req, res) => {
+app.delete("/api/recipe/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const recipeId = req.params.id;
@@ -151,7 +148,7 @@ app.delete("/api/recipe/:id", async (req, res) => {
   }
 });
 
-app.post("/api/signup", async (req, res) => {
+app.post("/api/signup", async(req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
@@ -164,7 +161,7 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-app.post("/api/admin/signup", async (req, res) => {
+app.post("/api/admin/signup", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.session.userID });
@@ -188,13 +185,11 @@ app.post("/api/admin/signup", async (req, res) => {
   }
 });
 
-app.patch("/api/user/:id", async (req, res) => {
+app.patch("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
-      const user = await User.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        {
+      const user = await User.findOneAndUpdate({ _id: req.params.id },
+        req.body, {
           new: true,
           runValidators: true,
         }
@@ -208,7 +203,7 @@ app.patch("/api/user/:id", async (req, res) => {
   }
 });
 
-app.delete("/api/user/:id", async (req, res) => {
+app.delete("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.session.userID });
@@ -261,7 +256,7 @@ app.delete("/api/user/:id", async (req, res) => {
   }
 });
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", async(req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const user = await User.findOne({ email: email });
@@ -300,13 +295,11 @@ app.get("/api/logout", (req, res) => {
   }
 });
 
-app.patch("/api/user/:id", async (req, res) => {
+app.patch("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
-      const user = await User.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        {
+      const user = await User.findOneAndUpdate({ _id: req.params.id },
+        req.body, {
           new: true,
           runValidators: true,
         }
@@ -320,7 +313,7 @@ app.patch("/api/user/:id", async (req, res) => {
   }
 });
 
-app.get("/api/user/:id", async (req, res) => {
+app.get("/api/user/:id", async(req, res) => {
   if (req.session.isAuth) {
     try {
       const currentUser = await User.findOne({ _id: req.params.id });
@@ -339,7 +332,7 @@ app.use("/css", express.static("../public/css"));
 app.use("/img", express.static("../public/img"));
 app.use("/favicon", express.static("../public/favicon"));
 
-app.get("/", async (req, res) => {
+app.get("/", async(req, res) => {
   if (!req.session.isAuth) {
     let doc = fs.readFileSync("../html/login.html", "utf-8");
     res.send(doc);
@@ -405,6 +398,15 @@ app.get("/mainPageUser", (req, res) => {
 app.get("/profileUser", (req, res) => {
   if (req.session.isAuth) {
     let doc = fs.readFileSync("../html/user/profileUser.html", "utf-8");
+    res.send(doc);
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/restaurantPage", (req, res) => {
+  if (req.session.isAuth) {
+    let doc = fs.readFileSync("../html/restaurantPage.html", "utf-8");
     res.send(doc);
   } else {
     res.redirect("/");
