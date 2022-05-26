@@ -62,10 +62,6 @@ ready(function() {
       //   window.location.replace('/recipe');
       // })
 
-      document.getElementById('search-btn').addEventListener('click', function() {
-        window.location.replace('/mainPageUser');
-      })
-
       document.getElementById('post').addEventListener('click', function() {
         window.location.replace('/recipeInput');
       })

@@ -17,12 +17,12 @@ body {
   min-height: 100%;
 }
 
-#viewRecipesHeader {
+#viewRestaurantsHeader {
   display: grid;
   grid-template-columns: 5% 90% 5%;
 }
 
-#viewRecipesHeader h1 {
+#viewRestaurantsHeader h1 {
   grid-column: 2/span 1;
   color: #495057;
 }
@@ -208,7 +208,7 @@ body {
     background-attachment: fixed;
     z-index: -1;
   }
-  #viewRecipesHeader {
+  #viewRestaurantsHeader {
     grid-template-columns: 25% 50% 25%;
   }
   /* img {
