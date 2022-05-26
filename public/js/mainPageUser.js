@@ -22,9 +22,19 @@ ready(function() {
         window.location.replace("/recipe");
     })
 
-    document.getElementById('first').addEventListener('click', function() {
-        window.location.replace("/restaurantSchema");
+    document.getElementById('wallflower').addEventListener('click', function() {
+        window.location.replace("/restaurant");
     })
+
+    function display(restaurant) {
+        const restName = document.getElementById("title");
+        const desc = document.getElementById("description");
+        restName.querySelector("title").textContent = restaurant.restaurantName;
+        desc.querySelector("description").textContent = restaurant.description;
+        postTemplate.querySelector(".email").textContent = restaurant.email;
+        postTemplate.querySelector(".userListForAdmin").id = restaurant._id;
+        postParent.appendChild(postTemplate);
+    }
 
 });
 
