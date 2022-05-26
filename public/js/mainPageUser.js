@@ -45,7 +45,6 @@ ready(function() {
             populate.innerHTML = total;
 
             for (j = 0; j < dataParsed.length; j++) {
-                let card = "card-template" + j;
                 document.getElementById(card).addEventListener('click', function() {
                     let length = card.length;
                     let num = card.substring(length - 1);
