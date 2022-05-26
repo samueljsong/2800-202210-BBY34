@@ -1,9 +1,9 @@
 "use strict";
 //HTTPS request
-ready(function() {
+ready(function () {
   function ajaxGET(url, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = function () {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         callback(this.responseText);
       } else {
@@ -14,11 +14,19 @@ ready(function() {
     xhr.send();
   }
 
-  window.addEventListener("load", function(e) {
+  document.querySelector("#post").addEventListener("click", function (e) {
+    e.preventDefault();
+    ajaxGET("/recipeInput", function (data) {
+      window.location.replace("/recipeInput");
+    });
+  });
+
+
+  window.addEventListener("load", function (e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
     console.log(currentUser);
-    ajaxGET("/api/recipe", function(data) {
+    ajaxGET("/api/recipe", function (data) {
       console.log(JSON.parse(data));
       let dataParsed = JSON.parse(data);
       let i = 0;
@@ -48,7 +56,7 @@ ready(function() {
 
       for (j = 0; j < dataParsed.length; j++) {
         let card = "card-template" + j;
-        document.getElementById(card).addEventListener('click', function() {
+        document.getElementById(card).addEventListener('click', function () {
           let length = card.length;
           let num = card.substring(length - 1);
           console.log(num);
@@ -62,9 +70,9 @@ ready(function() {
       //   window.location.replace('/recipe');
       // })
 
-      document.getElementById('post').addEventListener('click', function() {
-        window.location.replace('/recipeInput');
-      })
+      // document.getElementById('post').addEventListener('click', function () {
+      //   window.location.replace('/recipeInput');
+      // })
 
 
 
