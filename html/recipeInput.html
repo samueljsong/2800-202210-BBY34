@@ -114,27 +114,30 @@
 
   <div id="inputRecipeContainer">
     <div id="recipe">
-      <h1 class="text-success">Let's write <span id="fullName"></span> <a href="#" id="easterEgg">'s recipe here! </a> <i class="material-icons">sentiment_very_satisfied</i>
+      <h1 class="text-success">Let's write <span id="fullName"></span> <a href="#" id="easterEgg">'s recipe here! </a>
+        <i class="material-icons">sentiment_very_satisfied</i>
       </h1>
-      <label class="text-success lead">Add a title (for your recipe)<i class="material-icons">rate_review</i></label>
-      <br>
-      <input type="text" id="userRecipeTitle" class="form-control" value="" />
+      <form id="formForEdit">
+        <label class="text-success lead">Add a title (for your recipe)<i class="material-icons">rate_review</i></label>
+        <br>
+        <input type="text" id="userRecipeTitle" class="form-control" value="" />
 
-      <div class="mb-3 mt-3">
-        <label for="ingredientsInput" class="text-success lead">Ingredients <i
-            class="material-icons">set_meal</i></label>
-        <textarea class="form-control" rows="5" id="ingredientsInput" name="commenttext"></textarea>
-      </div>
+        <div class="mb-3 mt-3">
+          <label for="ingredientsInput" class="text-success lead">Ingredients <i
+              class="material-icons">set_meal</i></label>
+          <textarea class="form-control" rows="5" id="ingredientsInput" name="commenttext"></textarea>
+        </div>
 
-      <div class="mb-3 mt-3">
-        <label for="recipeInput" class="text-success lead">Recipe <i class="material-icons">emoji_objects</i></label>
-        <textarea class="form-control" rows="10" id="recipeInput" name="commenttext"></textarea>
-      </div>
-
-
-      <div class="d-grid gap-2">
-        <button class="btn btn-primary btn-lg" id="btn" type="button">Submit</button>
-      </div>
+        <div class="mb-3 mt-3">
+          <label for="recipeInput" class="text-success lead">Recipe <i class="material-icons">emoji_objects</i></label>
+          <textarea class="form-control" rows="10" id="recipeInput" name="commenttext"></textarea>
+        </div>
+        
+        <div class="d-grid gap-2">
+          <button class="btn btn-secondary btn-lg" id="btnReset" type="button" onclick="clearForm()">Reset</button>
+          <button class="btn btn-primary btn-lg" id="btn" type="button">Submit</button>
+        </div>
+      </form>
 
     </div>
 
@@ -154,6 +157,7 @@
   <script src="/js/clientUser.js" defer></script>
   <script src="/js/displayUserInfo.js" defer></script>
   <script src="/js/easterEgg.js"></script>
+  <script src="/js/clearForm.js"></script>
 
 
 

@@ -57,7 +57,7 @@
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                    <div id="userProfilePhotoNavBarTop"></div>
+                        <div id="userProfilePhotoNavBarTop"></div>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <li><button class="dropdown-item" type="button"
@@ -104,8 +104,10 @@
         </div>
     </nav>
 
-    <div id="adminDashboardHeader"><h1> <span id="fullName"></span> <a href="#" id="easterEgg">'s Dashboard</a></h1></div>
-    
+    <div id="adminDashboardHeader">
+        <h1> <span id="fullName"></span> <a href="#" id="easterEgg">'s Dashboard</a></h1>
+    </div>
+
     <div class="listContainer">
         <ul id="postParent" class="list-group list-group-flush listOfUsers">
             <template id="container">
@@ -139,39 +141,47 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addUserModalLabel">Add a new user here</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeButtonAdd">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeButtonAdd">
                         <i class="material-icons">clear</i>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Upload a profile photo</label>
-                        <input class="form-control" type="file" id="formFile">
+                <form id="formForEdit">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Upload a profile photo</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nameAddedByAdmin" class="form-label">Full Name</label>
+                            <input class="form-control" id="nameAddedByAdmin" minlength="5" maxlength="20"
+                                placeholder="Required 5-20 characters">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nameAddedByAdmin" class="form-label">User Type</label>
+                            <input class="form-control" id="userTypeAddedByAdmin"
+                                placeholder="Type user type: 'User' or 'Admin'">
+                        </div>
+                        <div class="was-validated mb-3">
+                            <label for="emailAddedByAdmin" class="form-label">Email</label>
+                            <input type="email" class="form-control is-invalid" id="emailAddedByAdmin" minlength="5"
+                                maxlength="30" placeholder="Required 5-30 characters">
+                        </div>
+                        <div class="was-validated mb-3">
+                            <label for="passwordAddedByAdmin" class="form-label">Password</label>
+                            <input type="password" class="form-control is-invalid" id="passwordAddedByAdmin"
+                                minlength="8" maxlength="20" placeholder="Required 8-20 characters">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="nameAddedByAdmin" class="form-label">Full Name</label>
-                        <input class="form-control" id="nameAddedByAdmin" placeholder="Type user name here">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            Reset
+                        </button>
+                        <button type="button" id="saveNewUser" class="btn btn-primary" data-bs-dismiss="modal">Save
+                            changes</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="nameAddedByAdmin" class="form-label">User Type</label>
-                        <input class="form-control" id="userTypeAddedByAdmin" placeholder="Type user type here">
-                    </div>
-                    <div class="was-validated mb-3">
-                        <label for="emailAddedByAdmin" class="form-label">Email</label>
-                        <input type="email" class="form-control is-invalid" id="emailAddedByAdmin" minlength="5"
-                            maxlength="30" placeholder="Required 5-30 characters">
-                    </div>
-                    <div class="was-validated mb-3">
-                        <label for="passwordAddedByAdmin" class="form-label">Password</label>
-                        <input type="password" class="form-control is-invalid" id="passwordAddedByAdmin" minlength="8"
-                            maxlength="20" placeholder="Required 8-20 characters">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="saveNewUser" class="btn btn-primary" data-bs-dismiss="modal">Save
-                        changes</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -183,35 +193,42 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="profileEditModalLabel">Edit user's profile here</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeButtonEdit">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeButtonEdit">
                         <i class="material-icons">clear</i>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div id="uploadProfilePic" class="mb-3">
-                        <label for="formFile" class="form-label">Upload your new profile photo</label>
-                        <input class="form-control" type="file" id="userProfilePic">
+                <form id="formForEditUserByAdmin">
+                    <div class="modal-body">
+                        <div id="uploadProfilePic" class="mb-3">
+                            <label for="formFile" class="form-label">Upload your new profile photo</label>
+                            <input class="form-control" type="file" id="userProfilePic">
+                        </div>
+                        <div class="mb-3 was-validated">
+                            <label for="nameFormControlInput" class="form-label is-invalid">Full Name</label>
+                            <input class="form-control" minlength="5" maxlength="20" id="nameFormControlInput"
+                                placeholder="Required 5-20 characters">
+                        </div>
+                        <div class="was-validated mb-3">
+                            <label for="emailFormControlInput" class="form-label">Email</label>
+                            <input type="email" class="form-control is-invalid" id="emailFormControlInput" minlength="5"
+                                maxlength="30" placeholder="Required 5-30 characters">
+                        </div>
+                        <div class="was-validated mb-3">
+                            <label for="passwordFormControlInput" class="form-label">Password</label>
+                            <input type="password" class="form-control is-invalid" id="passwordFormControlInput"
+                                minlength="8" maxlength="20" placeholder="Required 8-20 characters">
+                        </div>
                     </div>
-                    <div class="mb-3 was-validated">
-                        <label for="nameFormControlInput" class="form-label is-invalid">Full Name</label>
-                        <input class="form-control" minlength="5" maxlength="20" id="nameFormControlInput" placeholder="Required 5-20 characters">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="clearFormAdmin()">
+                            Reset
+                        </button>
+                        <button type="button" id="saveEdit" class="btn btn-primary" data-bs-dismiss="modal">Save
+                            changes</button>
                     </div>
-                    <div class="was-validated mb-3">
-                        <label for="emailFormControlInput" class="form-label">Email</label>
-                        <input type="email" class="form-control is-invalid" id="emailFormControlInput" minlength="5"
-                            maxlength="30" placeholder="Required 5-30 characters">
-                    </div>
-                    <div class="was-validated mb-3">
-                        <label for="passwordFormControlInput" class="form-label">Password</label>
-                        <input type="password" class="form-control is-invalid" id="passwordFormControlInput"
-                            minlength="8" maxlength="20" placeholder="Required 8-20 characters">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="saveEdit" class="btn btn-primary" data-bs-dismiss="modal">Save
-                        changes</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -222,7 +239,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="profileDeleteModalLabel">Are you sure to delete this user?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeButtonDelete">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeButtonDelete">
                         <i class="material-icons">clear</i>
                     </button>
                 </div>
@@ -251,9 +269,8 @@
     <script src="/js/clientAdmin.js"></script>
     <script src="/js/dashboardAdmin.js"></script>
     <script src="/js/easterEgg.js"></script>
-
-
-
+    <script src="/js/clearForm.js"></script>
+    <script src="/js/clearFormAdmin.js"></script>
 
 </body>
 
