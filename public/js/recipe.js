@@ -24,20 +24,9 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     ajaxGET("/api/recipe", function(data) {
-      console.log(JSON.parse(data));
+      let dataParsed = JSON.parse(data);
     });
   });
-
-  let recipe = JSON.parse(window.localStorage.getItem('recipeID'));
-  console.log(recipe);
-
-  const title = document.getElementById('recipe-title');
-  title.innerHTML = recipe.recipeName;
-
-  document.getElementById('list').innerHTML = recipe.ingredients;
-
-  document.getElementById('text').innerHTML = recipe.instructions;
-
 
   document.getElementById('back').addEventListener('click', function() {
     window.location.replace('/mainPageUser');
