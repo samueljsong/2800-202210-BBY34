@@ -91,6 +91,71 @@ body {
     background-color: rgb(51, 49, 49);
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 100%;
+    justify-self: center;
+  }
+  #card-template1 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template2 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template3 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template4 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template5 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template6 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template7 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
   }
   .image-box {
     background-image: url(../img/taco.jpg);
@@ -185,13 +250,81 @@ body {
   #recipe-pic {
     width: 100%;
   }
-  #card-template {
+  #card {
+    display: grid;
+    justify-items: center;
+    max-width: 1fr;
+  }
+  #card-template0 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 70%;
+    justify-self: center;
+  }
+  #card-template1 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template2 {
     display: grid;
     grid-template-columns: 30% 60% 10%;
     background-color: rgb(51, 49, 49);
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
     max-width: 50%;
+    justify-self: center;
+  }
+  #card-template3 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template4 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template5 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template6 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
+    justify-self: center;
+  }
+  #card-template7 {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    background-color: rgb(51, 49, 49);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
+    max-width: 80%;
     justify-self: center;
   }
   .image-box {
