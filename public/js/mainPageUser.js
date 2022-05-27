@@ -14,13 +14,20 @@ ready(function() {
     xhr.send();
   }
 
+  document.querySelector("#viewAllRestaurants").addEventListener("click", function (e) {
+    e.preventDefault();
+    ajaxGET("/viewRestNew", function (data) {
+      window.location.replace("/viewRestNew");
+    });
+  });
 
-  document.getElementById('e').addEventListener('click', function() {
-    window.location.replace("/viewRestNew");
-  })
-
-
-
+  document.querySelector("#viewAllRecipes").addEventListener("click", function (e) {
+    e.preventDefault();
+    ajaxGET("/viewRecipes", function (data) {
+      window.location.replace("/viewRecipes");
+    });
+  });
+ 
 });
 
 function ready(callback) {

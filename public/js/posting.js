@@ -15,15 +15,11 @@ ready(function() {
   }
 
   function ajaxPOST(url, callback, data) {
-    console.log(data);
-
     const xhr = new XMLHttpRequest();
-
     xhr.onload = function() {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
         callback(this.responseText);
       } else {
-        console.log(this.status);
         window.location.replace("/viewRecipes");
       }
     };

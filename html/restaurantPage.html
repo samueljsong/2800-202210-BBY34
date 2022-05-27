@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Favourites</title>
-  <link rel="stylesheet" href="/css/restNew.css">
-  <link rel="stylesheet" href="/css/navbar.css" />
+  <title>Restaurant</title>
+  <link rel="stylesheet" href="/css/restaurantPage.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
+  <link rel="stylesheet" href="/css/navbar.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -27,7 +27,6 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-
 </head>
 
 <body>
@@ -74,8 +73,8 @@
 
   <nav id="navbarGoBackButton" class="navbar sticky-top navbar-light bg-light">
     <div class="container">
-      <a class="material-icons" id="goBackButton" href="/mainPageUser">&#xe5c4;</a>
-      <a class="navbar-brand" href="#">Your Favourite Restaurants</a>
+      <a class="material-icons" id="goBackButton" href="/viewRestNew">&#xe5c4;</a>
+      <a class="navbar-brand" href="#">Restaurant</a>
     </div>
   </nav>
 
@@ -111,36 +110,40 @@
     </div>
   </nav>
 
-  <div id="viewRestaurantsHeader">
-    <h1><span id="fullName"></span>'s Favourites
-    </h1>
+  <div id="restaurantsHeader">
+    <h2> Let's check out this restaurant, <span id="fullName"></span>!
+    </h2>
   </div>
-  <div class="general">
-    <div class="search-container">
-      <input type="text" id="search">
+
+  <div id="restaurantContainer" class="card">
+    <div class="card-header">
+      <h1 id="title">Title of the Restaurant</h1>
     </div>
+    <div class="card-body">
+      <h5 id="description" class="card-title">Restaurant description</h5>
+      <div id="restaurantContentContainer">
+        <i class="material-icons">&#xe55e;</i>
+        <h6 id="address" class="card-title">Restaurant address</h6>
+        <br>
+        <i class="material-icons">&#xe8b5;</i>
+        <p id="hours" class="card-text">Restaurant hours</p>
 
-    <svg id="post" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
-      viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
-        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-    </svg>
-
-    <div id="card"></div>
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">© 2022 MooVE, BBY34</p>
-    </footer>
-
+        <i class="material-icons">&#xe0b0;</i>
+        <h6 id="number" class="card-title">Contact us</h6>
+      </div>
+    </div>
   </div>
 
-  <script src="/js/viewRestaurant.js"></script>
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-muted">© 2022 MooVE, BBY34</p>
+  </footer>
+
+  <script src="/js/restaurantPage.js"></script>
   <script src="/js/navbar.js"></script>
   <script src="/js/navbarGoBack.js"></script>
   <script src="/js/cleanUp.js"></script>
   <script src="/js/clientUser.js" defer></script>
   <script src="/js/displayUserInfo.js" defer></script>
-
 </body>
 
 </html>

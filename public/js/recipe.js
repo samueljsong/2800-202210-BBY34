@@ -17,21 +17,23 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
-
   });
 
   window.addEventListener("load", function(e) {
     e.preventDefault();
     ajaxGET("/api/recipe", function(data) {
-      let dataParsed = JSON.parse(data);
+      console.log(JSON.parse(data));
     });
   });
 
-  document.getElementById('back').addEventListener('click', function() {
-    window.location.replace('/mainPageUser');
-  })
+  let recipe = JSON.parse(window.localStorage.getItem('recipeID'));
 
+  const title = document.getElementById('recipe-title');
+  title.innerHTML = recipe.recipeName;
+
+  document.getElementById('list').innerHTML = recipe.ingredients;
+
+  document.getElementById('text').innerHTML = recipe.instructions;
 
 });
 
