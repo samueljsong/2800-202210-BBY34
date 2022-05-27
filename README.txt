@@ -223,4 +223,4 @@ Team Members:
 
 
 4th(Last) milestone: This assignment is [92]% complete. 
-(-8%) For timeline component, we don't have upload image and delete items.
+(-8%) For timeline component, we don't have upload image and delete items in timeline.
