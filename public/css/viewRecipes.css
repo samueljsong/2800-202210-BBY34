@@ -85,13 +85,18 @@ body {
   #recipe-pic {
     width: 100%;
   }
+  #card {
+    display: grid;
+    grid-row-gap: 20px;
+    justify-items: center;
+  }
   #card-template0 {
     display: grid;
     grid-template-columns: 30% 60% 10%;
     background-color: rgb(51, 49, 49);
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-    max-width: 100%;
+    max-width: 80%;
     justify-self: center;
   }
   #card-template1 {
