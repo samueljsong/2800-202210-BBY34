@@ -17,8 +17,6 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
-
   });
 
   window.addEventListener("load", function(e) {
@@ -29,7 +27,6 @@ ready(function() {
   });
 
   let recipe = JSON.parse(window.localStorage.getItem('recipeID'));
-  console.log(recipe);
 
   const title = document.getElementById('recipe-title');
   title.innerHTML = recipe.recipeName;
@@ -37,12 +34,6 @@ ready(function() {
   document.getElementById('list').innerHTML = recipe.ingredients;
 
   document.getElementById('text').innerHTML = recipe.instructions;
-
-
-  document.getElementById('back').addEventListener('click', function() {
-    window.location.replace('/mainPageUser');
-  })
-
 
 });
 
