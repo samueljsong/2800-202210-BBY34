@@ -22,18 +22,195 @@ Listing of File Contents of folder:
     .env
     README.txt
 
+    ===============================
+
+    List of all files:
+
+│   .env
+│   README.txt
+│
+├───html
+│   │   fav.html
+│   │   login.html
+│   │   recipe.html
+│   │   recipeInput.html
+│   │   restaurantPage.html
+│   │   signUp.html
+│   │   terms.html
+│   │   viewRecipes.html
+│   │   viewRestNew.html
+│   │
+│   ├───admin
+│   │       adminMain.html
+│   │       dashboardAdmin.html
+│   │       profileAdmin.html
+│   │
+│   └───user
+│           mainPageUser.html
+│           profileUser.html
+│
+├───public
+│   ├───css
+│   │       adminMain.css
+│   │       dashboardAdmin.css
+│   │       inputRecipe.css
+│   │       login.css
+│   │       mainPage.css
+│   │       navbar.css
+│   │       profile.css
+│   │       recipe.css
+│   │       restaurant.css
+│   │       restaurantPage.css
+│   │       restNew.css
+│   │       signup.css
+│   │       terms.css
+│   │       viewRecipes.css
+│   │       viewRestaurants.css
+│   │
+│   ├───favicon
+│   │       favicon.ico
+│   │       moo.ico
+│   │
+│   ├───img
+│   │       admin.png
+│   │       apple.png
+│   │       ava1.png
+│   │       ava10.png
+│   │       ava11.png
+│   │       ava12.png
+│   │       ava2.png
+│   │       ava3.png
+│   │       ava4.jpg
+│   │       ava5.jpg
+│   │       ava6.jpg
+│   │       ava7.png
+│   │       ava8.jpg
+│   │       ava9.png
+│   │       bg.jpg
+│   │       bruncheria.png
+│   │       chili.png
+│   │       ear.png
+│   │       earls.png
+│   │       food.jpg
+│   │       lime.png
+│   │       meat.png
+│   │       meeT.png
+│   │       MooVElogo.png
+│   │       naam.png
+│   │       pburger.jpg
+│   │       pie.png
+│   │       planet.png
+│   │       planetburh.png
+│   │       plants.jpg
+│   │       profilePic.png
+│   │       recipe-pic.png
+│   │       restaurant_vegen.jpg
+│   │       romers.png
+│   │       signUpFormbg.jpg
+│   │       sorry.jpg
+│   │       taco.jpg
+│   │       testback.jpg
+│   │       tree.png
+│   │       vegfood.jpg
+│   │       walls.png
+│   │       wrap.png
+│   │
+│   └───js
+│           cleanUp.js
+│           clearForm.js
+│           clearFormAdmin.js
+│           clientAdmin.js
+│           clientUser.js
+│           dashboardAdmin.js
+│           displayAdminInfo.js
+│           displayUserInfo.js
+│           easterEgg.js
+│           editUser.js
+│           loginClient.js
+│           mainPageUser.js
+│           modal.js
+│           navbar.js
+│           navbarGoBack.js
+│           popover.js
+│           posting.js
+│           recipe.js
+│           recipeInput.js
+│           restaurantPage.js
+│           signUpClient.js
+│           viewRecipe.js
+│           viewRestaurant.js
+│
+├───server
+│   │   .gitignore
+│   │   package-lock.json
+│   │   package.json
+│   │   server.js
+│   │
+│   ├───db
+│   │       mongoose.js
+│   │
+│   ├───models
+│   │       recipe.js
+│   │       restaurant.js
+│   │       user.js
+│
+└───xml
+        loginErrorNoUserFound.xml
 
 How to install or run the project:
+    1. Clone the repo to your local machine
+    2. Open the local repo with VSCode
+    3. Install any extensions that help you read html, css and js files
+    Database:
+    1. Install MongoDB Community Server from MongoDB website (choose platform accordingly to your OS)
+    2. Install MongoDB Shell from MongoDB website (choose platform accordingly to your OS)
+    3. Run "mongod --version" in cmd to make sure MongoDB Community Server is installed 
+    4. Run "mongo --version" in cmd to make sure MongoDB Shell is installed
 
 
 How to use the product:
+    In the local repo that you open with VSCode:
+        1. Run "npm install" in terminal 
+        2. cd in to server folder and run "nodemon server.js"
+        3. Check it on localhost:8000
+
+        User login info :
+        email: ifeagboola@gmail.com
+        password: ifeagboola
+
+        Admin login info : 
+        email: bby34moove@gmail.com
+        password: bby34moove
+
+    Database: 
+        1. You can check our database by running this command in cmd: 
+
+        mongosh "mongodb+srv://2800-bby34.to1kn.mongodb.net/myFirstDatabase" --apiVersion 1 --username PhuongNg12
+        Password: WnZoeFeLbTRXEo6D
+    
+        2. Run these commands to see our collections: 
+
+        show dbs 
+        use 2800-BBY34
+        show collections
+        db.users.find()
+        db.recipes.find()
+        db.restaurants.find()
+    
 
 
 Include Credits, References, and Licenses:
+"Confetti Effect using html css and javascript" from Coding Fire for our Easter Egg
+Coding Fire: 
+    Youtube :- https://bit.ly/38yRrXd​​​​
+    Github:- https://bit.ly/30HgqTP​​​​
 
 
 Contact Information:
 Leerang(Naomi) Byun - lbyun1@my.bcit.ca
+Phuong Nguyen - znguyen3@my.bcit.ca
+Joo-hun (Samuel) Song - jsong113@my.bcit.ca
+Dinuja Gunawardana - dgunawardana@my.bcit.ca
 
 
 
@@ -45,24 +222,4 @@ Team Members:
 [Leerang (Naomi) Byun], [A01199376], [Set 2D], [2022-05-27]
 
 
-
-4th(Last) milestone: This assignment is []% complete. 
-
-
-
-
-
-You can check our database using this link in cmd: 
-
-mongosh "mongodb+srv://2800-bby34.to1kn.mongodb.net/myFirstDatabase" --apiVersion 1 --username PhuongNg12
-Password: WnZoeFeLbTRXEo6D
-
-MONGODB_URI: mongodb+srv://PhuongNg12:WnZoeFeLbTRXEo6D@2800-bby34.to1kn.mongodb.net/2800-BBY34?retryWrites=true&w=majority
-
-User login info :
-    email: ifeagboola@gmail.com
-    password: ifeagboola
-
-Admin login info : 
-    email: bby34moove@gmail.com
-    password: bby34moove
+4th(Last) milestone: This assignment is [100]% complete. 
