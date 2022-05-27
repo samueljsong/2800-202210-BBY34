@@ -5,100 +5,142 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Favourites</title>
-  <link rel="stylesheet" href="/css/fav.css">
+  <title>Your Favourites</title>
+  <link rel="stylesheet" href="/css/restNew.css">
+  <link rel="stylesheet" href="/css/navbar.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="/favicon/moo.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 
 </head>
 
 <body>
-  <div class="general">
-    <div class="box">
-      <svg id="heart" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-        <path
-          d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-      </svg>
-      <h1 id="title">Your Favourites</h1>
-
+  <nav id="navbarContainer" class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand homeUser" href="#">
+        <img src="/img/MooVElogo.png" alt="" width="70" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active homeUser" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="restaurants">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="recipes">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="favourites">Favourites</a>
+          </li>
+        </ul>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdownMenu2" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <div id="userProfilePhotoNavBarTop"></div>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li>
+              <button id="logOutBtn" class="dropdown-item" type="button" onclick="location.href='/api/logout';">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </nav>
+
+  <nav id="navbarGoBackButton" class="navbar sticky-top navbar-light bg-light">
+    <div class="container">
+      <a class="material-icons" id="goBackButton" href="/mainPageUser">&#xe5c4;</a>
+      <a class="navbar-brand" href="#">Your Restaurants</a>
+    </div>
+  </nav>
+
+  <nav id="navbarContainerBottom" class="navbar fixed-bottom justify-content-evenly navbar-light">
+    <div id="navbarBottom" class="container-fluid">
+      <ul id="navbarBottomUlUser" class="navbar-nav">
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="homeUser2">home</a>
+        </li>
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="restaurants2">restaurant</a>
+        </li>
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="recipes2">description</a>
+        </li>
+        <li class="nav-item">
+          <a class="material-icons" href="#" id="favourites2">favorites</a>
+        </li>
+      </ul>
+      <div class="dropup">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <div id="userProfilePhotoNavBarBot"></div>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <li>
+            <button class="dropdown-item" type="button" onclick="cleanUp()">
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="viewRestaurantsHeader">
+    <h1><span id="fullName"></span>'s Favourites
+    </h1>
+  </div>
+  <div class="general">
     <div class="search-container">
       <input type="text" id="search">
-      <a id="search-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          class="bi bi-search" viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg></a>
     </div>
-    <div class="filter">
-      <div class="dropdown">
-        <button class="link">FILTERS</button>
-        <div class="dropdown-menu">
-          <div id="recipe">RECIPE</div>
-          <div id="restaurant">RESTAURANT</div>
-        </div>
-        <div class="grid-filter">
-          <svg id="squares" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
-            <path
-              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
-          </svg>
-          <svg id="stacks" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-            <path
-              d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z" />
-            <path
-              d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <img src="/img/taco.jpg" id="pic" alt="none">
-      <div class="text">
-        <h2 class="place">A&W</h2>
-        <h4 class="info">Address: 10355 152 St Unit 1408</h4>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical dots" viewBox="0 0 16 16">
-        <path
-          d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-      </svg>
-    </div>
-    <div class="card2">
-      <img src="/img/taco.jpg" class="pic" alt="none">
-      <div class="text">
-        <h2 class="place">A&W</h2>
-        <h4 class="info">Address: 10355 152 St Unit 1408</h4>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical dots" viewBox="0 0 16 16">
-        <path
-          d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-      </svg>
-    </div>
-    <div class="card3">
-      <img src="/img/taco.jpg" class="pic" alt="none">
-      <div class="text">
-        <h2 class="place">A&W</h2>
-        <h4 class="info">Address: 10355 152 St Unit 1408</h4>
-      </div>
-      <svg id="dots" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-        <path
-          d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-      </svg>
-    </div>
-    <div class="card4">
-      <img src="/img/taco.jpg" class="pic" alt="none">
-      <div class="text">
-        <h2 class="place">A&W</h2>
-        <h4 class="info">Address: 10355 152 St Unit 1408</h4>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical dots" viewBox="0 0 16 16">
-        <path
-          d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-      </svg>
-    </div>
+
+    <svg id="post" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+    </svg>
+
+    <div id="card"></div>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">© 2022 MooVE, BBY34</p>
+    </footer>
+
   </div>
 
+  <script src="/js/viewRestaurant.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/navbarGoBack.js"></script>
+  <script src="/js/cleanUp.js"></script>
+  <script src="/js/clientUser.js" defer></script>
+  <script src="/js/displayUserInfo.js" defer></script>
 
-
-  <script src="/js/fav.js"></script>
 </body>
 
 </html>
