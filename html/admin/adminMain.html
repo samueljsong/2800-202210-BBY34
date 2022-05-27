@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>MooVE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
@@ -55,8 +55,6 @@
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div id="userProfilePhotoNavBarTop"></div>
-                       
-                        <!-- <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" /> -->
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';">Logout</button></li>
@@ -86,8 +84,6 @@
             <div class="dropup">
                 <a class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div id="userProfilePhotoNavBarBot"></div>
-                    
-                    <!-- <img src="/img/admin.png" class="rounded-circle picProfile" alt="profilePicture" /> -->
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><button class="dropdown-item" type="button" onclick="location.href='/api/logout';">Logout</button></li>
@@ -102,46 +98,49 @@
                 <h1><a href="#" id="easterEgg">Hi</a> <span id="fullName"></span>!</h1>
             </div>
             <div class='two'>
-                <h1>Popular Restaurants <button class="btn" onclick="location.href='/viewRestaurants';" type='button'>View All</button>
+                <h1>Popular Restaurants <button class="btn" id="viewAllRestaurants" type="button">
+                    View All
+                </button>
                 </h1>
                 <div class='slider'>
                     <!--Change page direction -->
                     <div class='slide'>
-                        <a href='/adminMain'><img class='ima1' src='/img/walls.png' alt='table of food'></a>
+                        <img class='ima1' src='/img/walls.png' alt='table of food'>
                     </div>
                     <div class='slide'>
-                        <a href='https://www.bcit.ca/'><img class='ima2' src="/img/meeT.png" alt='vegen recipes'></a>
+                        <img class='ima2' src="/img/meeT.png" alt='vegen recipes'>
                     </div>
                     <div class='slide'>
-                        <a href='/adminMain'><img class='ima3' src='/img/bruncheria.png' alt='table of food'></a>
+                        <img class='ima3' src='/img/bruncheria.png' alt='table of food'>
                     </div>
                     <div class='slide'>
-                        <a href='https://www.bcit.ca/'><img class='ima4' src="/img/naam.png" alt='vegen recipes'></a>
+                        <img class='ima4' src="/img/naam.png" alt='vegen recipes'>
                     </div>
                     <div class='slide'>
-                        <a href='https://www.bcit.ca/'><img class='ima5' src="/img/ear.png" alt='vegen recipes'></a>
+                        <img class='ima5' src="/img/ear.png" alt='vegen recipes'>
                     </div>
                 </div>
             </div>
             <div class="three">
-                <h1>Popular Recipes<button class="btn" onclick="location.href='/viewRecipes';" type='button'>View
-                        All</button></h1>
+                <h1>Popular Recipes<button class="btn" id="viewAllRecipes" type="button">
+                    View All
+                </button></h1>
                 <div class='slider'>
                     <!--Change page direction -->
                     <div class='slide'>
-                        <a href='/html/adminMain.html'><img class='ima6' src="/img/chili.png" alt='vegen recipes'></a>
+                        <img class='ima6' src="/img/chili.png" alt='vegen recipes'>
                     </div>
                     <div class='slide'>
-                        <a href='https://www.bcit.ca/'><img class='ima7' src="/img/wrap.png" alt='vegen recipes'></a>
+                        <img class='ima7' src="/img/wrap.png" alt='vegen recipes'>
                     </div>
                     <div class='slide'>
-                        <a href='/html/adminMain.html'><img class='ima8' src='/img/lime.png' alt='table of food'></a>
+                        <img class='ima8' src='/img/lime.png' alt='table of food'>
                     </div>
                     <div class='slide'>
-                        <a href='https://www.bcit.ca/'><img class='ima9' src="/img/meat.png" alt='vegen recipes'></a>
+                        <img class='ima9' src="/img/meat.png" alt='vegen recipes'>
                     </div>
                     <div class='slide'>
-                        <a href='https://www.bcit.ca/'><img class='ima10' src="/img/pie.png" alt='vegen recipes'></a>
+                        <img class='ima10' src="/img/pie.png" alt='vegen recipes'>
                     </div>
                 </div>
             </div>
@@ -156,9 +155,7 @@
     <script src="/js/navbar.js"></script>
     <script src="/js/clientAdmin.js" defer></script>
     <script src="/js/easterEgg.js"></script>
-
-
-
+    <script src="/js/mainPageUser.js"></script>
 </body>
 
 
