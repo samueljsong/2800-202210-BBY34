@@ -1,17 +1,56 @@
+Project Title: MooVE
+
+Project Description: Our Team BBY-34 is developing “MooVE” to help those who want to make a difference in our world to improve Climate Change by providing a no compromise, smooth transition into trying plant-based alternatives.
+
+Technologies used:
+    Frontend: HTML, CSS, Bootstrap, Javascript
+    Backend: Javascript, Node.js, Express, Express.json, cors, body-parser, session
+    Database: MongoDB, Mongoose
+
+Listing of File Contents of folder:
+    html: contains all the html files
+    public: contains css, favicon, img and js folders
+        css: contains all the css files
+        favicon: containg our logo
+        img: contains all the images for the application
+        js: contains all the front-end javascript files
+    server: contains db, models, node_moules folders & .gitignore, package-lock.json, package.json, server.js
+        db: contains mongoose.js file to connect mongoose
+        models: contains recipe.js, restaurant.js and user.js
+        node_moules: all the node modules
+    xml: contains loginErrorNoUserFound.xml to prompt the user
+    .env
+    README.txt
+
+
+How to install or run the project:
+
+
+How to use the product:
+
+
+Include Credits, References, and Licenses:
+
+
+Contact Information:
+Leerang(Naomi) Byun - lbyun1@my.bcit.ca
+
+
+
 Team Members:
 
-[Samuel (Joo-Hun) Song], [A01308345], [Set 1D],[2022-05-20]
-[Phuong Nguyen], [A01275205], [Set 2D], [2022-05-20]
-[Dinuja Gunawardana], [A01295467], [Set 1D], [2022-05-20]
-[Leerang (Naomi) Byun], [A01199376], [Set 2D], [2022-05-20]
+[Samuel (Joo-Hun) Song], [A01308345], [Set 1D],[2022-05-27]
+[Phuong Nguyen], [A01275205], [Set 2D], [2022-05-27]
+[Dinuja Gunawardana], [A01295467], [Set 1D], [2022-05-27]
+[Leerang (Naomi) Byun], [A01199376], [Set 2D], [2022-05-27]
 
 
-3rd milestone: This assignment is [95]% complete. 
-(-5%): We haven't finished the deleting timeline function on the front end of our app. But we have 
-completed the server with fully support for delete and edit function.
-On a side note, we completed all the functions for user editing infomation and CRUD for admin dashboard function. 
-We successfully populated the information of users on the page with username, email and profile picture.
-We also included a lot of Easter Eggs in many pages, both admin and user. We hope you have great time enjoying our mystery :D
+
+4th(Last) milestone: This assignment is []% complete. 
+
+
+
+
 
 You can check our database using this link in cmd: 
 
