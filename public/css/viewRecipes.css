@@ -258,7 +258,7 @@ body {
   #card {
     display: grid;
     justify-items: center;
-    max-width: 1fr;
+    max-width: 100%;
     grid-row-gap: 20px;
   }
   #card-template0 {

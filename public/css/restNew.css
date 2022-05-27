@@ -46,10 +46,6 @@ body {
     background-attachment: fixed;
     z-index: -1;
   }
-  /* img {
-    width: 50;
-    height: 100%;
-  } */
   .general {
     display: grid;
     grid-template-columns: 1fr;
@@ -215,10 +211,6 @@ body {
   #viewRestaurantsHeader {
     grid-template-columns: 25% 50% 25%;
   }
-  /* img {
-    width: 50;
-    height: 100%;
-  } */
   .general {
     display: grid;
     grid-template-columns: 1fr;
@@ -257,7 +249,7 @@ body {
   #card {
     display: grid;
     justify-items: center;
-    max-width: 1fr;
+    max-width: 100%;
     grid-row-gap: 20px;
   }
   #card-template0 {
