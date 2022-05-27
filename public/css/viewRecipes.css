@@ -254,6 +254,7 @@ body {
     display: grid;
     justify-items: center;
     max-width: 1fr;
+    grid-row-gap: 20px;
   }
   #card-template0 {
     display: grid;
