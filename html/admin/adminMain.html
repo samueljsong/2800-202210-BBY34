@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>MooVE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
@@ -98,7 +98,9 @@
                 <h1><a href="#" id="easterEgg">Hi</a> <span id="fullName"></span>!</h1>
             </div>
             <div class='two'>
-                <h1>Popular Restaurants <button class="btn" onclick="location.href='/viewRestaurants';" type='button'>View All</button>
+                <h1>Popular Restaurants <button class="btn" id="viewAllRestaurants" type="button">
+                    View All
+                </button>
                 </h1>
                 <div class='slider'>
                     <!--Change page direction -->
@@ -120,8 +122,9 @@
                 </div>
             </div>
             <div class="three">
-                <h1>Popular Recipes<button class="btn" onclick="location.href='/viewRecipes';" type='button'>View
-                        All</button></h1>
+                <h1>Popular Recipes<button class="btn" id="viewAllRecipes" type="button">
+                    View All
+                </button></h1>
                 <div class='slider'>
                     <!--Change page direction -->
                     <div class='slide'>
@@ -152,9 +155,7 @@
     <script src="/js/navbar.js"></script>
     <script src="/js/clientAdmin.js" defer></script>
     <script src="/js/easterEgg.js"></script>
-
-
-
+    <script src="/js/mainPageUser.js"></script>
 </body>
 
 
