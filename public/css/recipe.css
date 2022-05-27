@@ -1,343 +1,139 @@
-@media only screen and (max-width: 700px) {
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&family=Open+Sans:wght@300;400;500&display=swap');
+
+html {
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+}
+
+body {
+  min-height: 100%;
+}
+
+#recipeHeader {
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+}
+
+#recipeHeader h2 {
+  grid-column: 2/span 1;
+  color: #495057;
+}
+
+#navbarGoBackButton {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: transparent !important;
+}
+
+#goBackButton {
+  font-size: 40px;
+}
+
+.card-header {
+  background-color: rgb(35, 32, 32) !important;
+}
+
+.card-body {
+  background-color: rgb(181, 229, 191) !important;
+}
+
+#recipeContainer{
+  padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 750px) {
   body {
-    background-color: #dfffdf;
+    background-color: rgb(241, 241, 241)
   }
-  .general {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-row-gap: 10px;
-  }
-  .info-container {
-    display: grid;
-  }
-  .extra {
-    padding: 10px 0px 10px 0px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
-  #back {
-    grid-column: 1/2;
-    justify-self: left;
-    align-self: center;
-    cursor: pointer;
-  }
-  #back:hover {
-    color: #86b386;
-  }
-  .extra-right {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-column: 2 / 3;
-    justify-items: right;
-  }
-  #share {
-    grid-row: 1/2;
-    cursor: pointer;
-  }
-  #share:hover {
-    color: #86b386;
-  }
-  #heart {
-    grid-row: 1/2;
-    padding-left: 5px;
-    cursor: pointer;
-  }
-  #heart:hover {
-    color: #86b386;
-  }
-  .name {
-    display: grid;
-    border-radius: 5px;
-    background-color: rgb(51, 49, 49);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-  }
-  #ingredients-for {
-    color: rgb(51, 49, 49);
-    font-size: 5vw;
-  }
+
   #recipe-title {
-    justify-self: center;
-    color: #86b386;
     font-size: 7vw;
-  }
-  .rating {
-    color: rgb(51, 49, 49);
-    padding: 20px 0px 20px 0px;
-  }
-  #thumbs {
-    color: black;
-  }
-  #taco {
-    max-width: 100%;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-  }
-  .servings-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 30px;
-    padding-top: 10px;
-    padding-bottom: 15px;
-  }
-  .control {
-    display: grid;
-    grid-template-columns: 30px 90px 30px;
-    grid-template-rows: 30px;
-    border: solid 1px black;
-    align-items: center;
-    justify-items: center;
-    justify-self: right;
-    width: 150px;
     color: #86b386;
-    background-color: rgb(51, 49, 49);
-    border-radius: 5px;
-  }
-  #plus {
-    cursor: pointer;
-    color: #86b386
-  }
-  #minus {
-    cursor: pointer;
-    color: #86b386
-  }
-  #context {
+    justify-self: center;
     align-self: center;
   }
-  ul li {
-    color: rgb(51, 49, 49);
-    margin: 5px;
-    list-style: none;
-  }
-  ol li {
-    color: rgb(51, 49, 49);
-    margin: 5px;
-  }
-  #list {
-    display: grid;
-    background-color: rgb(241, 241, 241);
-    margin: 15px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-    border-radius: 5px;
-  }
-  #instructions {
-    display: grid;
-    background-color: rgb(241, 241, 241);
-    margin: 15px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-    border-radius: 5px;
-  }
-  #instruction-header {
-    font-size: 5vw;
-    color: rgb(51, 49, 49);
-  }
-  #back {
-    cursor: pointer;
-  }
-}
 
-@media only screen and (min-width: 701px) {
-  body {
-    background-color: #dfffdf;
-  }
-  .general {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 49% 49%;
-    grid-row-gap: 10px;
-  }
-  .info-container {
-    display: grid;
-  }
-  .extra {
-    padding: 10px 0px 10px 0px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
-  #back {
-    grid-column: 1/2;
-    justify-self: left;
-    align-self: center;
-    cursor: pointer;
-  }
-  #back:hover {
-    color: #86b386;
-  }
-  .extra-right {
+  #list {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-column: 2 / 3;
-    justify-items: right;
-  }
-  #share {
-    grid-row: 1/2;
-    cursor: pointer;
-  }
-  #share:hover {
-    color: #86b386;
-  }
-  #heart {
-    grid-row: 1/2;
-    padding-left: 5px;
-    cursor: pointer;
-  }
-  #heart:hover {
-    color: #86b386;
-  }
-  .name {
-    display: grid;
-    border-radius: 5px;
-    background-color: rgb(51, 49, 49);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-  }
-  .ingredients {
-    grid-column: 2 /3;
-    grid-row: auto;
-  }
-  #ingredients-for {
-    color: rgb(51, 49, 49);
-    font-size: 4vw;
-    padding-left: 20px;
-  }
-  #recipe-title {
     justify-self: center;
-    color: #86b386;
-    font-size: 4vw;
-  }
-  .rating {
-    color: rgb(51, 49, 49);
-    padding: 20px 0px 20px 0px;
-  }
-  #thumbs {
-    color: black;
-  }
-  #taco {
-    max-width: 100%;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-  }
-  .servings-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 30px;
-    padding-top: 10px;
-    padding-bottom: 15px;
-  }
-  .control {
-    display: grid;
-    grid-template-columns: 30px 90px 30px;
-    grid-template-rows: 30px;
-    border: solid 1px black;
+    align-self: center;
+    background-color: white;
+    height: 100%;
+    width: 100%;
     align-items: center;
-    justify-items: center;
-    justify-self: right;
-    width: 150px;
-    color: #86b386;
-    background-color: rgb(51, 49, 49);
     border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
-  #plus {
-    cursor: pointer;
-    color: #86b386
+
+  #recipeContentContainer{
+    background-color: white;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
   }
-  #minus {
-    cursor: pointer;
-    color: #86b386
-  }
-  #context {
+
+  #hours {
     align-self: center;
   }
-  ul li {
-    color: rgb(51, 49, 49);
-    margin: 5px;
+
+  ul {
     list-style: none;
-  }
-  ol li {
-    color: rgb(51, 49, 49);
-    margin: 5px;
-  }
-  #list {
-    display: grid;
-    background-color: rgb(241, 241, 241);
-    margin: 15px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-    border-radius: 5px;
-  }
-  #instructions {
-    grid-column: 2 / 3;
-    grid-row: auto;
-  }
-  #text {
-    display: grid;
-    background-color: rgb(241, 241, 241);
-    margin: 15px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-    border-radius: 5px;
-  }
-  #instruction-header {
-    padding-left: 20px;
-    font-size: 4vw;
-    color: rgb(51, 49, 49);
-  }
-  #back {
-    cursor: pointer;
   }
 }
 
-
-/* @media only screen and (min-width: 416px) {
+@media only screen and (min-width: 751px) {
   body {
-    background-color: #86b386;
+    background-color: rgb(241, 241, 241)
   }
+
+  #recipeHeader {
+    grid-template-columns: 25% 50% 25%;
+  }
+
   #recipe-title {
-    font-size: 3vw;
-    padding-left: 20px;
-  }
-  #ingredients-for {
-    font-size: 3vw;
-    padding-left: 20px;
-  }
-  #instruction-header {
-    font-size: 3vw;
-    padding-left: 20px;
-  }
-  .general {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  .name {
-    display: grid;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.44);
-    max-width: 98%;
-  }
-  .info-container {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-  #taco {
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
-    max-width: 98%;
-    align-self: center;
+    font-size: 6vw;
+    color: #86b386;
     justify-self: center;
+    align-self: center;
   }
-  .ingredients {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
+
+  #list {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
     align-self: center;
     background-color: white;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
-  .control {
-    display: none;
-  }
-  #instructions {
-    grid-row: 2 /3;
-    grid-column: 1 / 3;
+
+  #recipeContentContainer{
     background-color: white;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    
   }
-} */
+
+  ul {
+    list-style: none;
+  }
+}
