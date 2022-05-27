@@ -17,8 +17,6 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
-
   });
 
   window.addEventListener("load", function(e) {
@@ -29,7 +27,6 @@ ready(function() {
   });
 
   let restaurant = JSON.parse(window.localStorage.getItem('restaurantID'));
-  console.log(restaurant);
 
   document.getElementById('description').innerHTML = restaurant.description;
 

@@ -17,16 +17,13 @@ ready(function() {
   window.addEventListener("load", function(e) {
     e.preventDefault();
     let currentUser = String(this.localStorage.getItem("currentUserID"));
-    console.log(currentUser);
     ajaxGET("/api/restaurant", function(data) {
-      console.log(JSON.parse(data));
       let dataParsed = JSON.parse(data);
       let i = 0;
       let j = 0;
       let total = "";
 
       const id = dataParsed[i]._id;
-      console.log(id);
 
       for (i = 0; i < dataParsed.length; i++) {
         let temp = '<div id="card-template' + i + '"><div class="image-box"></div><div class="info">'
@@ -39,7 +36,6 @@ ready(function() {
         temp += '</svg></div></div>'
 
         total += temp;
-        console.log(temp);
       }
 
 
@@ -51,24 +47,10 @@ ready(function() {
         document.getElementById(card).addEventListener('click', function() {
           let length = card.length;
           let num = card.substring(length - 1);
-          console.log(num);
           window.localStorage.setItem('restaurantID', JSON.stringify(dataParsed[num]))
-          console.log(JSON.parse(window.localStorage.getItem('restaurantID')));
           window.location.replace('/restaurantPage');
         })
       }
-
-      // document.getElementById('card-template0').addEventListener('click', function() {
-      //   window.location.replace('/recipe');
-      // })
-
-      document.getElementById('post').addEventListener('click', function() {
-        window.location.replace('/recipeInput');
-      })
-
-
-
-
     });
   });
 
