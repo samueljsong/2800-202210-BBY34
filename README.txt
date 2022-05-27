@@ -222,4 +222,5 @@ Team Members:
 [Leerang (Naomi) Byun], [A01199376], [Set 2D], [2022-05-27]
 
 
-4th(Last) milestone: This assignment is [100]% complete. 
+4th(Last) milestone: This assignment is [92]% complete. 
+(-8%) For timeline component, we don't have upload image and delete items.
